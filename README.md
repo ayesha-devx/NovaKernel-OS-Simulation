@@ -17,6 +17,7 @@ NovaKernel is a premium, full-stack Operating System simulator designed to bridg
 - **Deadlock Mission Control**: Intelligent detection with Bankers Algorithm and animated resource recovery timelines.
 - **Functional Shell Terminal**: Integrated command-line interface to interact with the kernel directly.
 - **High-Fidelity Dashboard**: Premium glassmorphic UI with smooth micro-animations and responsive layout.
+- **AI Kernel Assistant**: Intelligent AI-powered insights and system analysis for kernel operations.
 
 ---
 
