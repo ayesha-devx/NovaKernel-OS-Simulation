@@ -1,0 +1,2839 @@
+{
+  "metadata": {
+    "kernel_version": "1.1.0-STABLE-KERNEL",
+    "timestamp": 1778512351.0792627,
+    "uptime": 389.04,
+    "boot_state": "ACTIVE",
+    "demo_safe_mode": false,
+    "label": "Manual System Snapshot",
+    "is_checkpoint": false
+  },
+  "subsystems": {
+    "processes": {},
+    "ready_queue": [],
+    "scheduler": {
+      "current_algorithm": "FIFO",
+      "is_running": false,
+      "current_process": null,
+      "quantum_left": 0,
+      "context_switches": 0,
+      "total_execution_time": 0
+    },
+    "memory": {
+      "blocks": [
+        {
+          "block_id": 0,
+          "start_address": 0,
+          "end_address": 4095,
+          "size": 4096,
+          "status": "FREE",
+          "pid": null,
+          "process_name": null,
+          "allocation_algo": null,
+          "timestamp": "20:36:01"
+        }
+      ],
+      "total_ram": 4096,
+      "used_ram": 0,
+      "fragmentation": 0
+    },
+    "filesystem": {
+      "files": {},
+      "inodes": [],
+      "used_disk": 0,
+      "total_disk": 8192,
+      "blocks": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    "disk": {
+      "current_track": 0,
+      "head_direction": 1,
+      "is_moving": false,
+      "current_algorithm": "FCFS",
+      "queue": [],
+      "active_request": null,
+      "completed_requests": [],
+      "max_tracks": 100,
+      "head_path": []
+    },
+    "deadlock": {
+      "is_deadlocked": false,
+      "detected_pids": [],
+      "detection_timestamp": null,
+      "resource_cycles": []
+    },
+    "resources": {
+      "resources": {
+        "R1": {
+          "id": "R1",
+          "name": "System Printer",
+          "type": "IO",
+          "allocated_to": null,
+          "waiting_pids": []
+        },
+        "R2": {
+          "id": "R2",
+          "name": "Primary Disk",
+          "type": "STORAGE",
+          "allocated_to": null,
+          "waiting_pids": []
+        },
+        "R3": {
+          "id": "R3",
+          "name": "File System Lock",
+          "type": "SOFTWARE",
+          "allocated_to": null,
+          "waiting_pids": []
+        },
+        "R4": {
+          "id": "R4",
+          "name": "Network Socket",
+          "type": "NETWORK",
+          "allocated_to": null,
+          "waiting_pids": []
+        },
+        "R5": {
+          "id": "R5",
+          "name": "Graphics Buffer",
+          "type": "IO",
+          "allocated_to": null,
+          "waiting_pids": []
+        },
+        "R6": {
+          "id": "R6",
+          "name": "Memory Controller",
+          "type": "CORE",
+          "allocated_to": null,
+          "waiting_pids": []
+        }
+      }
+    },
+    "analytics": {
+      "metrics": [
+        {
+          "timestamp": 1778512326.0213459,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 364.78,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512326.522421,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 364.78,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512327.023419,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 365.79,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512327.537688,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 365.79,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512328.0383983,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 366.8,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512328.5393705,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 366.8,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512329.05275,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 367.81,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512329.5539658,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 367.81,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512330.054992,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 368.82,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512330.5686715,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 368.82,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512331.0697932,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 369.83,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512331.57084,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 369.83,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512332.0843723,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 370.84,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512332.5856063,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 370.84,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512333.086654,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 371.85,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512333.6003783,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 371.85,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512334.1011722,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 372.86,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512334.6019835,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 372.86,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512335.1161845,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 373.87,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512335.6168075,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 373.87,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512336.117878,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 374.88,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512336.6316257,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 374.88,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512337.1327107,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 375.88,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512337.6337001,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 375.88,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512338.1546743,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 376.89,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512338.6561527,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 376.89,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512339.1574345,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 377.9,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512339.6707916,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 377.9,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512340.1719704,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 378.92,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512340.67277,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 378.92,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512341.1866665,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 379.92,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512341.6876917,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 379.92,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512342.18849,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 380.93,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512342.7081947,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 380.93,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512343.2097769,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 381.94,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512343.7107992,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 381.94,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512344.2241652,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 382.95,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512344.7254958,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 382.95,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512345.2263157,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 383.98,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512345.733389,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 383.98,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512346.2337906,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 384.98,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512346.7349098,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 384.98,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512347.248338,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 385.99,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512347.7493756,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 385.99,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512348.2505596,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 387.0,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512348.7624588,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 387.0,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512349.2637594,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 388.01,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512349.7646859,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 388.01,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512350.277191,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 389.02,
+              "command_throughput": 0
+            }
+          }
+        },
+        {
+          "timestamp": 1778512350.778173,
+          "data": {
+            "cpu": {
+              "utilization": 0,
+              "context_switches": 0,
+              "throughput": 0,
+              "active_processes": 0,
+              "process_states": {
+                "READY": 0,
+                "RUNNING": 0,
+                "WAITING": 0,
+                "TERMINATED": 0
+              },
+              "idle_percent": 100
+            },
+            "memory": {
+              "utilization": 0.0,
+              "fragmentation": 0.0,
+              "used_mb": 0,
+              "free_mb": 4096,
+              "block_count": 1,
+              "alloc_failures": 0
+            },
+            "disk": {
+              "utilization": 0.0,
+              "queue_depth": 0,
+              "total_seek": 0,
+              "avg_seek": 0.0,
+              "throughput": 0.0
+            },
+            "scheduler": {
+              "avg_wait": 0,
+              "avg_turnaround": 0,
+              "queue_length": 0,
+              "algorithm": "FIFO"
+            },
+            "filesystem": {
+              "file_count": 0,
+              "inode_usage": 0,
+              "storage_usage": 0,
+              "storage_total": 8192
+            },
+            "hardware": {
+              "connected": false,
+              "simulation_mode": true,
+              "uptime": 389.02,
+              "command_throughput": 0
+            }
+          }
+        }
+      ],
+      "timeline": []
+    },
+    "hardware": {
+      "connected": false,
+      "simulation_mode": true,
+      "port": null,
+      "latency_ms": 0,
+      "last_command": null,
+      "last_sync": "20:36:01",
+      "reconnect_attempts": 0,
+      "uptime": 389.02,
+      "led_states": {
+        "1": {
+          "READY": false,
+          "RUNNING": false,
+          "WAITING": false
+        },
+        "2": {
+          "READY": false,
+          "RUNNING": false,
+          "WAITING": false
+        },
+        "3": {
+          "READY": false,
+          "RUNNING": false,
+          "WAITING": false
+        }
+      },
+      "special_leds": {
+        "DEADLOCK": false,
+        "DISK": false,
+        "TERMINATION": false
+      },
+      "buzzer_active": false,
+      "command_history": []
+    },
+    "recovery": {
+      "metrics": {
+        "total_deadlocks": 0,
+        "successful_recoveries": 0,
+        "failed_recoveries": 0,
+        "avg_recovery_time_s": 0.0,
+        "last_recovery_duration_s": 0.0
+      },
+      "timeline": []
+    }
+  }
+}

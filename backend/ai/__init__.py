@@ -1,0 +1,1 @@
+# NovaKernel AI Assistant Module

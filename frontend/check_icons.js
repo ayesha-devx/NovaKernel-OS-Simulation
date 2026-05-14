@@ -1,0 +1,14 @@
+import * as LuIcons from 'react-icons/lu';
+console.log("LuCamera:", !!LuIcons.LuCamera);
+console.log("LuRotateCcw:", !!LuIcons.LuRotateCcw);
+console.log("LuHistory:", !!LuIcons.LuHistory);
+console.log("LuTrash2:", !!LuIcons.LuTrash2);
+console.log("LuDownload:", !!LuIcons.LuDownload);
+console.log("LuShieldCheck:", !!LuIcons.LuShieldCheck);
+console.log("LuActivity:", !!LuIcons.LuActivity);
+console.log("LuHardDrive:", !!LuIcons.LuHardDrive);
+console.log("LuClock:", !!LuIcons.LuClock);
+console.log("LuAlertTriangle:", !!LuIcons.LuAlertTriangle);
+console.log("LuShieldAlert:", !!LuIcons.LuShieldAlert);
+console.log("LuCheckCircle2:", !!LuIcons.LuCheckCircle2);
+console.log("LuAlertCircle:", !!LuIcons.LuAlertCircle);
