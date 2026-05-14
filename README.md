@@ -4,7 +4,19 @@
 
 > **"Experience the heartbeat of a modern kernel through a cinematic, high-fidelity simulation."**
 
-NovaKernel is a premium, full-stack Operating System simulator designed to bridge the gap between abstract OS theory and real-time interactive visualization. Built with a **Cyberpunk Dark Neon** aesthetic, it provides a "Mission Control" experience for monitoring process lifecycles, memory allocation, disk scheduling, and deadlock recovery.
+NovaKernel is a premium, full-stack Operating System simulator designed to bridge the gap between abstract OS theory and real-time interactive visualization. It provides a "Mission Control" experience for monitoring process lifecycles, memory allocation, disk scheduling, and deadlock recovery.
+
+---
+
+## ✨ Key Features
+
+- **Live System Telemetry**: Real-time bi-directional communication via WebSockets for instant state updates.
+- **Dynamic Scheduling Visualization**: Interactive Gantt charts and process state transitions for various CPU algorithms.
+- **Visual Memory Mapping**: Graphical heatmaps showing block-level memory allocation and fragmentation.
+- **Disk Arm Animation**: Real-time visualization of disk head movement across tracks and sectors.
+- **Deadlock Mission Control**: Intelligent detection with Bankers Algorithm and animated resource recovery timelines.
+- **Functional Shell Terminal**: Integrated command-line interface to interact with the kernel directly.
+- **High-Fidelity Dashboard**: Premium glassmorphic UI with smooth micro-animations and responsive layout.
 
 ---
 
@@ -87,5 +99,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ---
 
 <p align="center">
-  Built with 💜 for Operating System Enthusiasts.
+  Built with 💜 for Operating System Enthusiasts by Ayesha.
 </p>
