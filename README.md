@@ -1,78 +1,91 @@
-# NovaKernel — Next-Generation Operating System Simulation
+# 🌌 NovaKernel OS Simulation
 
-NovaKernel is a professional-grade OS kernel simulator featuring real-time visualization, advanced process scheduling, memory management, and hardware abstraction.
+![NovaKernel Banner](docs/assets/hero-banner.png)
 
-## 🚀 Tech Stack
+> **"Experience the heartbeat of a modern kernel through a cinematic, high-fidelity simulation."**
 
-### Frontend
-- **React.js + Vite**: Modern, fast UI development.
-- **Tailwind CSS**: Utility-first styling with a custom premium dark theme.
-- **Framer Motion**: Smooth micro-animations and transitions.
-- **Socket.IO Client**: Real-time communication with the kernel engine.
-- **React Icons & Toastify**: Rich UI elements and notifications.
+NovaKernel is a premium, full-stack Operating System simulator designed to bridge the gap between abstract OS theory and real-time interactive visualization. Built with a **Cyberpunk Dark Neon** aesthetic, it provides a "Mission Control" experience for monitoring process lifecycles, memory allocation, disk scheduling, and deadlock recovery.
 
-### Backend
-- **Python Flask**: Robust API and service layer.
-- **Flask-SocketIO**: Real-time event handling.
-- **Modular OS Core**: Independent modules for process management, scheduling, memory, etc.
+---
 
-## 📁 Project Structure
+## ⚡ Core Engine Modules
 
-```text
-NovaKernel/
-├── frontend/                # React Application
-│   ├── src/
-│   │   ├── components/      # Reusable UI components
-│   │   ├── pages/           # Page views (Dashboard)
-│   │   ├── styles/          # Global styles & Tailwind
-│   │   └── utils/           # Frontend utilities
-│   └── ...
-└── backend/                 # Flask Application
-    ├── os_modules/          # Core OS logic (Process, Memory, etc.)
-    ├── routes/              # REST API Endpoints
-    ├── socket_events/       # Real-time event handlers
-    ├── utils/               # Backend utilities
-    └── app.py               # Entry point
+NovaKernel is powered by a modular Python-based kernel engine that simulates complex hardware interactions:
+
+### 🧠 Memory Manager
+- **Dynamic Allocation**: Real-time visualization of memory blocks.
+- **Fragmentation Control**: Monitoring internal and external fragmentation.
+- **Algorithm Support**: First-fit, Best-fit, and Worst-fit simulations.
+
+### 🧵 Process & CPU Scheduler
+- **Multilevel Queues**: Manage process states from `NEW` to `TERMINATED`.
+- **Advanced Scheduling**: Interactive Gantt charts for FCFS, SJF, Priority, and Round Robin.
+- **Context Switching**: Visualizing the overhead and precision of CPU cycles.
+
+### 💿 Disk & I/O Observatory
+- **Arm Movement Analysis**: Watch disk heads move in real-time across sectors.
+- **Optimization Algorithms**: SCAN, C-SCAN, LOOK, and SSTF implementations.
+- **Metric Tracking**: Seek time and throughput analytics.
+
+### 🛡️ Deadlock Detection & Recovery
+- **Resource Graphs**: Real-time dependency tracking between processes and resources.
+- **Detection Engine**: Bankers Algorithm and Wait-for Graph analysis.
+- **Automatic Recovery**: Intelligent victim selection and rollback mechanisms.
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | React 18, Vite, Tailwind CSS, Framer Motion, Socket.IO |
+| **Backend** | Python 3.10+, Flask, Flask-SocketIO |
+| **Visualization** | Recharts, Custom Canvas Engines, CSS Glassmorphism |
+| **Communication** | WebSocket (Bi-directional real-time telemetry) |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone & Setup
+```bash
+git clone https://github.com/ayesha-devx/NovaKernel-OS-Simulation.git
+cd NovaKernel-OS-Simulation
 ```
 
-## 🛠️ Getting Started
+### 2. Launch the Kernel (Backend)
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Or `venv\Scripts\activate` on Windows
+pip install -r requirements.txt
+python app.py
+```
 
-### Prerequisites
-- Node.js (v18+)
-- Python 3.9+
+### 3. Initialize the Observatory (Frontend)
+```bash
+cd ../frontend
+npm install
+npm run dev
+```
 
-### Backend Setup
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
-2. Create a virtual environment and install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Start the server:
-   ```bash
-   python app.py
-   ```
+---
 
-### Frontend Setup
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+## 🖥️ User Interface Overview
 
-## 📋 Features (Foundation)
-- [x] Premium Dark Theme UI (#0A0E1A)
-- [x] Responsive Dashboard Layout
-- [x] Real-time Terminal Component
-- [x] Activity Feed System
-- [x] Modular Backend Architecture
-- [x] Health Check API & Socket.IO base
+*   **Kernel Observatory**: The central hub for real-time telemetry.
+*   **Mission Control**: Detailed control panels for every OS module.
+*   **Holographic Terminal**: A fully functional command-line interface for manual system interaction.
+*   **Cyberpunk HUD**: High-contrast, neon-glow interface optimized for professional presentations.
+
+---
+
+## 📜 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
+<p align="center">
+  Built with 💜 for Operating System Enthusiasts.
+</p>
