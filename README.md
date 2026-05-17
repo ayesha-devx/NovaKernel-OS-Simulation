@@ -2,7 +2,7 @@
   <img src="frontend/src/assets/logo-n.png" alt="NovaOS Logo" width="120" />
 </p>
 
-<h1 align="center">🌌 NovaOS Simulation</h1>
+<h1 align="center"> NovaOS Simulation</h1>
 
 <p align="center">
   <strong>"NEXT-GENERATION OPERATING SYSTEM SIMULATION PLATFORM"</strong>
