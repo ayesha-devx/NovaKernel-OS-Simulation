@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="frontend/src/assets/logo-n.jpg" alt="NovaOS Logo" width="120" style="border-radius: 50%;" />
+  <img src="frontend/src/assets/logo-n.png" alt="NovaOS Logo" width="120" />
 </p>
 
 <h1 align="center">🌌 NovaOS Simulation</h1>
