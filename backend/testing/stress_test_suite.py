@@ -20,7 +20,7 @@ scheduler.set_dependencies(None, None, process_manager)
 class NovaStressTester:
     def __init__(self):
         print("-" * 48)
-        print("  NOVAKERNEL STRESS TEST SUITE v1.0")
+        print("  NOVAOS STRESS TEST SUITE v1.0")
         print("-" * 48)
         self.results = []
 

@@ -132,12 +132,7 @@ const KernelBoot = ({ forceExit = false }) => {
         </div>
       </div>
 
-      {boot.ready && (
-        <div className="absolute inset-0 pointer-events-none z-[20000] overflow-hidden">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[1px] bg-white/50 blur-[1px] animate-pulse rotate-45" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300%] h-[1px] bg-white/50 blur-[1px] animate-pulse -rotate-45" />
-        </div>
-      )}
+
     </div>
   );
 };

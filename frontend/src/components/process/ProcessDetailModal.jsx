@@ -207,7 +207,7 @@ const ProcessDetailModal = ({ process, isOpen, onClose }) => {
 
           {/* Footer Decoration */}
           <div className="p-4 bg-white/[0.02] border-t border-white/5 text-center">
-             <p className="text-[9px] text-text/20 uppercase tracking-[0.3em] font-medium">NovaKernel Security Sandbox • Protected Process Memory</p>
+             <p className="text-[9px] text-text/20 uppercase tracking-[0.3em] font-medium">NovaOS Security Sandbox • Protected Process Memory</p>
           </div>
         </motion.div>
       </div>

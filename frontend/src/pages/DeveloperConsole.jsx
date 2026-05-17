@@ -20,7 +20,7 @@ import TraceTimeline from '../components/monitoring/TraceTimeline';
 import LeakDetectorPanel from '../components/monitoring/LeakDetectorPanel';
 import RuntimeProfilerPanel from '../components/monitoring/RuntimeProfilerPanel';
 
-// NovaKernel Developer Console - Primary Subsystem Auditor
+// NovaOS Developer Console - Primary Subsystem Auditor
 const DeveloperConsole = () => {
   const { 
     monitoringData = {}, 
@@ -55,7 +55,7 @@ const DeveloperConsole = () => {
         <motion.div 
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative group mb-12"
+          className="relative group"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
           <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
@@ -103,64 +103,76 @@ const DeveloperConsole = () => {
           </div>
         </motion.div>
 
-        {/* Top Grid: Health & Metrics */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
-          <div className="xl:col-span-4 flex flex-col gap-8">
-            <HealthScoreCard 
-              score={diagnostics.score || 0} 
-              status={diagnostics.health || 'UNKNOWN'} 
-              watchdog={diagnostics.watchdog || 'OK'} 
-            />
-            <div className="flex-1 min-h-[400px]">
-              <TraceTimeline />
-            </div>
-          </div>
-          <div className="xl:col-span-8 flex flex-col gap-6">
+        {/* Main Grid Layout */}
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+          
+          {/* Left Column: Diagnostics, Performance & Telemetry (8 cols) */}
+          <div className="xl:col-span-8 flex flex-col gap-8">
+            
+            {/* Performance Grid: Top Level Telemetry */}
             <PerformanceGrid metrics={performance.metrics} />
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8 flex-1">
+
+            {/* Memory Pressure Trend Chart */}
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
               <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                 <LuDatabase className="text-purple-400" /> Memory Pressure Trends
               </h3>
-              <MemoryTrendChart data={performance.metrics.memory_usage || []} />
+              <div className="w-full">
+                <MemoryTrendChart data={performance.metrics.memory_usage || []} />
+              </div>
             </div>
-          </div>
-        </div>
 
-        {/* Bottom Grid: Diagnostics & Warnings */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8">
-          <div className="xl:col-span-8 space-y-8">
+            {/* Subsystem Diagnostics Grid */}
             <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
               <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                 <LuShieldCheck className="text-emerald-400" /> Subsystem Diagnostics
               </h3>
               <DiagnosticsGrid subsystems={diagnostics.subsystems || {}} />
             </div>
+
+            {/* Live Scrolling Event Trace Timeline */}
+            <div className="h-[500px]">
+              <TraceTimeline />
+            </div>
+
+            {/* Websocket Connection Terminal debugger */}
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-1 overflow-hidden h-[600px]">
+              <SocketInspector />
+            </div>
+
+          </div>
+
+          {/* Right Column: Health Gauges, Event Feeds & Subsystem Audits (4 cols) */}
+          <div className="xl:col-span-4 flex flex-col gap-8">
             
+            {/* Subsystem Health Score Gauge Card */}
+            <HealthScoreCard 
+              score={diagnostics.score || 0} 
+              status={diagnostics.health || 'UNKNOWN'} 
+              watchdog={diagnostics.watchdog || 'OK'} 
+            />
+
+            {/* Queue Integrity Monitor */}
             <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
               <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                 <LuZap className="text-amber-400" /> Queue Integrity Monitoring
               </h3>
               <QueueMonitor metrics={performance.metrics} />
             </div>
-          </div>
 
-          <div className="xl:col-span-4 space-y-8">
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-6 flex flex-col">
-               <LeakDetectorPanel />
-            </div>
+            {/* Active Subsystem Leak Auditor */}
+            <LeakDetectorPanel />
 
+            {/* Rendering and pipeline throughput Profiler */}
             <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-6 flex flex-col">
                <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                  <LuTerminal className="text-primary-400" /> Runtime Profiler
                </h3>
                <RuntimeProfilerPanel />
             </div>
-          </div>
-        </div>
 
-        {/* Socket Telemetry Inspector */}
-        <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-1 overflow-hidden h-[600px]">
-          <SocketInspector />
+          </div>
+
         </div>
 
       </div>

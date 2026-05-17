@@ -24,7 +24,7 @@ class KernelStressSuite:
         # Link dependencies for standalone testing
         scheduler.set_dependencies(None, None, process_manager)
         print("="*60)
-        print("       NOVAKERNEL ADVANCED STRESS SUITE v1.1")
+        print("       NOVAOS ADVANCED STRESS SUITE v1.1")
         print("="*60)
 
     def run_all(self):

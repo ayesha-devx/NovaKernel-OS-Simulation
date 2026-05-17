@@ -22,7 +22,7 @@ const Sidebar = () => {
   const location = useLocation();
   
   const menuItems = [
-    { icon: <LuShieldCheck />, label: 'Kernel Overview', path: '/kernel-overview' },
+    { icon: <LuShieldCheck />, label: 'Nova Overview', path: '/kernel-overview' },
     { icon: <LuLayoutDashboard />, label: 'Dashboard', path: '/dashboard' },
     { icon: <LuActivity />, label: 'Process Manager', path: '/process-manager' },
     { icon: <LuCpu />, label: 'Scheduler', path: '/scheduler' },
@@ -42,7 +42,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-64 glass-premium border-r border-white/5 h-[calc(100vh-64px)] overflow-y-auto hidden lg:flex flex-col py-8 px-5 scrollbar-hide z-20">
+    <aside className="w-64 glass-sidebar h-[calc(100vh-64px)] overflow-y-auto hidden lg:flex flex-col py-8 px-5 scrollbar-hide z-20">
       <div className="space-y-2">
         {menuItems.map((item, index) => {
           const isActive = location.pathname === item.path;

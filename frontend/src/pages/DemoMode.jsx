@@ -61,7 +61,7 @@ const DemoMode = () => {
               </div>
               <h2 className="text-3xl font-bold text-text tracking-tight">Showcase Engine</h2>
             </div>
-            <p className="text-text/50 text-sm">Cinematic orchestration of NovaKernel's autonomous subsystems.</p>
+            <p className="text-text/50 text-sm">Cinematic orchestration of NovaOS's autonomous subsystems.</p>
           </div>
           
           <div className="flex items-center gap-4">

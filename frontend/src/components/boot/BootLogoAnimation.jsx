@@ -1,4 +1,5 @@
 import React from 'react';
+import logoN from '../../assets/logo-n.png';
 
 const BootLogoAnimation = () => {
   return (
@@ -23,15 +24,9 @@ const BootLogoAnimation = () => {
         <div className="absolute inset-4 border border-white/5 rounded-full" />
         <div className="absolute inset-4 border-b-2 border-cyan/40 shadow-[0_5px_15px_-5px_#00D1FF] rounded-full animate-spin [animation-duration:5s] [animation-direction:reverse] [animation-timing-function:linear]" />
         
-        {/* Central Logo Symbol (NK) */}
-        <div className="relative z-10 flex flex-col items-center group">
-          <div className="text-5xl font-black text-white italic tracking-tighter drop-shadow-[0_0_20px_rgba(157,0,255,0.8)] animate-pulse selection:text-cyan">
-            NK
-          </div>
-          <div className="absolute -bottom-1 w-8 h-1 bg-gradient-to-r from-transparent via-cyan to-transparent shadow-[0_0_12px_#00D1FF] rounded-full" />
-          
-          {/* Holographic Shimmer Effect */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 skew-x-[-20deg]" />
+        {/* Central Logo Symbol (N) */}
+        <div className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full overflow-hidden bg-black/40 border border-cyan/10 animate-pulse">
+          <img src={logoN} alt="NovaOS Logo" className="w-full h-full object-cover scale-100 mix-blend-screen" />
         </div>
       </div>
       
@@ -43,9 +38,9 @@ const BootLogoAnimation = () => {
         
         <h1 className="text-5xl font-black text-white uppercase tracking-[0.4em] italic leading-tight relative">
           <span className="relative z-10">Nova</span>
-          <span className="text-primary drop-shadow-[0_0_15px_rgba(157,0,255,0.7)] relative z-10">Kernel</span>
+          <span className="text-primary drop-shadow-[0_0_15px_rgba(157,0,255,0.7)] relative z-10">OS</span>
           {/* Text Glow Pulse */}
-          <div className="absolute inset-0 text-primary blur-md opacity-30 select-none pointer-events-none animate-pulse">NovaKernel</div>
+          <div className="absolute inset-0 text-primary blur-md opacity-30 select-none pointer-events-none animate-pulse">NovaOS</div>
         </h1>
 
         <div className="flex items-center justify-center gap-4 mt-4">

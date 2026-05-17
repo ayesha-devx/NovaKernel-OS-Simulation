@@ -65,7 +65,7 @@ const LeakDetectorPanel = () => {
     );
 
     return (
-        <div className="space-y-6 h-full overflow-y-auto pr-2 custom-scrollbar">
+        <div className="space-y-6">
             {/* Header / Global Scores */}
             <div className="grid grid-cols-1 gap-4">
                 <motion.div 

@@ -98,7 +98,7 @@ export const KernelProvider = ({ children }) => {
   const [aiMessages, setAiMessages] = useState([
     { 
       role: 'assistant', 
-      content: '### 🧠 NovaKernel Neural Link Established\n\nGreetings, Operator. I am your **integrated AI Copilot**. I have established real-time uplinks to the Scheduler, Memory Manager, and Disk Subsystems.\n\n*   **Status**: Active\n*   **Subsystems**: Synchronized\n*   **Telemetry**: Live\n\nHow can I assist with your kernel operations today?', 
+      content: '### 🧠 NovaOS Neural Link Established\n\nGreetings, Operator. I am your **integrated AI Copilot**. I have established real-time uplinks to the Scheduler, Memory Manager, and Disk Subsystems.\n\n*   **Status**: Active\n*   **Subsystems**: Synchronized\n*   **Telemetry**: Live\n\nHow can I assist with your kernel operations today?', 
       timestamp: Date.now() 
     }
   ]);
@@ -448,7 +448,7 @@ export const KernelProvider = ({ children }) => {
         syncState(res.data);
         setIsLoading(false);
       } catch (err) {
-        setError('Failed to connect to NovaKernel Backend');
+        setError('Failed to connect to NovaOS Backend');
         setIsLoading(false);
       }
     };

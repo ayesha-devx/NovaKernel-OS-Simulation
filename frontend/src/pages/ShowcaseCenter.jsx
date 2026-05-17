@@ -95,7 +95,7 @@ const ShowcaseCenter = () => {
                       <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">SHOWCASE CENTER</h1>
                       <div className="flex items-center gap-3">
                           <span className={`w-2 h-2 rounded-full ${showcase?.active ? 'bg-success shadow-[0_0_10px_#00FF9D]' : 'bg-slate-500 shadow-[0_0_10px_rgba(255,255,255,0.2)]'} indicator-pulse`} />
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">NovaKernel Presentation Orchestrator v1.3</p>
+                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">NovaOS Presentation Orchestrator v1.3</p>
                       </div>
                     </div>
                  </div>

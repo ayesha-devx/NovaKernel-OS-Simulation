@@ -91,7 +91,7 @@ const AIKernelAssistant = () => {
                     </div>
                  </div>
                  <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
-                   Direct neural link to the NovaKernel intelligence core. Leveraging advanced LLM heuristics to provide real-time system diagnostics and optimization recommendations.
+                   Direct neural link to the NovaOS intelligence core. Leveraging advanced LLM heuristics to provide real-time system diagnostics and optimization recommendations.
                  </p>
                </div>
                
@@ -187,7 +187,7 @@ const AIKernelAssistant = () => {
                   <input 
                     ref={inputRef}
                     className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-6 pr-24 text-[13px] text-white focus:outline-none focus:border-primary/50 transition-all placeholder:text-white/10 font-medium"
-                    placeholder="Ask NovaKernel anything... (e.g. 'Explain current deadlock risk')"
+                    placeholder="Ask NovaOS anything... (e.g. 'Explain current deadlock risk')"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     disabled={isTyping}

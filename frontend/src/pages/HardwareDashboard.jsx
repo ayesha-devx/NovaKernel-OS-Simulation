@@ -42,7 +42,7 @@ const HardwareDashboard = () => {
                     <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">HARDWARE HAL</h1>
                     <div className="flex items-center gap-3">
                         <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(0,255,157,0.8)] indicator-pulse" />
-                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">NovaKernel Hardware Abstraction Layer v1.1</p>
+                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">NovaOS Hardware Abstraction Layer v1.1</p>
                     </div>
                   </div>
                </div>

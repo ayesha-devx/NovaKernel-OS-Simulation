@@ -26,7 +26,7 @@ const ShellTerminal = () => {
 
   const [input, setInput] = useState('');
   const [output, setOutput] = useState([
-    { type: 'system', text: 'NovaKernel [Version 1.1.0] (c) 2026 DeepMind OS Corp.' },
+    { type: 'system', text: 'NovaOS [Version 1.1.0] (c) 2026 DeepMind OS Corp.' },
     { type: 'system', text: 'Kernel Command Interface active. Type "help" for a list of commands.' },
     { type: 'system', text: '' }
   ]);
@@ -48,7 +48,7 @@ const ShellTerminal = () => {
       if (res.data.session && res.data.session.length > 0) {
         const formattedSession = [];
         res.data.session.forEach(entry => {
-           formattedSession.push({ type: 'prompt', text: `root@novakernel:~# ${entry.command}` });
+           formattedSession.push({ type: 'prompt', text: `root@novaos:~# ${entry.command}` });
            formattedSession.push({ 
              type: entry.result.status, 
              text: entry.result.output,
@@ -80,7 +80,7 @@ const ShellTerminal = () => {
       if (!command) return;
 
       // Add to local UI output
-      setOutput(prev => [...prev, { type: 'prompt', text: `root@novakernel:~# ${command}` }].slice(-200));
+      setOutput(prev => [...prev, { type: 'prompt', text: `root@novaos:~# ${command}` }].slice(-200));
       
       // Update history
       setHistory(prev => [command, ...prev]);
@@ -161,7 +161,7 @@ const ShellTerminal = () => {
                     </div>
                  </div>
                  <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
-                   Direct binary interface to the NovaKernel executive. Executing privileged operations and system-wide orchestration via secured shell protocols.
+                   Direct binary interface to the NovaOS executive. Executing privileged operations and system-wide orchestration via secured shell protocols.
                  </p>
                </div>
                
@@ -188,7 +188,7 @@ const ShellTerminal = () => {
           <div className="h-10 bg-white/5 border-b border-white/5 flex items-center px-6 justify-between shrink-0">
              <div className="flex items-center gap-2">
                 <LuTerminal className="text-primary" size={14} />
-                <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">novakernel_shell_v1.0</span>
+                <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">novaos_shell_v1.0</span>
              </div>
              <div className="flex gap-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-slate-800" />
@@ -231,7 +231,7 @@ const ShellTerminal = () => {
              
              {/* Active Prompt */}
              <div className="flex items-center mt-2 group">
-                <span className="text-cyan-400 font-bold shrink-0">root@novakernel:~#&nbsp;</span>
+                <span className="text-cyan-400 font-bold shrink-0">root@novaos:~#&nbsp;</span>
                 <input 
                   ref={inputRef}
                   autoFocus

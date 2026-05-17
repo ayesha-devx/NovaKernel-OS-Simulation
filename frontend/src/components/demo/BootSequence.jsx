@@ -34,7 +34,7 @@ const BootSequence = ({ active, currentStep, progress, onComplete }) => {
                 <LuTerminal size={32} />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-text tracking-[0.2em] uppercase">NovaKernel v1.1.0</h1>
+                <h1 className="text-2xl font-bold text-text tracking-[0.2em] uppercase">NovaOS v1.1.0</h1>
                 <p className="text-primary text-xs font-bold tracking-widest uppercase opacity-70">Showcase Orchestration Layer</p>
               </div>
             </div>
@@ -95,7 +95,7 @@ const BootSequence = ({ active, currentStep, progress, onComplete }) => {
 
           {/* Footer Decoration */}
           <div className="absolute bottom-10 left-0 right-0 flex justify-center opacity-20">
-             <p className="text-[10px] text-text tracking-[0.5em] uppercase font-bold">NovaKernel © 2024 Advanced Agentic Systems</p>
+             <p className="text-[10px] text-text tracking-[0.5em] uppercase font-bold">NovaOS © 2024 Advanced Agentic Systems</p>
           </div>
         </motion.div>
       )}

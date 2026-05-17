@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import DashboardLayout from '../components/layout/DashboardLayout';
 import { useKernel } from '../context/KernelContext';
+import logoN from '../assets/logo-n.png';
 import { 
   LuCpu, 
   LuActivity, 
@@ -25,17 +26,17 @@ import {
 
 const MetricCard = ({ title, value, icon, color = "primary", trend, sparkline = [] }) => {
   const colorMap = {
-    primary: "text-primary border-primary/30 bg-primary/5 shadow-[0_0_25px_rgba(0,245,255,0.2)]",
-    purple: "text-accent-purple border-accent-purple/30 bg-accent-purple/5 shadow-[0_0_25px_rgba(139,92,246,0.2)]",
-    success: "text-success border-success/30 bg-success/5 shadow-[0_0_25px_rgba(0,255,157,0.2)]",
-    warning: "text-warning border-warning/30 bg-warning/5 shadow-[0_0_25px_rgba(255,200,87,0.2)]",
-    error: "text-error border-error/30 bg-error/5 shadow-[0_0_25px_rgba(255,77,109,0.2)]",
+    primary: "text-primary card-theme-primary bg-primary/5",
+    purple: "text-accent-purple card-theme-purple bg-accent-purple/5",
+    success: "text-success card-theme-success bg-success/5",
+    warning: "text-warning card-theme-warning bg-warning/5",
+    error: "text-error card-theme-error bg-error/5",
   };
 
   return (
     <motion.div 
       whileHover={{ y: -8, scale: 1.03 }}
-      className={`relative overflow-hidden glass-premium p-6 rounded-[2rem] border ${colorMap[color]} group transition-all duration-500`}
+      className={`relative overflow-hidden glass-premium p-6 rounded-[2rem] ${colorMap[color]} group transition-all duration-500`}
     >
       <div className="absolute inset-0 shimmer-sweep opacity-0 group-hover:opacity-20 transition-opacity" />
       
@@ -43,7 +44,12 @@ const MetricCard = ({ title, value, icon, color = "primary", trend, sparkline = 
       <div className={`absolute -top-10 -right-10 w-24 h-24 blur-[50px] opacity-20 group-hover:opacity-40 transition-opacity ${color === 'primary' ? 'bg-primary' : 'bg-accent-purple'}`} />
 
       <div className="flex justify-between items-start mb-5 relative z-10">
-        <div className="p-3 rounded-2xl bg-white/5 border border-white/10 group-hover:border-primary/50 group-hover:neon-border transition-all duration-500">
+        <div className={`p-3 rounded-2xl border transition-all duration-500 ${
+          color === 'primary' ? 'bg-primary/10 border-primary/30 text-primary group-hover:shadow-[0_0_15px_rgba(157,0,255,0.3)]' :
+          color === 'purple' ? 'bg-accent-purple/10 border-accent-purple/30 text-accent-purple group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]' :
+          color === 'success' ? 'bg-success/10 border-success/30 text-success group-hover:shadow-[0_0_15px_rgba(0,255,157,0.3)]' :
+          'bg-white/5 border-white/10 text-white group-hover:border-primary/50 group-hover:neon-border'
+        }`}>
           {icon}
         </div>
         {trend && (
@@ -58,7 +64,7 @@ const MetricCard = ({ title, value, icon, color = "primary", trend, sparkline = 
         <h4 className="text-[10px] font-orbitron font-black uppercase tracking-[0.3em] text-slate-500 mb-2 group-hover:text-slate-300 transition-colors">
           {title}
         </h4>
-        <div className="text-3xl font-black font-orbitron tracking-tighter text-white group-hover:neon-text transition-all duration-500">
+        <div className="text-4xl font-black font-orbitron tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white to-white/50 group-hover:neon-text transition-all duration-500 drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">
           {value}
         </div>
       </div>
@@ -251,58 +257,113 @@ const KernelOverview = () => {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-10 relative z-10">
                 <div className="flex items-center gap-10">
                     {/* Core Visualization */}
-                    <div className="relative group">
+                    <div className="relative group ml-8 lg:ml-2">
+                        {/* Outer Orbit */}
                         <motion.div 
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-[-15px] rounded-full border border-dashed border-primary/40"
-                        />
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-[-35px] rounded-full border border-dashed border-primary/30"
+                        >
+                            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-primary rounded-full shadow-[0_0_15px_#9D00FF]" />
+                            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-2.5 h-2.5 bg-secondary rounded-full shadow-[0_0_15px_#00D1FF]" />
+                        </motion.div>
+                        
+                        {/* Middle Scanner Ring */}
                         <motion.div 
                             animate={{ rotate: -360 }}
-                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                            className="absolute inset-[-30px] rounded-full border border-dashed border-accent-purple/30"
+                            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-[-20px] rounded-full border-2 border-accent-purple/50 border-t-transparent border-b-transparent"
                         />
-                        <div className="relative w-28 h-28 rounded-full glass-premium flex items-center justify-center border-2 border-primary/60 shadow-[0_0_50px_rgba(0,245,255,0.4)]">
+
+                        {/* Inner High-Speed Ring */}
+                        <motion.div 
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-[-5px] rounded-full border-2 border-secondary/60 border-l-transparent border-r-transparent"
+                        />
+
+                        {/* Central Core */}
+                        <div className="relative w-24 h-24 rounded-full bg-black/60 backdrop-blur-xl flex items-center justify-center border-2 border-primary shadow-[0_0_40px_rgba(157,0,255,0.5)] overflow-hidden">
+                            {/* Core Energy Pulse */}
                             <motion.div 
-                                animate={{ scale: [1, 1.3, 1], opacity: [0.6, 1, 0.6] }}
-                                transition={{ duration: 1.5, repeat: Infinity }}
-                                className="absolute inset-3 rounded-full bg-primary/30 blur-xl"
+                                animate={{ scale: [0.8, 1.5, 0.8], opacity: [0.2, 0.8, 0.2] }}
+                                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                                className="absolute inset-0 bg-gradient-to-tr from-primary/50 to-secondary/50 rounded-full blur-md"
                             />
-                            <LuZap className="text-5xl text-primary drop-shadow-[0_0_15px_rgba(0,245,255,1)]" />
+                            
+                            {/* Icon Pulse */}
+                            <motion.div
+                                animate={{ scale: [1, 1.15, 1] }}
+                                transition={{ duration: 0.75, repeat: Infinity, ease: "easeInOut" }}
+                                className="relative z-10"
+                            >
+                                <LuZap className="text-4xl text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.8)]" />
+                            </motion.div>
                         </div>
                     </div>
 
                     <div className="text-center lg:text-left">
                         <div className="flex flex-col gap-2 mb-6">
-                            <div className="flex items-center gap-4">
-                                <span className="w-3 h-3 rounded-full bg-secondary shadow-[0_0_15px_rgba(0,209,255,1)] indicator-pulse" />
-                                <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">KERNEL OVERVIEW</h1>
+                            <div className="flex items-center gap-5">
+                                <motion.h1 
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.8, ease: "easeOut" }}
+                                    className="text-6xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none"
+                                >
+                                    NOVA OVERVIEW
+                                </motion.h1>
                             </div>
-                            <h3 className="text-4xl font-black text-primary font-orbitron tracking-tighter neon-text uppercase leading-none opacity-90 ml-7">
-                                V1.0.0 STABLE KERNEL
-                            </h3>
+                            <motion.h3 
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                                className="text-2xl font-black text-secondary font-orbitron tracking-[0.2em] neon-text-cyan uppercase leading-none opacity-90 ml-9 mt-1"
+                            >
+                                V1.0.0 STABLE OS
+                            </motion.h3>
                         </div>
                         <div className="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
-                            <div className="flex items-center gap-3 px-4 py-1.5 glass-premium bg-primary/10 rounded-full border border-primary/30">
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                                className="flex items-center gap-3 px-4 py-1.5 glass-premium bg-primary/10 rounded-full border border-primary/30 shadow-[0_0_15px_rgba(157,0,255,0.2)] hover:shadow-[0_0_20px_rgba(157,0,255,0.4)] transition-all"
+                            >
                                 <LuActivity className="text-primary text-xs" />
                                 <span className="text-[10px] font-black font-mono-cyber text-primary uppercase tracking-[0.2em]">CORE_STATUS:</span>
                                 <span className="text-[10px] font-black font-mono-cyber text-primary neon-text">READY_OPTIMAL</span>
-                            </div>
-                            <div className="flex items-center gap-3 px-4 py-1.5 glass-premium bg-secondary/10 rounded-full border border-secondary/30">
+                            </motion.div>
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                                className="flex items-center gap-3 px-4 py-1.5 glass-premium bg-secondary/10 rounded-full border border-secondary/30 shadow-[0_0_15px_rgba(0,209,255,0.2)] hover:shadow-[0_0_20px_rgba(0,209,255,0.4)] transition-all"
+                            >
                                 <LuTerminal className="text-secondary text-xs" />
                                 <span className="text-[10px] font-black font-mono-cyber text-secondary uppercase tracking-[0.2em]">BOOT_TIME:</span>
                                 <span className="text-[10px] font-black font-mono-cyber text-white">{formatUptime(displayUptime)}</span>
-                            </div>
-                            <div className="flex items-center gap-3 px-4 py-1.5 glass-premium bg-secondary/10 rounded-full border border-secondary/30">
+                            </motion.div>
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.6 }}
+                                className="flex items-center gap-3 px-4 py-1.5 glass-premium bg-secondary/10 rounded-full border border-secondary/30 shadow-[0_0_15px_rgba(0,209,255,0.2)] hover:shadow-[0_0_20px_rgba(0,209,255,0.4)] transition-all"
+                            >
                                 <LuShieldCheck className="text-secondary text-xs" />
                                 <span className="text-[10px] font-black font-mono-cyber text-secondary uppercase tracking-[0.2em]">INTEGRITY:</span>
                                 <span className="text-[10px] font-black font-mono-cyber text-white">{health}%</span>
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>
 
-                <div className="flex gap-8 items-center bg-white/5 p-6 rounded-[2rem] border border-white/10 backdrop-blur-xl">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="flex gap-8 items-center bg-white/5 p-6 rounded-[2rem] border border-white/10 backdrop-blur-xl"
+                >
                     <div className="flex flex-col items-end">
                         <span className="text-[9px] font-orbitron font-black text-slate-400 uppercase tracking-[0.4em] mb-2">LINK_PROTOCOL</span>
                         <div className={`px-5 py-2.5 rounded-2xl border-2 flex items-center gap-4 transition-all duration-500 ${isConnected ? 'bg-primary/20 border-primary/40 text-primary shadow-[0_0_20px_rgba(0,245,255,0.3)]' : 'bg-error/20 border-error/40 text-error shadow-[0_0_20px_rgba(255,77,109,0.3)]'}`}>
@@ -318,7 +379,7 @@ const KernelOverview = () => {
                             <span className="text-2xl font-black font-orbitron text-white neon-text">LOW</span>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </motion.div>
 
@@ -335,7 +396,7 @@ const KernelOverview = () => {
              title="MEMORY_PRESSURE" 
              value={`${metrics.ram_pressure}%`} 
              icon={<LuActivity size={20} />} 
-             color="purple" 
+             color="primary" 
              trend="STABLE" 
            />
            <MetricCard 
@@ -360,7 +421,7 @@ const KernelOverview = () => {
                 {/* Analytics Section */}
                 <motion.div 
                     variants={itemVariants}
-                    className="glass-premium bg-panel-dark/40 rounded-3xl p-8 border border-white/5 relative overflow-hidden"
+                    className="glass-premium bg-panel-dark/40 rounded-3xl p-8 card-theme-primary relative overflow-hidden transition-all duration-500"
                 >
                     <div className="flex justify-between items-center mb-10">
                         <div className="flex flex-col">
@@ -441,7 +502,7 @@ const KernelOverview = () => {
                 {/* Telemetry Feed */}
                 <motion.div 
                     variants={itemVariants}
-                    className="glass-premium bg-panel-darker/80 rounded-[2.5rem] p-10 border border-white/10 relative overflow-hidden flex flex-col h-[500px]"
+                    className="glass-premium bg-panel-darker/80 rounded-[2.5rem] p-10 card-theme-primary relative overflow-hidden flex flex-col h-[500px]"
                 >
                     {/* Scanline and Grid for Terminal */}
                     <div className="absolute inset-0 scanline-overlay opacity-20 pointer-events-none" />
@@ -498,7 +559,7 @@ const KernelOverview = () => {
             {/* 5️⃣ Right-side Monitoring Stack */}
             <div className="space-y-6">
                 {/* AI & Smart Insights */}
-                <motion.div variants={itemVariants} className="glass-premium bg-accent-purple/5 rounded-3xl p-6 border border-accent-purple/20 relative overflow-hidden group">
+                <motion.div variants={itemVariants} className="glass-premium bg-accent-purple/5 rounded-3xl p-6 card-theme-purple relative overflow-hidden group">
                     <div className="absolute top-0 right-0 p-4 opacity-10">
                         <LuBrainCircuit size={60} className="text-accent-purple" />
                     </div>
@@ -517,13 +578,13 @@ const KernelOverview = () => {
                             </p>
                         </div>
                         <button className="w-full py-3 bg-accent-purple/20 hover:bg-accent-purple/30 text-accent-purple text-[10px] font-orbitron font-black rounded-xl border border-accent-purple/30 transition-all uppercase tracking-widest">
-                            EXECUTE_OPTIMIZATION
+                             EXECUTE_OPTIMIZATION
                         </button>
                     </div>
                 </motion.div>
 
                 {/* Subsystem Stack */}
-                <motion.div variants={itemVariants} className="glass-premium bg-panel-dark/40 rounded-3xl p-6 border border-white/5">
+                <motion.div variants={itemVariants} className="glass-premium bg-panel-dark/40 rounded-3xl p-6 card-theme-primary">
                     <h3 className="text-[10px] font-orbitron font-black text-slate-400 mb-6 flex items-center gap-3 uppercase tracking-[0.2em]">
                         <LuMonitor className="text-primary" /> SYSTEM_NODE_MONITOR
                     </h3>

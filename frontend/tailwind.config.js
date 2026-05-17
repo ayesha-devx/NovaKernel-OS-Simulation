@@ -14,6 +14,7 @@ export default {
         warning: "#F59E0B",
         error: "#EF4444",
         text: "#F9FAFB",
+        "accent-purple": "#8B5CF6",
       },
     },
   },

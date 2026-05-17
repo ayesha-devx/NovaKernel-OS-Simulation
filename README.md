@@ -1,10 +1,14 @@
-# 🌌 NovaKernel OS Simulation
+<p align="center">
+  <img src="frontend/src/assets/logo-n.jpg" alt="NovaOS Logo" width="120" style="border-radius: 50%;" />
+</p>
 
-![NovaKernel Banner](docs/assets/hero-banner.png)
+<h1 align="center">🌌 NovaOS Simulation</h1>
 
-> **"Experience the heartbeat of a modern kernel through a cinematic, high-fidelity simulation."**
+<p align="center">
+  <strong>"NEXT-GENERATION OPERATING SYSTEM SIMULATION PLATFORM"</strong>
+</p>
 
-NovaKernel is a premium, full-stack Operating System simulator designed to bridge the gap between abstract OS theory and real-time interactive visualization. It provides a "Mission Control" experience for monitoring process lifecycles, memory allocation, disk scheduling, and deadlock recovery.
+NovaOS is a premium, full-stack Operating System simulator designed to bridge the gap between abstract OS theory and real-time interactive visualization. It provides a "Mission Control" experience for monitoring process lifecycles, memory allocation, disk scheduling, and deadlock recovery.
 
 ---
 
@@ -23,7 +27,7 @@ NovaKernel is a premium, full-stack Operating System simulator designed to bridg
 
 ## ⚡ Core Engine Modules
 
-NovaKernel is powered by a modular Python-based kernel engine that simulates complex hardware interactions:
+NovaOS is powered by a modular Python-based kernel engine that simulates complex hardware interactions:
 
 ### 🧠 Memory Manager
 - **Dynamic Allocation**: Real-time visualization of memory blocks.

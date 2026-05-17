@@ -113,7 +113,7 @@ const VisualizationCenter = () => {
                  <span className="text-[10px] font-black text-emerald-400/60 uppercase tracking-widest">Performance Nominal (60 FPS Render)</span>
               </div>
            </div>
-           <span className="text-[9px] font-black text-white/10 uppercase tracking-[0.4em]">NovaKernel Visualization Layer v3.2</span>
+           <span className="text-[9px] font-black text-white/10 uppercase tracking-[0.4em]">NovaOS Visualization Layer v3.2</span>
         </div>
       </div>
     </DashboardLayout>

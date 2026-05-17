@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import logoN from '../../assets/logo-n.png';
 import { 
   LuCpu, 
   LuBell, 
@@ -38,7 +39,7 @@ const Navbar = () => {
 
   // Command definitions
   const commands = [
-    { id: 'nav-overview', label: 'Go to Kernel Overview', category: 'Navigation', icon: <LuCpu size={14}/>, action: () => navigate('/kernel-overview') },
+    { id: 'nav-overview', label: 'Go to Nova Overview', category: 'Navigation', icon: <LuCpu size={14}/>, action: () => navigate('/kernel-overview') },
     { id: 'nav-scheduler', label: 'Open CPU Scheduler', category: 'Navigation', icon: <LuActivity size={14}/>, action: () => navigate('/scheduler') },
     { id: 'nav-memory', label: 'Monitor Memory Management', category: 'Navigation', icon: <LuLayers size={14}/>, action: () => navigate('/memory') },
     { id: 'nav-fs', label: 'Explore File System', category: 'Navigation', icon: <LuFolderTree size={14}/>, action: () => navigate('/file-system') },
@@ -121,22 +122,20 @@ const Navbar = () => {
 
       <div className="relative z-10 w-full flex items-center justify-between gap-6">
         {/* Left Section: Branding */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-1">
           <motion.div 
-            whileHover={{ scale: 1.05, rotate: 5 }}
-            className="relative group cursor-pointer" 
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative cursor-pointer flex items-center justify-center w-10 h-10 rounded-full overflow-hidden" 
             onClick={() => navigate('/kernel-overview')}
           >
-            <div className="absolute -inset-3 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
-            <div className="relative bg-black/60 p-2.5 rounded-xl border border-white/10 group-hover:border-primary/50 transition-all shadow-lg">
-              <LuCpu className="text-primary text-xl indicator-pulse" />
-            </div>
+            <img src={logoN} alt="NovaOS Logo" className="w-full h-full object-cover scale-100 mix-blend-screen" />
           </motion.div>
           
-          <div className="flex flex-col">
+          <div className="flex flex-col -ml-[6px]">
             <div className="flex items-center gap-3">
               <h1 className="text-xl font-black tracking-tighter uppercase font-orbitron neon-gradient-text">
-                NovaKernel
+                NovaOS
               </h1>
               <div className="px-2 py-0.5 rounded-md text-[8px] font-black bg-primary/20 text-primary border border-primary/40 tracking-[0.2em] shadow-[0_0_10px_rgba(157,0,255,0.2)]">
                 SYS_V1.0
@@ -154,9 +153,9 @@ const Navbar = () => {
         {/* Middle Section: Advanced Search Terminal */}
         <div className="hidden lg:flex items-center flex-1 max-w-2xl relative px-4">
           <div className="relative w-full group">
-            <div className={`absolute -inset-0.5 bg-gradient-to-r from-primary/40 via-secondary/40 to-primary/40 rounded-xl blur-md transition duration-500 opacity-0 ${isSearchFocused ? 'opacity-100' : 'group-hover:opacity-40'}`} />
-            <div className={`relative flex items-center bg-black/80 border-2 transition-all duration-300 rounded-xl ${isSearchFocused ? 'border-primary/60 shadow-[0_0_25px_rgba(157,0,255,0.2)]' : 'border-white/5'}`}>
-              <div className={`pl-4 flex items-center gap-2 transition-colors duration-300 ${isSearchFocused ? 'text-primary' : 'text-white/20'}`}>
+            <div className={`absolute -inset-0.5 bg-gradient-to-r from-primary/40 via-secondary/40 to-primary/40 rounded-xl blur-md transition duration-500 opacity-100`} />
+            <div className={`relative flex items-center bg-black/80 border-2 transition-all duration-300 rounded-xl border-primary/60 shadow-[0_0_25px_rgba(157,0,255,0.2)]`}>
+              <div className={`pl-4 flex items-center gap-2 transition-colors duration-300 text-primary`}>
                 <LuTerminal size={14} />
                 <span className="text-[10px] font-bold font-mono-cyber opacity-40">KRNL_CMD:</span>
               </div>
@@ -245,7 +244,7 @@ const Navbar = () => {
             {/* CPU Gauge */}
             <div className="flex flex-col gap-1.5 min-w-[70px]">
               <div className="flex justify-between items-end">
-                <span className="text-[8px] font-black text-white/20 uppercase tracking-widest">CPU_LOAD</span>
+                <span className="text-[8px] font-black text-white/40 uppercase tracking-widest">CPU_LOAD</span>
                 <span className={`text-[10px] font-black font-mono-cyber ${cpuLoad > 80 ? 'text-error' : 'text-primary'}`}>{cpuLoad}%</span>
               </div>
               <div className="h-1 bg-white/5 rounded-full overflow-hidden flex gap-0.5">
@@ -253,8 +252,9 @@ const Navbar = () => {
                   <motion.div 
                     key={i}
                     animate={{ 
-                      opacity: (cpuLoad / 10) > i ? 1 : 0.1,
-                      backgroundColor: cpuLoad > 80 ? '#FF4D6D' : '#9D00FF'
+                      opacity: (cpuLoad / 10) > i ? 1 : 0.3,
+                      backgroundColor: cpuLoad > 80 ? '#FF4D6D' : '#9D00FF',
+                      boxShadow: (cpuLoad / 10) > i ? (cpuLoad > 80 ? '0 0 8px #FF4D6D' : '0 0 8px #9D00FF') : 'none'
                     }}
                     className="flex-1 h-full rounded-sm"
                   />
@@ -265,7 +265,7 @@ const Navbar = () => {
             {/* RAM Gauge */}
             <div className="flex flex-col gap-1.5 min-w-[70px]">
               <div className="flex justify-between items-end">
-                <span className="text-[8px] font-black text-white/20 uppercase tracking-widest">MEM_UTIL</span>
+                <span className="text-[8px] font-black text-white/40 uppercase tracking-widest">MEM_UTIL</span>
                 <span className={`text-[10px] font-black font-mono-cyber ${ramLoad > 80 ? 'text-error' : 'text-secondary'}`}>{ramLoad}%</span>
               </div>
               <div className="h-1 bg-white/5 rounded-full overflow-hidden flex gap-0.5">
@@ -273,8 +273,9 @@ const Navbar = () => {
                   <motion.div 
                     key={i}
                     animate={{ 
-                      opacity: (ramLoad / 10) > i ? 1 : 0.1,
-                      backgroundColor: ramLoad > 80 ? '#FF4D6D' : '#00D1FF'
+                      opacity: (ramLoad / 10) > i ? 1 : 0.3,
+                      backgroundColor: ramLoad > 80 ? '#FF4D6D' : '#00D1FF',
+                      boxShadow: (ramLoad / 10) > i ? (ramLoad > 80 ? '0 0 8px #FF4D6D' : '0 0 8px #00D1FF') : 'none'
                     }}
                     className="flex-1 h-full rounded-sm"
                   />
@@ -285,14 +286,14 @@ const Navbar = () => {
             {/* Kernel Pulse */}
             <div className="flex items-center gap-3 pl-4 border-l border-white/5">
               <div className="flex flex-col">
-                <span className="text-[7px] font-black text-white/20 uppercase tracking-widest mb-1">Pulse</span>
+                <span className="text-[7px] font-black text-white/40 uppercase tracking-widest mb-1">PULSE</span>
                 <div className="flex items-end gap-0.5 h-4">
                   {[...Array(8)].map((_, i) => (
                     <motion.div 
                       key={i}
                       animate={{ height: isConnected ? [4, 12, 6, 14, 4][(i + Math.floor(time.getSeconds()/2)) % 5] : 2 }}
                       transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
-                      className={`w-1 rounded-full ${isConnected ? 'bg-primary/40' : 'bg-error/20'}`}
+                      className={`w-1 rounded-full ${isConnected ? 'bg-primary shadow-[0_0_8px_rgba(157,0,255,0.6)]' : 'bg-error/40'}`}
                     />
                   ))}
                 </div>
