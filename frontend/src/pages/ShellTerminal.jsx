@@ -141,51 +141,55 @@ const ShellTerminal = () => {
           animate={{ opacity: 1, y: 0 }}
           className="relative group mb-12"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-          <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+          <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
              <div className="absolute inset-0 scanline-overlay opacity-20" />
              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
              
-             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-               <div className="space-y-4">
-                 <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shadow-[0_0_20px_rgba(157,0,255,0.2)]">
-                        <LuTerminal className="text-primary neon-text" size={32} />
+             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8 relative z-10">
+               <div className="space-y-4 w-full lg:w-auto">
+                 <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0 shadow-[0_0_20px_rgba(157,0,255,0.2)]">
+                        <LuTerminal className="text-primary neon-text" size={24} />
                     </div>
                     <div>
-                      <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">SHELL TERMINAL</h1>
-                      <div className="flex items-center gap-3">
-                          <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_#00FF9D] indicator-pulse" />
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Kernel Command Interface & Shell Subsystem v1.0</p>
+                      <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">SHELL TERMINAL</h1>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_#00FF9D] indicator-pulse" />
+                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Kernel Command Interface & Shell Subsystem v1.0</p>
+                          </div>
                       </div>
                     </div>
                  </div>
-                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
+                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-0 sm:ml-19">
                    Direct binary interface to the NovaOS executive. Executing privileged operations and system-wide orchestration via secured shell protocols.
                  </p>
                </div>
                
-               <div className="flex items-center gap-4 bg-white/5 p-3 rounded-2xl border border-white/10 backdrop-blur-md">
-                 <div className="flex items-center gap-3 px-6 py-2.5 bg-black/40 rounded-xl border border-white/5 font-orbitron">
-                    <div className="w-2 h-2 rounded-full bg-success shadow-[0_0_12px_#00FF9D]" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
-                       SHELL_SESSION: <span className="text-success">ACTIVE</span>
-                    </span>
-                 </div>
+               <div className="flex items-center justify-between sm:justify-start gap-4 p-3 w-full lg:w-auto bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
+                  <div className="flex items-center justify-between sm:justify-start gap-3 w-full sm:w-auto px-6 py-2.5 bg-black/40 rounded-xl border border-white/5 font-orbitron">
+                     <div className="flex items-center gap-2">
+                       <div className="w-2 h-2 rounded-full bg-success shadow-[0_0_12px_#00FF9D]" />
+                       <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
+                          SHELL_SESSION: <span className="text-success">ACTIVE</span>
+                       </span>
+                     </div>
+                  </div>
                </div>
              </div>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[700px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-auto lg:h-[700px]">
         
         {/* Terminal Area */}
         <div 
-          className="lg:col-span-8 glass bg-slate-950/80 rounded-[2.5rem] border border-white/5 flex flex-col overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+          className="lg:col-span-8 h-[450px] lg:h-auto glass bg-slate-950/80 rounded-3xl sm:rounded-[2.5rem] border border-white/5 flex flex-col overflow-hidden relative shadow-[0_0_50px_rgba(0,0,0,0.5)]"
           onClick={focusInput}
         >
           {/* Header */}
-          <div className="h-10 bg-white/5 border-b border-white/5 flex items-center px-6 justify-between shrink-0">
+          <div className="h-10 bg-white/5 border-b border-white/5 flex items-center px-4 sm:px-6 justify-between shrink-0">
              <div className="flex items-center gap-2">
                 <LuTerminal className="text-primary" size={14} />
                 <span className="text-[10px] font-black text-white/40 uppercase tracking-widest">novaos_shell_v1.0</span>
@@ -198,7 +202,7 @@ const ShellTerminal = () => {
           </div>
 
           {/* Output Stream */}
-          <div className="flex-1 overflow-y-auto p-8 custom-scrollbar font-mono text-[13px] leading-relaxed">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-8 custom-scrollbar font-mono text-xs sm:text-[13px] leading-relaxed">
              <AnimatePresence initial={false}>
                {output.map((line, idx) => (
                  <motion.div 
@@ -230,7 +234,7 @@ const ShellTerminal = () => {
              </AnimatePresence>
              
              {/* Active Prompt */}
-             <div className="flex items-center mt-2 group">
+             <div className="flex items-start sm:items-center mt-2 group">
                 <span className="text-cyan-400 font-bold shrink-0">root@novaos:~#&nbsp;</span>
                 <input 
                   ref={inputRef}
@@ -256,7 +260,7 @@ const ShellTerminal = () => {
         <div className="lg:col-span-4 flex flex-col gap-6">
            
            {/* System Health Panel */}
-           <div className="glass bg-slate-900/40 border border-white/5 rounded-[2rem] p-6 backdrop-blur-2xl">
+           <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2rem] p-4 sm:p-6 backdrop-blur-2xl">
               <div className="flex items-center gap-3 mb-6">
                  <LuShieldAlert className="text-primary" />
                  <h3 className="text-[10px] font-black text-white/50 uppercase tracking-widest">Kernel Observability</h3>
@@ -269,7 +273,7 @@ const ShellTerminal = () => {
            </div>
 
            {/* Hardware State Panel */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2rem] p-6 backdrop-blur-2xl">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2rem] p-4 sm:p-6 backdrop-blur-2xl">
                <div className="flex items-center gap-3 mb-6">
                   <LuCommand className="text-orange-400" />
                   <h3 className="text-[10px] font-black text-white/50 uppercase tracking-widest">Hardware HAL Interface</h3>
@@ -303,7 +307,7 @@ const ShellTerminal = () => {
             </div>
 
            {/* Command Tips */}
-           <div className="flex-1 glass bg-slate-900/40 border border-white/5 rounded-[2rem] p-6 backdrop-blur-2xl flex flex-col">
+           <div className="h-[300px] lg:h-auto glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2rem] p-4 sm:p-6 backdrop-blur-2xl flex flex-col">
               <div className="flex items-center gap-3 mb-4">
                  <LuClock className="text-slate-500" />
                  <h3 className="text-[10px] font-black text-white/50 uppercase tracking-widest">Quick Commands</h3>

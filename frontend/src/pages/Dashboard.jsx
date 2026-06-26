@@ -41,39 +41,39 @@ const Dashboard = () => {
       >
         {/* Cinematic Header Banner */}
         <motion.div variants={itemVariants} className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-magenta/10 to-transparent rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity" />
-          <div className="relative glass-premium rounded-[2.5rem] p-8 border border-white/10 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-magenta/10 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-80 transition-opacity" />
+          <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 border border-white/10 overflow-hidden">
              <div className="absolute inset-0 scanline-overlay opacity-20" />
              <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 blur-[100px] -mr-32 -mt-32" />
              
              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 relative z-10">
-               <div className="space-y-2">
-                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
-                        <LuShieldCheck className="text-primary neon-text" size={24} />
-                    </div>
-                    <h1 className="text-4xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase">DASHBOARD</h1>
-                 </div>
-                  <p className="text-text/40 text-[10px] font-black uppercase tracking-[0.4em] ml-13">NOVA_KERNEL V1.0.0-STABLE-KERNEL</p>
-               </div>
-               
-               <div className="flex items-center gap-8">
-                  <div className="flex flex-col items-end gap-1">
-                    <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(0,255,157,0.8)] indicator-pulse" />
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest font-orbitron">Kernel_Sync</span>
-                    </div>
-                    <span className="text-xl font-black text-white neon-text">STABLE</span>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                     <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
+                         <LuShieldCheck className="text-primary neon-text" size={24} />
+                     </div>
+                     <h1 className="text-2xl sm:text-4xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase">DASHBOARD</h1>
                   </div>
-                  <div className="h-12 w-px bg-white/10 hidden md:block" />
-                  <div className="flex flex-col items-end gap-1">
-                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest font-orbitron">Protocol_Link</span>
-                    <div className="flex items-center gap-2 px-3 py-1 bg-secondary/10 rounded-lg border border-secondary/20">
-                        <LuRadio className="text-secondary text-xs animate-pulse" />
-                        <span className="text-xs font-mono font-bold text-secondary uppercase">Active_Link_Established</span>
-                    </div>
-                  </div>
-               </div>
+                   <p className="text-text/40 text-[10px] font-black uppercase tracking-[0.4em] sm:ml-13 ml-0">NOVA_KERNEL V1.0.0-STABLE-KERNEL</p>
+                </div>
+                
+                <div className="flex flex-wrap sm:flex-nowrap items-center gap-6 sm:gap-8 w-full lg:w-auto justify-between sm:justify-start">
+                   <div className="flex flex-col items-start sm:items-end gap-1">
+                     <div className="flex items-center gap-2">
+                         <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(0,255,157,0.8)] indicator-pulse" />
+                         <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest font-orbitron">Kernel_Sync</span>
+                     </div>
+                     <span className="text-xl font-black text-white neon-text">STABLE</span>
+                   </div>
+                   <div className="h-12 w-px bg-white/10 hidden md:block" />
+                   <div className="flex flex-col items-start sm:items-end gap-1">
+                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest font-orbitron">Protocol_Link</span>
+                     <div className="flex items-center gap-2 px-3 py-1 bg-secondary/10 rounded-lg border border-secondary/20">
+                         <LuRadio className="text-secondary text-xs animate-pulse" />
+                         <span className="text-xs font-mono font-bold text-secondary uppercase">Active_Link</span>
+                     </div>
+                   </div>
+                </div>
              </div>
           </div>
         </motion.div>
@@ -118,15 +118,15 @@ const Dashboard = () => {
         <motion.div variants={itemVariants} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-8 space-y-8">
                 {/* Advanced Scheduler Visualization */}
-                <div className="holographic-panel rounded-[2rem] p-1">
-                    <div className="glass-premium rounded-[1.9rem] p-6 border-none h-full">
+                <div className="holographic-panel rounded-3xl sm:rounded-[2rem] p-1">
+                    <div className="glass-premium rounded-3xl sm:rounded-[1.9rem] p-4 sm:p-6 border-none h-full">
                         <ReadyQueuePanel minimal={true} />
                     </div>
                 </div>
 
                 {/* Real-time Telemetry Flux */}
-                <div className="holographic-panel rounded-[2rem] p-1 h-[450px]">
-                    <div className="glass-premium rounded-[1.9rem] p-6 border-none h-full">
+                <div className="holographic-panel rounded-3xl sm:rounded-[2rem] p-1 h-[450px]">
+                    <div className="glass-premium rounded-3xl sm:rounded-[1.9rem] p-4 sm:p-6 border-none h-full">
                         <ActivityFeed />
                     </div>
                 </div>
@@ -134,7 +134,7 @@ const Dashboard = () => {
 
             <div className="lg:col-span-4 space-y-8">
                 {/* Kernel Status Sidebar Widget */}
-                <div className="glass-premium rounded-[2.5rem] p-8 border border-white/10 relative overflow-hidden group h-full">
+                <div className="glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 border border-white/10 relative overflow-hidden group h-full">
                     <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     
                     <div className="flex items-center gap-3 mb-8 relative z-10">
@@ -178,7 +178,7 @@ const Dashboard = () => {
 
         {/* Cinematic Terminal Integration */}
         <motion.div variants={itemVariants} className="h-80 relative">
-            <div className="absolute inset-0 bg-primary/5 rounded-[2.5rem] blur-2xl" />
+            <div className="absolute inset-0 bg-primary/5 rounded-3xl sm:rounded-[2.5rem] blur-2xl" />
             <TerminalPanel />
         </motion.div>
       </motion.div>

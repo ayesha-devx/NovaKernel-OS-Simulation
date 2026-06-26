@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const DashboardLayout = ({ children, title }) => {
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
   return (
     <div className="relative min-h-screen bg-background text-text selection:bg-primary/30 selection:text-white overflow-hidden" data-page-title={title}>
       {/* Cinematic Background Layers */}
@@ -46,7 +48,7 @@ const DashboardLayout = ({ children, title }) => {
         <div className="absolute inset-0 cyber-grid opacity-25" />
         
         {/* Scanline Overlay */}
-        <div className="scanline-overlay opacity-40" />
+        <div className="scanline-overlay-animated opacity-40" />
         
         {/* High-Contrast Vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(2,4,12,0.95)_100%)]" />
@@ -54,9 +56,23 @@ const DashboardLayout = ({ children, title }) => {
 
       {/* Main Content Interface */}
       <div className="relative z-10 flex flex-col min-h-screen">
-        <Navbar />
+        <Navbar onToggleSidebar={() => setIsMobileSidebarOpen(prev => !prev)} isMobileSidebarOpen={isMobileSidebarOpen} />
+        
+        {/* Mobile Sidebar Overlay Backdrop */}
+        <AnimatePresence>
+          {isMobileSidebarOpen && (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileSidebarOpen(false)}
+              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 lg:hidden"
+            />
+          )}
+        </AnimatePresence>
+
         <div className="flex flex-1 overflow-hidden">
-          <Sidebar />
+          <Sidebar isOpen={isMobileSidebarOpen} onClose={() => setIsMobileSidebarOpen(false)} />
           <main className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide">
             <AnimatePresence mode="wait">
               <motion.div 
@@ -65,7 +81,7 @@ const DashboardLayout = ({ children, title }) => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="p-8 max-w-[1700px] mx-auto min-h-full"
+                className="p-4 sm:p-6 lg:p-8 max-w-[1700px] mx-auto min-h-full"
               >
                 {title && <h1 className="sr-only">{title}</h1>}
                 {children}

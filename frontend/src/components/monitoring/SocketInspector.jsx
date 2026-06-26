@@ -82,7 +82,7 @@ const SocketInspector = () => {
       </div>
 
       {/* Metrics Grid */}
-      <div className="grid grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-800 border-b border-slate-800">
         <MetricCard label="Emits/sec" value={metrics.emits_per_sec || 0} icon={LuZap} color="text-yellow-400" />
         <MetricCard label="Incoming/sec" value={metrics.incoming_per_sec || 0} icon={LuActivity} color="text-cyan-400" />
         <MetricCard 
@@ -94,7 +94,7 @@ const SocketInspector = () => {
         <MetricCard label="Listeners" value={metrics.active_listeners || 0} icon={LuUsers} color="text-emerald-400" />
       </div>
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col sm:flex-row overflow-hidden">
         {/* Traffic Logs */}
         <div className="flex-1 flex flex-col border-r border-slate-800 overflow-hidden">
           <div className="p-2 bg-slate-900/50 border-b border-slate-800 flex items-center justify-between">
@@ -163,7 +163,7 @@ const SocketInspector = () => {
         </div>
 
         {/* Warnings & Diagnostics Sidebar */}
-        <div className="w-64 bg-slate-950/30 flex flex-col overflow-hidden">
+        <div className="w-full sm:w-64 bg-slate-950/30 flex flex-col border-t sm:border-t-0 sm:border-l border-slate-800 overflow-hidden shrink-0 h-48 sm:h-auto">
           <div className="p-2 bg-slate-900/50 border-b border-slate-800">
             <span className="text-[10px] uppercase text-slate-400 font-bold tracking-widest flex items-center gap-2">
               <LuTriangleAlert className="w-3 h-3 text-amber-500" /> Diagnostics

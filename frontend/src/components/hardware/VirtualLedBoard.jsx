@@ -37,22 +37,22 @@ const VirtualLedBoard = () => {
   };
 
   return (
-    <div className="relative p-12 bg-[#12161f] rounded-[2rem] border-4 border-[#1a202c] shadow-[0_40px_100px_rgba(0,0,0,0.5)]">
+    <div className="relative p-6 sm:p-12 bg-[#12161f] rounded-[2rem] border-4 border-[#1a202c] shadow-[0_40px_100px_rgba(0,0,0,0.5)]">
       {/* Board Texture / Screws */}
       <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-white/5 border border-white/10" />
       <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-white/5 border border-white/10" />
       <div className="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-white/5 border border-white/10" />
       <div className="absolute bottom-4 right-4 w-2 h-2 rounded-full bg-white/5 border border-white/10" />
 
-      <div className="flex gap-16">
+      <div className="flex gap-4 sm:gap-8 lg:gap-16">
         {slots.map(slot => (
-          <div key={slot} className="space-y-12">
+          <div key={slot} className="space-y-6 sm:space-y-12">
             <div className="text-center">
                <p className="text-[10px] font-black text-primary/40 uppercase tracking-widest mb-1 italic">Slot 0{slot}</p>
                <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-white/5 to-transparent" />
             </div>
 
-            <div className="space-y-10">
+            <div className="space-y-6 sm:space-y-10">
                 <LED active={hardwareState.led_states[slot]?.READY} color="amber" label="Ready" />
                 <LED active={hardwareState.led_states[slot]?.RUNNING} color="green" label="Run" />
                 <LED active={hardwareState.led_states[slot]?.WAITING} color="blue" label="Wait" />
@@ -64,13 +64,13 @@ const VirtualLedBoard = () => {
         <div className="w-px bg-white/5 self-stretch" />
 
         {/* Special Function Indicators */}
-        <div className="space-y-12">
+        <div className="space-y-6 sm:space-y-12">
             <div className="text-center">
                <p className="text-[10px] font-black text-rose-500/40 uppercase tracking-widest mb-1 italic">System</p>
                <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-white/5 to-transparent" />
             </div>
 
-            <div className="space-y-10">
+            <div className="space-y-6 sm:space-y-10">
                 <div className="flex flex-col items-center gap-3">
                     <LED active={hardwareState.special_leds?.DEADLOCK} color="red" label="Alarm" />
                     {hardwareState.special_leds?.DEADLOCK && (

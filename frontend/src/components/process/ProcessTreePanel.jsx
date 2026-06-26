@@ -85,16 +85,16 @@ const ProcessTreePanel = () => {
   const { treeData } = useProcess();
 
   return (
-    <div className="glass-premium rounded-[2.5rem] border border-white/10 flex flex-col h-full overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)] relative group">
+    <div className="glass-premium rounded-3xl sm:rounded-[2.5rem] border border-white/10 flex flex-col h-full overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)] relative group">
       <div className="absolute inset-0 scanline-overlay opacity-10 pointer-events-none" />
       
-      <div className="px-8 py-6 border-b border-white/5 bg-white/[0.02] flex items-center justify-between relative z-10">
+      <div className="px-4 sm:px-8 py-6 border-b border-white/5 bg-white/[0.02] flex items-center justify-between relative z-10">
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-secondary/20 border border-secondary/30 flex items-center justify-center neon-border-secondary">
             <LuNetwork className="text-secondary neon-text-cyan" size={20} />
           </div>
           <div>
-            <h3 className="text-sm font-black text-white uppercase tracking-[0.4em] font-orbitron">Family_Tree_Flux</h3>
+            <h3 className="text-sm font-black text-white uppercase tracking-[0.2em] sm:tracking-[0.4em] font-orbitron">Family_Tree_Flux</h3>
             <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-0.5">Realtime_Fork_Hierarchy_Engine</p>
           </div>
         </div>
@@ -104,7 +104,7 @@ const ProcessTreePanel = () => {
         </div>
       </div>
 
-      <div className="flex-1 p-8 overflow-auto custom-scrollbar bg-grid-pattern relative z-10">
+      <div className="flex-1 p-4 sm:p-8 overflow-auto custom-scrollbar bg-grid-pattern relative z-10">
         {treeData.length > 0 ? (
           <div className="space-y-6">
             {treeData.map((root) => (
@@ -121,7 +121,7 @@ const ProcessTreePanel = () => {
                 />
                 <LuNetwork size={64} className="text-secondary/20 relative z-10 animate-pulse" />
             </div>
-            <h4 className="text-sm font-black text-white uppercase tracking-[0.4em] font-orbitron mb-2">Zero_Graph_States</h4>
+            <h4 className="text-sm font-black text-white uppercase tracking-[0.2em] sm:tracking-[0.4em] font-orbitron mb-2">Zero_Graph_States</h4>
             <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest max-w-[200px] leading-loose">
                 Kernel process memory is currently flat. Perform a fork() action to visualize hierarchy.
             </p>

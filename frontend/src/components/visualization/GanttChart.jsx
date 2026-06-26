@@ -98,9 +98,9 @@ const GanttChart = ({ kernelState }) => {
   return (
     <div className="flex flex-col h-full bg-black/40 border border-white/10 rounded-[2rem] overflow-hidden backdrop-blur-xl">
       {/* ── Toolbar ──────────────────────────────────────────────────────── */}
-      <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-white/5">
+      <div className="p-4 sm:px-6 sm:py-4 border-b border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-white/5">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-primary/20 text-primary flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-primary/20 text-primary flex items-center justify-center shrink-0">
             <FiActivity size={16} />
           </div>
           <div>
@@ -109,7 +109,7 @@ const GanttChart = ({ kernelState }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full md:w-auto justify-between md:justify-end">
           <div className="flex items-center gap-2 bg-black/40 p-1 rounded-xl border border-white/10">
             <button onClick={() => setZoom(z => Math.max(5, z - 5))} className="p-2 hover:bg-white/10 rounded-lg text-white/60 transition-all"><FiZoomOut size={14}/></button>
             <span className="text-[10px] font-black text-white/40 w-12 text-center uppercase tracking-widest">{zoom}px/s</span>
@@ -196,7 +196,7 @@ const GanttChart = ({ kernelState }) => {
       </div>
 
       {/* ── Footer Stats ───────────────────────────────────────────────────── */}
-      <div className="px-6 py-3 border-t border-white/10 bg-white/2 flex items-center gap-6">
+      <div className="px-4 sm:px-6 py-2.5 sm:py-3 border-t border-white/10 bg-white/2 flex flex-wrap gap-4 sm:gap-6">
         <div className="flex items-center gap-2">
           <FiCpu className="text-emerald-500" size={12}/>
           <span className="text-[10px] font-bold text-white/60 uppercase">Context Switches:</span>

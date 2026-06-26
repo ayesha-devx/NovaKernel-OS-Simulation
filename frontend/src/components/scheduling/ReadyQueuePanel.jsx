@@ -68,7 +68,7 @@ const ReadyQueuePanel = ({ minimal = false }) => {
 
       <div className={`grid grid-cols-1 ${minimal ? '' : 'lg:grid-cols-4'} gap-8 items-stretch h-full`}>
         {/* Main Pipeline Visualization */}
-        <div className={`relative glass-premium ${minimal ? 'rounded-[2.5rem] p-8' : 'rounded-[3rem] p-10'} flex-grow min-h-[350px] shadow-[0_0_50px_rgba(157,0,255,0.05)] overflow-hidden group`}>
+        <div className={`relative glass-premium ${minimal ? 'rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8' : 'rounded-3xl sm:rounded-[3rem] p-4 sm:p-10'} flex-grow min-h-[350px] shadow-[0_0_50px_rgba(157,0,255,0.05)] overflow-hidden group`}>
           <div className="absolute inset-0 scanline-overlay opacity-10 pointer-events-none" />
           
           <div className="flex items-center justify-between mb-12 relative z-10">
@@ -112,7 +112,7 @@ const ReadyQueuePanel = ({ minimal = false }) => {
             </div>
 
             <div className="w-full overflow-x-auto pb-6 custom-scrollbar scroll-smooth">
-              <div className="flex items-center gap-8 px-16 min-w-max">
+              <div className="flex items-center gap-6 sm:gap-8 px-6 sm:px-16 min-w-max">
                 <AnimatePresence mode="popLayout">
                   {localQueue.length > 0 ? (
                     localQueue.map((process, index) => (

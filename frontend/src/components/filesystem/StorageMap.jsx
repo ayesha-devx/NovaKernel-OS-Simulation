@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const StorageMap = ({ blocks = [], stats = {} }) => {
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-end">
+      <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
         <div>
           <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] mb-1 font-orbitron">Physical Block Map</h4>
           <p className="text-[10px] text-slate-500 font-mono">0x2000 ADDRESSABLE SECTORS :: 64MB PAGE SIZE</p>
@@ -44,7 +44,7 @@ const StorageMap = ({ blocks = [], stats = {} }) => {
         ))}
       </div>
       
-      <div className="flex justify-between text-[9px] text-slate-600 font-mono font-bold uppercase tracking-widest">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 text-[9px] text-slate-600 font-mono font-bold uppercase tracking-widest">
         <div className="flex items-center gap-2">
           <div className="w-1 h-1 bg-cyan rounded-full animate-pulse" />
           <span>BOOT_SECTOR: 0x0000</span>

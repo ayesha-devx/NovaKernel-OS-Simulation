@@ -24,9 +24,9 @@ const SchedulerControls = () => {
   ];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 lg:space-y-8">
       {/* Simulation Master Controls */}
-      <div className="glass-premium p-8 rounded-[2.5rem] border border-white/10 relative overflow-hidden group">
+      <div className="glass-premium p-4 sm:p-8 rounded-3xl sm:rounded-[2.5rem] border border-white/10 relative overflow-hidden group">
         <div className="absolute inset-0 scanline-overlay opacity-5 pointer-events-none" />
         
         <div className="flex items-center gap-4 mb-8 relative z-10">
@@ -100,7 +100,7 @@ const SchedulerControls = () => {
       </div>
 
       {/* Advanced Algorithm Selection */}
-      <div className="glass-premium p-8 rounded-[2.5rem] border border-white/10 relative overflow-hidden">
+      <div className="glass-premium p-4 sm:p-8 rounded-3xl sm:rounded-[2.5rem] border border-white/10 relative overflow-hidden">
         <div className="flex items-center gap-4 mb-8">
             <div className="w-10 h-10 rounded-xl bg-secondary/20 border border-secondary/30 flex items-center justify-center neon-border-secondary">
                 <FiActivity className="text-secondary neon-text-cyan" size={20} />
@@ -153,7 +153,7 @@ const SchedulerControls = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="glass-premium p-8 rounded-[2.5rem] border border-white/10 relative overflow-hidden shadow-2xl"
+            className="glass-premium p-4 sm:p-8 rounded-3xl sm:rounded-[2.5rem] border border-white/10 relative overflow-hidden shadow-2xl"
             >
             <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">

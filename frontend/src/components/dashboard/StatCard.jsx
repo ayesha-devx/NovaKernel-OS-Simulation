@@ -32,7 +32,7 @@ const StatCard = ({ title, value, subValue, icon, trend, color }) => {
         scale: 1.02,
         transition: { type: "spring", stiffness: 400, damping: 10 }
       }}
-      className={`glass-premium rounded-[2.5rem] p-8 border border-white/10 relative overflow-hidden group transition-all duration-500 shadow-[0_0_50px_rgba(0,0,0,0.5)] ${colorMap[color] || colorMap.primary}`}
+      className={`glass-premium rounded-2xl sm:rounded-[2.5rem] p-4 sm:p-6 lg:p-8 border border-white/10 relative overflow-hidden group transition-all duration-500 shadow-[0_0_50px_rgba(0,0,0,0.5)] ${colorMap[color] || colorMap.primary}`}
     >
       {/* Background Atmosphere */}
       <div className="absolute inset-0 shimmer-sweep opacity-0 group-hover:opacity-20 transition-opacity pointer-events-none" />
@@ -47,8 +47,8 @@ const StatCard = ({ title, value, subValue, icon, trend, color }) => {
         color === 'magenta' ? 'bg-magenta/20' : 'bg-primary/20'
       }`} />
 
-      <div className="flex justify-between items-start mb-10 relative z-10">
-        <div className={`p-4 rounded-2xl border-2 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${colorMap[color] || colorMap.primary} !bg-transparent !border-white/10`}>
+      <div className="flex justify-between items-start mb-6 sm:mb-10 relative z-10">
+        <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${colorMap[color] || colorMap.primary} !bg-transparent !border-white/10`}>
           <div className="text-2xl drop-shadow-[0_0_10px_currentColor]">
             {icon}
           </div>

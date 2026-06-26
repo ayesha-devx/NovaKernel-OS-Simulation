@@ -12,7 +12,7 @@ const DiagnosticsGrid = React.memo(({ subsystems }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {Object.entries(subsystems).map(([name, status]) => (
         <div key={name} className="bg-white/5 border border-white/5 p-4 rounded-2xl flex items-center justify-between hover:border-white/10 transition-all">
           <div className="flex flex-col">

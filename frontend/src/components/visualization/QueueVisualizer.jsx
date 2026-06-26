@@ -28,9 +28,9 @@ const QueueVisualizer = ({ kernelState }) => {
   return (
     <div className="flex flex-col h-full bg-black/40 border border-white/10 rounded-[2rem] overflow-hidden backdrop-blur-xl">
       {/* ── Header ──────────────────────────────────────────────────────── */}
-      <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-white/5">
+      <div className="p-4 sm:px-6 sm:py-4 border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white/5">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0">
             <FiLayers size={16} />
           </div>
           <div>
@@ -49,10 +49,10 @@ const QueueVisualizer = ({ kernelState }) => {
       </div>
 
       {/* ── Main Animation Area ─────────────────────────────────────────── */}
-      <div className="flex-grow flex flex-col md:flex-row p-8 gap-8 items-center justify-center overflow-hidden">
+      <div className="flex-grow flex flex-col lg:flex-row p-4 sm:p-8 gap-6 sm:gap-8 items-center justify-center overflow-y-auto">
         
         {/* Ready Queue Track */}
-        <div className="flex-grow w-full max-w-2xl bg-white/5 border border-white/10 rounded-3xl p-6 relative overflow-hidden h-[200px] flex items-center">
+        <div className="flex-grow w-full max-w-2xl bg-white/5 border border-white/10 rounded-3xl p-4 sm:p-6 relative h-[180px] sm:h-[200px] flex items-center overflow-x-auto scrollbar-thin">
            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 to-transparent pointer-events-none" />
            
            <div className="flex gap-4 items-center">
@@ -93,14 +93,14 @@ const QueueVisualizer = ({ kernelState }) => {
         </div>
 
         {/* Dispatch Arrow */}
-        <div className="flex flex-col items-center justify-center">
-           <div className="w-12 h-1 bg-gradient-to-r from-white/10 to-primary rounded-full animate-pulse" />
+        <div className="flex flex-row lg:flex-col items-center justify-center gap-2 lg:gap-0 shrink-0">
+           <div className="w-12 lg:w-1 h-1 lg:h-12 bg-gradient-to-r lg:bg-gradient-to-b from-white/10 to-primary rounded-full animate-pulse" />
            <span className="text-[8px] font-black text-primary uppercase tracking-widest mt-2">Dispatch</span>
         </div>
 
         {/* CPU Processor Slot */}
         <div className="flex-shrink-0 relative">
-          <div className={`w-40 h-40 rounded-[2.5rem] border-4 flex flex-col items-center justify-center transition-all duration-500 overflow-hidden ${
+          <div className={`w-32 h-32 sm:w-40 sm:h-40 rounded-3xl sm:rounded-[2.5rem] border-4 flex flex-col items-center justify-center transition-all duration-500 overflow-hidden ${
             activeProcess ? 'border-primary/40 bg-primary/5 shadow-[0_0_50px_rgba(34,211,238,0.15)]' : 'border-white/10 bg-white/2'
           }`}>
             <AnimatePresence mode="wait">
@@ -165,7 +165,7 @@ const QueueVisualizer = ({ kernelState }) => {
       </div>
 
       {/* ── Algo Stats ─────────────────────────────────────────────────── */}
-      <div className="px-8 py-4 bg-white/2 border-t border-white/5 grid grid-cols-3 gap-8">
+      <div className="px-4 sm:px-8 py-4 bg-white/2 border-t border-white/5 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8">
         <div className="flex flex-col">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Queue Policy</span>
           <div className="flex items-center gap-2">
@@ -173,14 +173,14 @@ const QueueVisualizer = ({ kernelState }) => {
              <span className="text-xs font-black text-white uppercase">{currentAlgo}</span>
           </div>
         </div>
-        <div className="flex flex-col border-l border-white/5 pl-8">
+        <div className="flex flex-col border-t sm:border-t-0 sm:border-l border-white/5 pt-4 sm:pt-0 pl-0 sm:pl-8">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Time Quantum</span>
           <div className="flex items-center gap-2">
              <FiSettings className="text-amber-500" size={12}/>
              <span className="text-xs font-black text-white uppercase">{totalQuantum}s</span>
           </div>
         </div>
-        <div className="flex flex-col border-l border-white/5 pl-8">
+        <div className="flex flex-col border-t sm:border-t-0 sm:border-l border-white/5 pt-4 sm:pt-0 pl-0 sm:pl-8">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Avg Wait Time</span>
           <div className="flex items-center gap-2 text-emerald-400">
              <span className="text-xs font-black uppercase">{kernelState?.metrics?.avg_wait_time || 0}s</span>

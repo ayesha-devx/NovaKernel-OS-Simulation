@@ -15,34 +15,45 @@ import {
   LuMonitor,
   LuEye,
   LuBrain,
-  LuCamera
+  LuCamera,
+  LuCircuitBoard,
+  LuTrendingUp,
+  LuSlidersHorizontal,
+  LuTimer
 } from 'react-icons/lu';
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
   
   const menuItems = [
     { icon: <LuShieldCheck />, label: 'Nova Overview', path: '/kernel-overview' },
     { icon: <LuLayoutDashboard />, label: 'Dashboard', path: '/dashboard' },
     { icon: <LuActivity />, label: 'Process Manager', path: '/process-manager' },
-    { icon: <LuCpu />, label: 'Scheduler', path: '/scheduler' },
+    { icon: <LuTimer />, label: 'Scheduler', path: '/scheduler' },
     { icon: <LuDatabase />, label: 'Memory Manager', path: '/memory' },
     { icon: <LuFolderTree />, label: 'File System', path: '/file-system' },
-    { icon: <LuCpu />, label: 'Hardware HAL', path: '/hardware' },
+    { icon: <LuCircuitBoard />, label: 'Hardware HAL', path: '/hardware' },
     { icon: <LuLock />, label: 'Deadlock Detection', path: '/deadlock' },
     { icon: <LuHardDrive />, label: 'Disk Scheduling', path: '/disk-scheduling' },
     { icon: <LuTerminal />, label: 'Shell Terminal', path: '/shell-terminal' },
-    { icon: <LuActivity />, label: 'Analytics Dashboard', path: '/analytics' },
+    { icon: <LuTrendingUp />, label: 'Analytics Dashboard', path: '/analytics' },
     { icon: <LuEye />, label: 'Kernel Observatory', path: '/visualization' },
     { icon: <LuBrain />, label: 'AI Kernel Assistant', path: '/ai-assistant' },
     { icon: <LuCamera />, label: 'Snapshot Center', path: '/snapshots' },
     { icon: <LuMonitor />, label: 'Showcase Center', path: '/showcase' },
-    { icon: <LuTerminal />, label: 'Developer Console', path: '/developer-console' },
+    { icon: <LuSlidersHorizontal />, label: 'Developer Console', path: '/developer-console' },
     { icon: <LuSettings />, label: 'Settings', path: '/settings' },
   ];
 
   return (
-    <aside className="w-64 glass-sidebar h-[calc(100vh-64px)] overflow-y-auto hidden lg:flex flex-col py-8 px-5 scrollbar-hide z-20">
+    <aside 
+      className={`w-64 glass-sidebar overflow-y-auto flex flex-col py-8 px-5 scrollbar-hide z-40
+        lg:flex lg:h-[calc(100vh-80px)] lg:static lg:translate-x-0 lg:z-20
+        fixed top-20 left-0 bottom-0 bg-[#070b13]/95 border-r border-white/5 shadow-2xl backdrop-blur-xl
+        transition-transform duration-300 ease-in-out
+        ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+      `}
+    >
       <div className="space-y-2">
         {menuItems.map((item, index) => {
           const isActive = location.pathname === item.path;
@@ -50,6 +61,7 @@ const Sidebar = () => {
             <Link
               key={index}
               to={item.path}
+              onClick={onClose}
               className="relative group block"
             >
               {isActive && (

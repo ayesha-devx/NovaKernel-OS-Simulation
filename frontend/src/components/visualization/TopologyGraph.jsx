@@ -58,9 +58,9 @@ const TopologyGraph = ({ kernelState }) => {
   return (
     <div className="flex flex-col h-full bg-black/40 border border-white/10 rounded-[2rem] overflow-hidden backdrop-blur-xl relative">
       {/* ── Header ──────────────────────────────────────────────────────── */}
-      <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-white/5 z-20">
+      <div className="p-4 sm:px-6 sm:py-4 border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white/5 z-20">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-500 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-sky-500/20 text-sky-500 flex items-center justify-center shrink-0">
             <FiShare2 size={16} />
           </div>
           <div>
@@ -69,7 +69,7 @@ const TopologyGraph = ({ kernelState }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
           <div className="flex bg-black/40 p-1 rounded-xl border border-white/10">
             <button onClick={() => setZoom(z => Math.max(0.5, z - 0.1))} className="p-1.5 hover:bg-white/10 rounded-lg text-white/60 transition-all"><FiMinimize size={14}/></button>
             <button onClick={() => setZoom(1)} className="p-1.5 hover:bg-white/10 rounded-lg text-white/60 transition-all"><FiTarget size={14}/></button>
@@ -145,21 +145,21 @@ const TopologyGraph = ({ kernelState }) => {
         </svg>
 
         {/* Info Legend */}
-        <div className="absolute bottom-6 right-6 flex flex-col gap-2">
-           <div className="glass border border-white/10 p-3 rounded-2xl flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" />
+        <div className="absolute bottom-4 right-4 flex flex-col gap-1.5 scale-90 sm:scale-100 origin-bottom-right z-10">
+           <div className="glass border border-white/10 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl flex items-center gap-2 sm:gap-3">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981] shrink-0" />
               <span className="text-[9px] font-black text-white/40 uppercase tracking-widest">Active Thread</span>
            </div>
-           <div className="glass border border-white/10 p-3 rounded-2xl flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-white/20" />
+           <div className="glass border border-white/10 p-2.5 sm:p-3 rounded-xl sm:rounded-2xl flex items-center gap-2 sm:gap-3">
+              <div className="w-2 h-2 rounded-full bg-white/20 shrink-0" />
               <span className="text-[9px] font-black text-white/40 uppercase tracking-widest">Idle Process</span>
            </div>
         </div>
       </div>
 
       {/* ── Interaction Hint ───────────────────────────────────────────── */}
-      <div className="absolute bottom-6 left-6 flex items-center gap-2 text-white/20">
-         <FiInfo size={14}/>
+      <div className="absolute bottom-4 left-4 hidden sm:flex items-center gap-2 text-white/20 scale-90 sm:scale-100 origin-bottom-left z-10 pointer-events-none">
+         <FiInfo size={14} className="shrink-0"/>
          <span className="text-[8px] font-black uppercase tracking-[0.2em]">Pinch to Zoom • Drag to Pan Topology</span>
       </div>
     </div>

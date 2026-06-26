@@ -43,7 +43,7 @@ const StatCard = React.memo(({ title, value, unit, icon, color, trend, health })
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5, scale: 1.02 }}
-      className="bg-[#0B1020]/60 border border-white/5 p-7 rounded-[2.5rem] relative overflow-hidden group backdrop-blur-xl transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.3)]"
+      className="bg-[#0B1020]/60 border border-white/5 p-4 sm:p-7 rounded-3xl sm:rounded-[2.5rem] relative overflow-hidden group backdrop-blur-xl transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.3)]"
       style={{ borderColor: c.border }}
     >
       {/* Cinematic Glow Background */}
@@ -54,8 +54,8 @@ const StatCard = React.memo(({ title, value, unit, icon, color, trend, health })
       {/* Shimmer Effect */}
       <div className="absolute inset-0 shimmer-sweep opacity-0 group-hover:opacity-10 pointer-events-none" />
 
-      <div className="flex justify-between items-start mb-6 relative z-10">
-        <div className="p-4 rounded-2xl border-2 transition-all duration-500 group-hover:rotate-3 group-hover:scale-110"
+      <div className="flex justify-between items-start mb-4 sm:mb-6 relative z-10">
+        <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 transition-all duration-500 group-hover:rotate-3 group-hover:scale-110"
           style={{ backgroundColor: c.bg, color: c.text, borderColor: c.border }}
         >
           <div className="drop-shadow-[0_0_8px_currentColor]">
@@ -83,7 +83,7 @@ const StatCard = React.memo(({ title, value, unit, icon, color, trend, health })
       <div className="relative z-10">
         <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-2 group-hover:text-white transition-colors">{title}</h3>
         <div className="flex items-baseline gap-2">
-          <span className="text-4xl font-black text-white tabular-nums tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">
+          <span className="text-2xl sm:text-4xl font-black text-white tabular-nums tracking-tighter drop-shadow-[0_0_10px_rgba(255,255,255,0.1)]">
             {typeof value === 'number' ? value.toLocaleString() : value}
           </span>
           <span className="text-sm font-black text-slate-500 uppercase tracking-widest">{unit}</span>
@@ -398,44 +398,46 @@ const AnalyticsDashboard = () => {
       <div className="space-y-8 animate-in fade-in duration-700 pb-12">
         
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-6 p-8 bg-[#0B1020]/40 border border-[#9D00FF]/20 rounded-[3rem] relative overflow-hidden backdrop-blur-3xl shadow-[0_0_50px_rgba(0,0,0,0.3)]">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 mb-6 p-4 sm:p-8 bg-[#0B1020]/40 border border-[#9D00FF]/20 rounded-3xl sm:rounded-[3rem] relative overflow-hidden backdrop-blur-3xl shadow-[0_0_50px_rgba(0,0,0,0.3)]">
           {/* Background Ambient Glows */}
           <div className="absolute top-0 left-0 w-64 h-64 bg-[#9D00FF]/10 blur-[100px] -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
           <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#00D1FF]/10 blur-[100px] translate-x-1/2 translate-y-1/2 rounded-full"></div>
           <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #9D00FF 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
           
-          <div className="relative z-10">
-            <div className="flex items-center gap-5 mb-4">
-              <div className="p-4 bg-[#9D00FF]/10 text-[#9D00FF] rounded-2xl border-2 border-[#9D00FF]/30 shadow-[0_0_25px_rgba(157,0,255,0.3)] animate-pulse">
-                <LuRadio size={28} />
+          <div className="relative z-10 w-full lg:w-auto">
+            <div className="flex items-center gap-4 sm:gap-5 mb-4">
+              <div className="p-3 sm:p-4 bg-[#9D00FF]/10 text-[#9D00FF] rounded-2xl border-2 border-[#9D00FF]/30 shadow-[0_0_25px_rgba(157,0,255,0.3)] shrink-0 animate-pulse">
+                <LuTrendingUp className="w-6 h-6 sm:w-7 sm:h-7" />
               </div>
               <div>
-                <h1 className="text-5xl font-black font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-3">
+                <h1 className="text-2xl sm:text-4xl md:text-5xl font-black font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-2">
                   ANALYTICS DASHBOARD
                 </h1>
-                <p className="text-[#9D00FF] text-[10px] font-black uppercase tracking-[0.4em] mt-2 opacity-80 flex items-center gap-3">
-                  <span className="w-2 h-2 bg-[#9D00FF] rounded-full animate-ping"></span>
-                  Real-time System Telemetry & Heuristic Analysis Engine
+                <p className="text-[#9D00FF] text-[10px] font-black uppercase tracking-[0.4em] mt-2 opacity-80 flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[#9D00FF] rounded-full animate-ping"></span>
+                    Real-time System Telemetry & Heuristic Analysis Engine
+                  </span>
                 </p>
               </div>
             </div>
           </div>
           
-          <div className="flex items-center gap-10 relative z-10">
+          <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 relative z-10 w-full lg:w-auto">
             <CircularHealthScore 
               score={intelligence_state.health_score} 
               status={intelligence_state.health_status} 
             />
             
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-4 bg-[#050816]/60 p-3 rounded-3xl border border-[#00D1FF]/20 backdrop-blur-2xl shadow-inner">
-                <div className={`px-6 py-3 rounded-2xl flex items-center gap-3 border transition-all duration-500 ${isConnected ? 'bg-[#00FF9D]/10 border-[#00FF9D]/30 text-[#00FF9D] shadow-[0_0_15px_rgba(0,255,157,0.2)]' : 'bg-[#FF4D6D]/10 border-[#FF4D6D]/30 text-[#FF4D6D]'}`}>
+            <div className="flex flex-col gap-4 w-full sm:w-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 bg-[#050816]/60 p-3 rounded-2xl sm:rounded-3xl border border-[#00D1FF]/20 backdrop-blur-2xl shadow-inner w-full">
+                <div className={`w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl flex items-center justify-center gap-3 border transition-all duration-500 ${isConnected ? 'bg-[#00FF9D]/10 border-[#00FF9D]/30 text-[#00FF9D] shadow-[0_0_15px_rgba(0,255,157,0.2)]' : 'bg-[#FF4D6D]/10 border-[#FF4D6D]/30 text-[#FF4D6D]'}`}>
                   <LuWifi size={16} className={isConnected ? '' : 'animate-pulse'} />
                   <span className="text-[11px] font-black uppercase tracking-[0.2em]">
                     {isConnected ? 'SYNC: ACTIVE' : 'SYNC: OFFLINE'}
                   </span>
                 </div>
-                <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-2xl text-slate-400 text-[11px] font-black uppercase tracking-[0.2em] shadow-inner">
+                <div className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl text-slate-400 text-[11px] font-black uppercase tracking-[0.2em] shadow-inner text-center">
                   UPTIME: <span className="text-white font-mono">{hardware_metrics?.uptime || 0}S</span>
                 </div>
               </div>
@@ -498,7 +500,7 @@ const AnalyticsDashboard = () => {
           <div className="xl:col-span-8 space-y-8">
             
             {/* Realtime Telemetry Charts */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8">
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-sm font-black text-white flex items-center gap-2 uppercase tracking-[0.2em]">
                   <LuActivity className="text-primary" /> Live CPU Stream
@@ -514,22 +516,22 @@ const AnalyticsDashboard = () => {
               
               <TelemetryGraph data={telemetry_stream} />
               
-              <div className="grid grid-cols-3 gap-8 mt-8 pt-8 border-t border-white/5">
+              <div className="grid grid-cols-3 gap-3 sm:gap-8 mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-white/5">
                 <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Context Switches</div>
-                  <div className="text-xl font-black text-white tracking-tighter tabular-nums">
+                  <div className="text-[8px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-wider sm:tracking-widest mb-1">Context Switches</div>
+                  <div className="text-sm sm:text-xl font-black text-white tracking-tighter tabular-nums">
                     {cpu_metrics?.context_switches?.toLocaleString() || 0}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Thread Efficiency</div>
-                  <div className="text-xl font-black text-emerald-400 tracking-tighter tabular-nums">
+                  <div className="text-[8px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-wider sm:tracking-widest mb-1">Thread Efficiency</div>
+                  <div className="text-sm sm:text-xl font-black text-emerald-400 tracking-tighter tabular-nums">
                     {isConnected ? `${analyticsSummary?.health_score || 98.4}%` : '0.0%'}
                   </div>
                 </div>
                 <div>
-                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Interrupt Latency</div>
-                  <div className="text-xl font-black text-cyan-400 tracking-tighter tabular-nums">
+                  <div className="text-[8px] sm:text-[10px] font-bold text-slate-500 uppercase tracking-wider sm:tracking-widest mb-1">Interrupt Latency</div>
+                  <div className="text-sm sm:text-xl font-black text-cyan-400 tracking-tighter tabular-nums">
                     {hardware_metrics?.command_throughput ? Math.max(1, Math.round(10 / (hardware_metrics.command_throughput + 0.1))) : 12}ms
                   </div>
                 </div>
@@ -538,7 +540,7 @@ const AnalyticsDashboard = () => {
 
             {/* Memory Fragmentation Map */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
+              <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8">
                 <h3 className="text-sm font-black text-white flex items-center gap-2 uppercase tracking-[0.2em] mb-6">
                   <LuLayers className="text-purple-400" /> Memory Heatmap
                 </h3>
@@ -549,7 +551,7 @@ const AnalyticsDashboard = () => {
                 </div>
               </div>
 
-              <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8 flex flex-col h-full">
+              <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 flex flex-col h-full">
                 <h3 className="text-sm font-black text-white flex items-center justify-between uppercase tracking-[0.2em] mb-6">
                   <span className="flex items-center gap-2"><LuBrain className="text-primary" /> AI Intelligence Panel</span>
                   <div className="flex gap-1">
@@ -589,7 +591,7 @@ const AnalyticsDashboard = () => {
             {/* Load Forecasting Panels */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {forecastData.map(f => (
-                <div key={f.label} className="glass bg-slate-900/40 border border-white/5 rounded-3xl p-6">
+                <div key={f.label} className="glass bg-slate-900/40 border border-white/5 rounded-2xl sm:rounded-3xl p-4 sm:p-6">
                    <div className="flex items-center gap-2 mb-4">
                       <div className={`text-${f.color}-400 opacity-60`}>{f.icon}</div>
                       <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{f.label}</span>
@@ -613,7 +615,7 @@ const AnalyticsDashboard = () => {
           <div className="xl:col-span-4 space-y-8">
             
             {/* Timeline Feed */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8 h-[600px] flex flex-col">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 h-[450px] sm:h-[600px] flex flex-col">
               <h3 className="text-sm font-black text-white flex items-center justify-between uppercase tracking-[0.2em] mb-6">
                 <span className="flex items-center gap-2"><LuHistory className="text-amber-400" /> Event Timeline</span>
                 <span className="text-[10px] text-slate-500 font-mono">LIVE_T_LOG</span>
@@ -635,7 +637,7 @@ const AnalyticsDashboard = () => {
             </div>
 
             {/* Risk Matrix Panel */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8">
               <h3 className="text-sm font-black text-white flex items-center gap-2 uppercase tracking-[0.2em] mb-6">
                 <LuShieldAlert className="text-rose-400" /> Risk Matrix
               </h3>
@@ -648,17 +650,17 @@ const AnalyticsDashboard = () => {
             </div>
 
             {/* Subsystem Quick Status */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
-              <h3 className="text-sm font-black text-white flex items-center gap-2 uppercase tracking-[0.2em] mb-6">
-                <LuSettings className="text-slate-400" /> Subsystems
-              </h3>
-              <div className="space-y-4">
-                {[
-                  { name: 'FS_ENGINE', status: 'Active', load: filesystem_metrics?.inode_usage || 0, color: 'emerald' },
-                  { name: 'DISK_CTRL', status: disk_metrics?.queue_depth > 0 ? 'Busy' : 'Idle', load: disk_metrics?.queue_depth || 0, color: disk_metrics?.queue_depth > 5 ? 'amber' : 'cyan' },
-                  { name: 'HARDWARE_HAL', status: hardware_metrics?.connected ? 'Online' : 'Simulated', load: hardware_metrics?.command_throughput || 0, color: hardware_metrics?.connected ? 'emerald' : 'blue' },
-                ].map(sub => (
-                  <div key={sub.name} className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:border-white/10 transition-all">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8">
+               <h3 className="text-sm font-black text-white flex items-center gap-2 uppercase tracking-[0.2em] mb-6">
+                 <LuSettings className="text-slate-400" /> Subsystems
+               </h3>
+               <div className="space-y-4">
+                 {[
+                   { name: 'FS_ENGINE', status: 'Active', load: filesystem_metrics?.inode_usage || 0, color: 'emerald' },
+                   { name: 'DISK_CTRL', status: disk_metrics?.queue_depth > 0 ? 'Busy' : 'Idle', load: disk_metrics?.queue_depth || 0, color: disk_metrics?.queue_depth > 5 ? 'amber' : 'cyan' },
+                   { name: 'HARDWARE_HAL', status: hardware_metrics?.connected ? 'Online' : 'Simulated', load: hardware_metrics?.command_throughput || 0, color: hardware_metrics?.connected ? 'emerald' : 'blue' },
+                 ].map(sub => (
+                   <div key={sub.name} className="flex items-center justify-between p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5 hover:border-white/10 transition-all">
                     <div className="flex items-center gap-3">
                       <div className={`w-2 h-2 rounded-full bg-${sub.color}-500 shadow-[0_0_8px_currentColor]`} />
                       <div>

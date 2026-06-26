@@ -83,7 +83,7 @@ const ProcessDetailModal = ({ process, isOpen, onClose }) => {
 
           <div className="p-8 space-y-8 overflow-y-auto custom-scrollbar">
             {/* 1. Core Resources Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <DetailItem icon={<LuActivity size={18} />} label="CPU Burst" value={`${process.burst_time}s`} />
               <DetailItem icon={<LuClock size={18} />} label="Execution" value={`${process.burst_remaining}s`} color="text-warning" />
               <DetailItem icon={<LuDatabase size={18} />} label="Memory Unit" value={`${process.memory_required}MB`} color="text-success" />
@@ -98,24 +98,24 @@ const ProcessDetailModal = ({ process, isOpen, onClose }) => {
                 <div className="w-1 h-1 rounded-full bg-primary animate-pulse"></div>
                 Lifecycle Timeline
               </h3>
-              <div className="flex items-center justify-between relative px-4 py-2">
+              <div className="flex items-center justify-between relative px-2 sm:px-4 py-2">
                 <div className="absolute top-1/2 left-0 w-full h-0.5 bg-white/5 -translate-y-1/2 z-0"></div>
                 {states.map((state, idx) => {
                   const isCompleted = idx < currentStateIdx;
                   const isCurrent = idx === currentStateIdx;
                   
                   return (
-                    <div key={state} className="relative z-10 flex flex-col items-center gap-3">
-                      <div className={`h-8 w-8 rounded-full flex items-center justify-center border-2 transition-all duration-700 ${
+                    <div key={state} className="relative z-10 flex flex-col items-center gap-2 sm:gap-3">
+                      <div className={`h-7 w-7 sm:h-8 sm:w-8 rounded-full flex items-center justify-center border-2 transition-all duration-700 ${
                         isCurrent 
-                        ? 'bg-primary border-primary shadow-[0_0_20px_rgba(59,130,246,0.6)] scale-125' 
+                        ? 'bg-primary border-primary shadow-[0_0_20px_rgba(59,130,246,0.6)] scale-110 sm:scale-125' 
                         : isCompleted 
                         ? 'bg-success/20 border-success text-success' 
                         : 'bg-[#111827] border-white/10 text-text/20'
                       }`}>
-                        {isCompleted ? <LuX size={14} className="rotate-45" /> : <div className={`w-1.5 h-1.5 rounded-full ${isCurrent ? 'bg-white' : 'bg-current'}`}></div>}
+                        {isCompleted ? <LuX size={12} className="rotate-45" /> : <div className={`w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full ${isCurrent ? 'bg-white' : 'bg-current'}`}></div>}
                       </div>
-                      <span className={`text-[9px] font-bold tracking-widest ${isCurrent ? 'text-primary' : isCompleted ? 'text-success/60' : 'text-text/20'}`}>
+                      <span className={`text-[8px] sm:text-[9px] font-bold tracking-wider sm:tracking-widest ${isCurrent ? 'text-primary' : isCompleted ? 'text-success/60' : 'text-text/20'}`}>
                         {state}
                       </span>
                     </div>

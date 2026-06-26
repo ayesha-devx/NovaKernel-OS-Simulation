@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  LuMonitor, 
+  LuSlidersHorizontal, 
   LuShieldCheck, 
   LuDatabase,
   LuZap,
@@ -57,34 +57,36 @@ const DeveloperConsole = () => {
           animate={{ opacity: 1, y: 0 }}
           className="relative group"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-          <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+          <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
              <div className="absolute inset-0 scanline-overlay opacity-20" />
              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
              
-             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-               <div className="space-y-4">
-                 <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shadow-[0_0_20px_rgba(157,0,255,0.2)]">
-                        <LuMonitor className="text-primary neon-text" size={32} />
+             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8 relative z-10">
+               <div className="space-y-4 w-full lg:w-auto">
+                 <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shadow-[0_0_20px_rgba(157,0,255,0.2)] shrink-0">
+                        <LuSlidersHorizontal className="text-primary neon-text" size={32} />
                     </div>
                     <div>
-                      <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">DEVELOPER CONSOLE</h1>
-                      <div className="flex items-center gap-3">
-                          <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-success shadow-[0_0_10px_#00FF9D]' : 'bg-rose-500 shadow-[0_0_10px_#F43F5E]'} indicator-pulse`} />
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Kernel Diagnostics & Performance Observability v2.0</p>
+                      <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">DEVELOPER CONSOLE</h1>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                          <div className="flex items-center gap-2">
+                            <span className={`w-2 h-2 rounded-full ${isConnected ? 'bg-success shadow-[0_0_10px_#00FF9D]' : 'bg-rose-500 shadow-[0_0_10px_#F43F5E]'} indicator-pulse`} />
+                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Kernel Diagnostics & Performance Observability v2.0</p>
+                          </div>
                       </div>
                     </div>
                  </div>
-                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
+                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-0 sm:ml-16 lg:ml-19">
                    Deep telemetry inspection and runtime subsystem auditing. Monitoring physical address mappings, memory pressure curves, and micro-kernel signal integrity.
                  </p>
                </div>
                
-               <div className="flex flex-wrap items-center gap-4 bg-white/5 p-3 rounded-2xl border border-white/10 backdrop-blur-md">
+               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 bg-white/5 p-3 rounded-xl sm:rounded-2xl border border-white/10 backdrop-blur-md w-full lg:w-auto justify-center sm:justify-start">
                  <button 
                    onClick={() => setShowDebugOverlay?.(!showDebugOverlay)}
-                   className={`px-6 py-2.5 rounded-xl border flex items-center gap-3 transition-all font-orbitron ${showDebugOverlay ? 'bg-primary/20 border-primary/50 text-primary shadow-[0_0_15px_rgba(157,0,255,0.2)]' : 'bg-slate-900/40 border-white/5 text-white/40 hover:text-white hover:bg-white/5'}`}
+                   className={`px-6 py-2.5 rounded-xl border flex items-center justify-center gap-3 transition-all font-orbitron w-full sm:w-auto ${showDebugOverlay ? 'bg-primary/20 border-primary/50 text-primary shadow-[0_0_15px_rgba(157,0,255,0.2)]' : 'bg-slate-900/40 border-white/5 text-white/40 hover:text-white hover:bg-white/5'}`}
                  >
                    <LuTerminal size={14} className={showDebugOverlay ? 'animate-pulse' : ''} />
                    <span className="text-[9px] font-black uppercase tracking-widest">
@@ -92,7 +94,7 @@ const DeveloperConsole = () => {
                    </span>
                  </button>
 
-                 <div className={`px-6 py-2.5 rounded-xl flex items-center gap-3 border transition-all font-orbitron ${isConnected ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-rose-500/10 border-rose-500/20 text-rose-400'}`}>
+                 <div className={`px-6 py-2.5 rounded-xl flex items-center justify-center gap-3 border transition-all font-orbitron w-full sm:w-auto ${isConnected ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400' : 'bg-rose-500/10 border-rose-500/20 text-rose-400'}`}>
                    <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-emerald-500 shadow-[0_0_8px_#10B981]' : 'bg-rose-500 shadow-[0_0_8px_#F43F5E]'} animate-pulse`} />
                    <span className="text-[9px] font-black uppercase tracking-widest">
                      {isConnected ? 'UPLINK: ACTIVE' : 'UPLINK: OFFLINE'}
@@ -104,16 +106,16 @@ const DeveloperConsole = () => {
         </motion.div>
 
         {/* Main Grid Layout */}
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 sm:gap-8 items-start">
           
           {/* Left Column: Diagnostics, Performance & Telemetry (8 cols) */}
-          <div className="xl:col-span-8 flex flex-col gap-8">
+          <div className="xl:col-span-8 flex flex-col gap-6 sm:gap-8">
             
             {/* Performance Grid: Top Level Telemetry */}
             <PerformanceGrid metrics={performance.metrics} />
 
             {/* Memory Pressure Trend Chart */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8">
               <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                 <LuDatabase className="text-purple-400" /> Memory Pressure Trends
               </h3>
@@ -123,7 +125,7 @@ const DeveloperConsole = () => {
             </div>
 
             {/* Subsystem Diagnostics Grid */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8">
               <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                 <LuShieldCheck className="text-emerald-400" /> Subsystem Diagnostics
               </h3>
@@ -136,14 +138,14 @@ const DeveloperConsole = () => {
             </div>
 
             {/* Websocket Connection Terminal debugger */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-1 overflow-hidden h-[600px]">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-1 overflow-hidden h-[450px] lg:h-[600px]">
               <SocketInspector />
             </div>
 
           </div>
 
           {/* Right Column: Health Gauges, Event Feeds & Subsystem Audits (4 cols) */}
-          <div className="xl:col-span-4 flex flex-col gap-8">
+          <div className="xl:col-span-4 flex flex-col gap-6 sm:gap-8">
             
             {/* Subsystem Health Score Gauge Card */}
             <HealthScoreCard 
@@ -153,7 +155,7 @@ const DeveloperConsole = () => {
             />
 
             {/* Queue Integrity Monitor */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8">
               <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                 <LuZap className="text-amber-400" /> Queue Integrity Monitoring
               </h3>
@@ -164,7 +166,7 @@ const DeveloperConsole = () => {
             <LeakDetectorPanel />
 
             {/* Rendering and pipeline throughput Profiler */}
-            <div className="glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-6 flex flex-col">
+            <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-6 flex flex-col">
                <h3 className="text-[10px] font-black text-white uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
                  <LuTerminal className="text-primary-400" /> Runtime Profiler
                </h3>

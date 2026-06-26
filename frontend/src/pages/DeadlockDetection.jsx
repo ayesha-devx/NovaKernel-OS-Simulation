@@ -114,80 +114,84 @@ const DeadlockDetection = () => {
           animate={{ opacity: 1, y: 0 }}
           className="relative group"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-          <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+                    <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
              <div className="absolute inset-0 scanline-overlay opacity-20" />
              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
              
-             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-               <div className="space-y-4">
-                 <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
-                        <FiShield className={isDeadlocked ? 'text-danger neon-text animate-pulse' : 'text-success neon-text-cyan'} size={32} />
-                    </div>
-                    <div>
-                      <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">DEADLOCK DETECTION</h1>
-                      <div className="flex items-center gap-3">
-                          <span className={`w-2 h-2 rounded-full ${isDeadlocked ? 'bg-danger shadow-[0_0_10px_#FF4D6D]' : 'bg-success shadow-[0_0_10px_#00FF9D]'} indicator-pulse`} />
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Resource Allocation Graph & Recovery Engine V3.0</p>
-                      </div>
-                    </div>
-                 </div>
-                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
-                   Real-time cycle detection and automated recovery orchestration. Monitoring resource acquisition patterns to prevent kernel-level circular wait conditions.
-                 </p>
-               </div>
+             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8 relative z-10">
+                            <div className="space-y-4 w-full lg:w-auto">
+                               <div className="flex items-center gap-4 sm:gap-5">
+                                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0">
+                                       <FiShield className={isDeadlocked ? 'text-danger neon-text animate-pulse' : 'text-success neon-text-cyan'} size={24} />
+                                  </div>
+                                  <div>
+                                    <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">DEADLOCK DETECTION</h1>
+                                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                                        <div className="flex items-center gap-2">
+                                            <span className={`w-2 h-2 rounded-full ${isDeadlocked ? 'bg-danger shadow-[0_0_10px_#FF4D6D]' : 'bg-success shadow-[0_0_10px_#00FF9D]'} indicator-pulse`} />
+                                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Deadlock_Recovery_Ready</span>
+                                        </div>
+                                    </div>
+                                  </div>
+                               </div>
+                               <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-0 sm:ml-19">
+                                 Real-time cycle detection and automated recovery orchestration. Monitoring resource acquisition patterns to prevent kernel-level circular wait conditions.
+                               </p>
+                            </div>
                
-               <div className="flex flex-wrap gap-3 items-center">
-                 {/* Strategy selector */}
-                 <div className="relative">
-                   <button
-                     onClick={() => setShowStrategy(s => !s)}
-                     className="px-5 py-3 bg-surface/40 hover:bg-surface/60 border border-white/10 text-white/80 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 glass group"
-                   >
-                     <FiTarget size={12} className="group-hover:text-cyan transition-colors" />
-                     <span className="opacity-60">Strategy:</span> {STRATEGIES.find(s => s.value === strategy)?.label}
-                     <FiChevronDown size={10} className={`transition-transform duration-300 ${showStrategy ? 'rotate-180' : ''}`} />
-                   </button>
-                   <AnimatePresence>
-                     {showStrategy && (
-                       <motion.div
-                         initial={{ opacity: 0, y: -8, scale: 0.95 }}
-                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                         exit={{ opacity: 0, y: -8, scale: 0.95 }}
-                         className="absolute right-0 top-full mt-2 z-50 glass-premium border border-primary/30 rounded-xl p-2 min-w-[220px] shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
-                       >
-                         {STRATEGIES.map(s => (
-                           <button
-                             key={s.value}
-                             onClick={() => { setStrategy(s.value); setShowStrategy(false); }}
-                             className={`w-full text-left px-4 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all mb-1 last:mb-0 ${
-                               strategy === s.value
-                                 ? 'bg-primary/20 text-primary border border-primary/30'
-                                 : 'text-white/40 hover:bg-white/5 hover:text-white/80'
-                             }`}
-                           >
-                             {s.label}
-                           </button>
-                         ))}
-                       </motion.div>
-                     )}
-                   </AnimatePresence>
-                 </div>
+               <div className="flex flex-col sm:flex-row flex-wrap gap-3 items-stretch sm:items-center w-full lg:w-auto">
+                                 {/* Strategy selector */}
+                                 <div className="relative w-full sm:w-auto">
+                                   <button
+                                     onClick={() => setShowStrategy(s => !s)}
+                                     className="w-full justify-between px-5 py-3 bg-surface/40 hover:bg-surface/60 border border-white/10 text-white/80 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 glass group"
+                                   >
+                                     <div className="flex items-center gap-2">
+                                       <FiTarget size={12} className="group-hover:text-cyan transition-colors" />
+                                       <span className="opacity-60">Strategy:</span> {STRATEGIES.find(s => s.value === strategy)?.label}
+                                     </div>
+                                     <FiChevronDown size={10} className={`transition-transform duration-300 ${showStrategy ? 'rotate-180' : ''}`} />
+                                   </button>
+                                   <AnimatePresence>
+                                     {showStrategy && (
+                                       <motion.div
+                                         initial={{ opacity: 0, y: -8, scale: 0.95 }}
+                                         animate={{ opacity: 1, y: 0, scale: 1 }}
+                                         exit={{ opacity: 0, y: -8, scale: 0.95 }}
+                                         className="absolute right-0 top-full mt-2 z-50 glass-premium border border-primary/30 rounded-xl p-2 min-w-[220px] w-full sm:w-auto shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
+                                       >
+                                         {STRATEGIES.map(s => (
+                                           <button
+                                             key={s.value}
+                                             onClick={() => { setStrategy(s.value); setShowStrategy(false); }}
+                                             className={`w-full text-left px-4 py-2.5 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all mb-1 last:mb-0 ${
+                                               strategy === s.value
+                                                 ? 'bg-primary/20 text-primary border border-primary/30'
+                                                 : 'text-white/40 hover:bg-white/5 hover:text-white/80'
+                                             }`}
+                                           >
+                                             {s.label}
+                                           </button>
+                                         ))}
+                                       </motion.div>
+                                     )}
+                                   </AnimatePresence>
+                                 </div>
 
-                 <button onClick={handleSimulate}
-                   className="px-6 py-3 bg-warning/10 hover:bg-warning/20 border border-warning/30 text-warning rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 neon-border-warning hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(255,200,87,0.1)]">
-                   <FiPlay className="fill-current" /> Simulate Deadlock
-                 </button>
-                 <button onClick={handleAutoRecover}
-                   className="px-6 py-3 bg-success/10 hover:bg-success/20 border border-success/30 text-success rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 neon-border-green hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,255,157,0.1)]">
-                   <FiZap className="fill-current" /> Auto Recover
-                 </button>
-                 <button onClick={handleReset}
-                   className="px-6 py-3 bg-primary/10 hover:bg-primary/20 border border-primary/30 text-primary rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 neon-border hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(157,0,255,0.1)]">
-                   <FiRefreshCw /> Reset System
-                 </button>
-               </div>
+                                 <button onClick={handleSimulate}
+                                   className="w-full sm:w-auto justify-center px-6 py-3 bg-warning/10 hover:bg-warning/20 border border-warning/30 text-warning rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 neon-border-warning hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(255,200,87,0.1)]">
+                                   <FiPlay className="fill-current" /> Simulate Deadlock
+                                 </button>
+                                 <button onClick={handleAutoRecover}
+                                   className="w-full sm:w-auto justify-center px-6 py-3 bg-success/10 hover:bg-success/20 border border-success/30 text-success rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 neon-border-green hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(0,255,157,0.1)]">
+                                   <FiZap className="fill-current" /> Auto Recover
+                                 </button>
+                                 <button onClick={handleReset}
+                                   className="w-full sm:w-auto justify-center px-6 py-3 bg-primary/10 hover:bg-primary/20 border border-primary/30 text-primary rounded-xl text-[10px] font-black uppercase tracking-widest transition-all flex items-center gap-2 neon-border hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(157,0,255,0.1)]">
+                                   <FiRefreshCw /> Reset System
+                                 </button>
+                               </div>
              </div>
           </div>
         </motion.div>
@@ -195,38 +199,40 @@ const DeadlockDetection = () => {
         {/* ── Animation Phase Banner ──────────────────────────────── */}
         <AnimatePresence>
           {animPhase !== 'IDLE' && (
-            <motion.div
-              key={animPhase}
-              initial={{ opacity: 0, y: -10, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.98 }}
-              className={`flex items-center gap-4 px-6 py-5 rounded-2xl border glass-premium ${phaseStyle.bg} ${phaseStyle.border.replace('border-', 'neon-border-') || 'neon-border'}`}
-            >
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${phaseStyle.bg} border ${phaseStyle.border}`}>
-                <FiActivity className={`${phaseStyle.color} animate-pulse`} size={20} />
-              </div>
-              <div className="flex-1">
-                <p className={`text-xs font-black uppercase tracking-[0.2em] ${phaseStyle.color} font-orbitron`}>
-                  Recovery Engine <span className="opacity-40 px-2">//</span> {phaseStyle.label}
-                </p>
-                <div className="flex gap-4 mt-1">
-                  {animMeta.victim_pid && (
-                    <p className="text-[10px] text-white/60 font-mono flex items-center gap-1.5">
-                      <span className="text-danger font-bold">VICTIM_IDENTIFIED:</span> 
-                      <span className="bg-white/5 px-2 py-0.5 rounded border border-white/10">PID {animMeta.victim_pid}</span>
-                      {animMeta.victim_name ? <span className="opacity-40 italic">({animMeta.victim_name})</span> : ''}
-                    </p>
-                  )}
-                  {animMeta.resources?.length > 0 && (
-                    <p className="text-[10px] text-white/60 font-mono flex items-center gap-1.5">
-                      <span className="text-warning font-bold">RESOURCES_LOCKED:</span>
-                      <span className="bg-white/5 px-2 py-0.5 rounded border border-white/10">{animMeta.resources.join(', ')}</span>
-                    </p>
-                  )}
-                </div>
-              </div>
-              {/* Progress dots */}
-              <div className="flex gap-2 bg-black/20 p-2 rounded-xl border border-white/5">
+                      <motion.div
+                        key={animPhase}
+                        initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                        className={`flex flex-col md:flex-row items-stretch md:items-center gap-4 px-4 sm:px-6 py-5 rounded-2xl border glass-premium ${phaseStyle.bg} ${phaseStyle.border.replace('border-', 'neon-border-') || 'neon-border'}`}
+                      >
+                        <div className="flex items-center gap-4 flex-1">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${phaseStyle.bg} border ${phaseStyle.border} shrink-0`}>
+                            <FiActivity className={`${phaseStyle.color} animate-pulse`} size={20} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className={`text-xs font-black uppercase tracking-[0.2em] ${phaseStyle.color} font-orbitron truncate`}>
+                              Recovery Engine <span className="opacity-40 px-2">//</span> {phaseStyle.label}
+                            </p>
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mt-1">
+                              {animMeta.victim_pid && (
+                                <p className="text-[10px] text-white/60 font-mono flex items-center gap-1.5">
+                                  <span className="text-danger font-bold text-[8px] sm:text-[10px]">VICTIM:</span> 
+                                  <span className="bg-white/5 px-2 py-0.5 rounded border border-white/10">PID {animMeta.victim_pid}</span>
+                                  {animMeta.victim_name ? <span className="opacity-40 italic">({animMeta.victim_name})</span> : ''}
+                                </p>
+                              )}
+                              {animMeta.resources?.length > 0 && (
+                                <p className="text-[10px] text-white/60 font-mono flex items-center gap-1.5">
+                                  <span className="text-warning font-bold text-[8px] sm:text-[10px]">LOCKED:</span>
+                                  <span className="bg-white/5 px-2 py-0.5 rounded border border-white/10">{animMeta.resources.join(', ')}</span>
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                        {/* Progress dots */}
+                        <div className="flex flex-wrap sm:flex-nowrap gap-1.5 sm:gap-2 bg-black/20 p-2 rounded-xl border border-white/5 justify-center sm:justify-start">
                 {['DETECTION','ANALYZING','VICTIM_SELECTED','RESOURCE_RELEASE',
                   'PROCESS_TERMINATED','RESOURCE_REALLOCATION','SYSTEM_STABILIZED'].map((p, i) => {
                   const phaseIndex = Object.keys(PHASE_STYLES).indexOf(animPhase);
@@ -255,20 +261,20 @@ const DeadlockDetection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
           {/* Left: Graph */}
-          <div className="lg:col-span-8 space-y-6">
-            <div className={`relative glass-premium border rounded-[2.5rem] p-10 overflow-hidden min-h-[580px] flex flex-col transition-all duration-700 ${
-              isDeadlocked ? 'neon-border-danger bg-danger/5 shadow-[0_0_100px_rgba(255,77,109,0.1)]' : 'border-white/10'
-            }`}>
-              {/* Grid Background */}
-              <div className="absolute inset-0 cyber-grid opacity-20 pointer-events-none" />
-              <div className="absolute inset-0 bg-radial-gradient from-primary/5 via-transparent to-transparent opacity-50 pointer-events-none" />
-              
-              <div className="flex items-center justify-between mb-8 relative z-10">
-                <h2 className="text-[10px] font-black text-white/40 uppercase tracking-[0.4em] flex items-center gap-3">
-                  <FiActivity className="text-primary animate-pulse" />
-                  Resource Allocation Graph (RAG)
-                  <span className="h-[1px] w-12 bg-white/10 ml-2"></span>
-                </h2>
+                    <div className="lg:col-span-8 space-y-6">
+                      <div className={`relative glass-premium border rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-6 lg:p-10 overflow-hidden min-h-[350px] sm:min-h-[450px] lg:min-h-[580px] flex flex-col transition-all duration-700 ${
+                        isDeadlocked ? 'neon-border-danger bg-danger/5 shadow-[0_0_100px_rgba(255,77,109,0.1)]' : 'border-white/10'
+                      }`}>
+                        {/* Grid Background */}
+                        <div className="absolute inset-0 cyber-grid opacity-20 pointer-events-none" />
+                        <div className="absolute inset-0 bg-radial-gradient from-primary/5 via-transparent to-transparent opacity-50 pointer-events-none" />
+
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-8 relative z-10">
+                          <h2 className="text-[10px] font-black text-white/40 uppercase tracking-[0.4em] flex items-center gap-3">
+                            <FiActivity className="text-primary animate-pulse" />
+                            Resource Allocation Graph (RAG)
+                            <span className="h-[1px] w-12 bg-white/10 ml-2 hidden sm:block"></span>
+                          </h2>
                 <div className="flex gap-3">
                   <div className="flex items-center gap-2 bg-white/5 px-4 py-1.5 rounded-full border border-white/10 glass">
                     <div className="w-2.5 h-2.5 rounded-full bg-cyan shadow-[0_0_10px_#00D1FF]" />
@@ -314,12 +320,12 @@ const DeadlockDetection = () => {
                   { label: 'Avg Recovery',      value: `${analytics.avg_recovery_time_s}s`, color: 'text-primary',  border: 'neon-border' },
                 ].map(stat => (
                   <motion.div 
-                    key={stat.label} 
-                    whileHover={{ scale: 1.05, translateY: -5 }}
-                    className={`glass border rounded-2xl p-5 relative overflow-hidden group ${stat.border}`}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50" />
-                    <p className={`text-3xl font-black ${stat.color} font-orbitron neon-text relative z-10`}>{stat.value}</p>
+                                      key={stat.label} 
+                                      whileHover={{ scale: 1.05, translateY: -5 }}
+                                      className={`glass border rounded-2xl p-4 sm:p-5 relative overflow-hidden group ${stat.border}`}
+                                    >
+                                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50" />
+                                      <p className={`text-2xl sm:text-3xl font-black ${stat.color} font-orbitron neon-text relative z-10`}>{stat.value}</p>
                     <p className="text-[8px] text-white/30 font-black uppercase tracking-[0.2em] mt-2 relative z-10">{stat.label}</p>
                   </motion.div>
                 ))}
@@ -331,7 +337,7 @@ const DeadlockDetection = () => {
           <div className="lg:col-span-4 space-y-6">
 
             {/* Status card */}
-            <div className={`glass-premium border rounded-[2.5rem] p-8 transition-all duration-500 relative overflow-hidden group ${
+            <div className={`glass-premium border rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 transition-all duration-500 relative overflow-hidden group ${
               isDeadlocked ? 'neon-border-danger bg-danger/5 shadow-[0_0_50px_rgba(255,77,109,0.15)]' : 'border-white/10'
             }`}>
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[80px] pointer-events-none group-hover:bg-primary/20 transition-all" />
@@ -377,7 +383,7 @@ const DeadlockDetection = () => {
                   </button>
                 </div>
               ) : (
-                <div className="p-8 bg-white/5 border border-white/10 rounded-[2rem] glass flex flex-col items-center gap-4 relative z-10 overflow-hidden">
+                <div className="p-4 sm:p-8 bg-white/5 border border-white/10 rounded-2xl sm:rounded-[2rem] glass flex flex-col items-center gap-4 relative z-10 overflow-hidden">
                   <div className="absolute inset-0 shimmer-sweep opacity-10" />
                   <FiShield className="text-success/20" size={40} />
                   <p className="text-[10px] font-bold text-white/40 leading-relaxed uppercase tracking-[0.3em] text-center">
@@ -389,7 +395,7 @@ const DeadlockDetection = () => {
             </div>
 
             {/* Resource Registry */}
-            <div className="glass-premium border border-white/10 rounded-[2.5rem] p-8 relative overflow-hidden">
+            <div className="glass-premium border border-white/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan/5 blur-[60px] pointer-events-none" />
               <h3 className="text-[10px] font-black text-white/40 uppercase tracking-[0.4em] mb-6 flex items-center gap-2">
                 <FiLayers className="text-cyan" />

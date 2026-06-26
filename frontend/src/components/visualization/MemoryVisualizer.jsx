@@ -42,9 +42,9 @@ const MemoryVisualizer = ({ kernelState }) => {
   }, [blocks, segmentSize, segments]);
 
   return (
-    <div className="flex flex-col h-full bg-black/40 border border-white/10 rounded-[2rem] overflow-hidden backdrop-blur-xl">
+    <div className="flex flex-col h-full bg-black/40 border border-white/10 rounded-3xl sm:rounded-[2rem] overflow-hidden backdrop-blur-xl">
       {/* ── Header ──────────────────────────────────────────────────────── */}
-      <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-white/5">
+      <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white/5">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-xl bg-violet-500/20 text-violet-500 flex items-center justify-center">
             <FiDatabase size={16} />
@@ -55,7 +55,7 @@ const MemoryVisualizer = ({ kernelState }) => {
           </div>
         </div>
 
-        <div className="flex items-center gap-4 text-[9px] font-black uppercase tracking-widest">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-[9px] font-black uppercase tracking-widest">
            <div className="flex items-center gap-2 text-emerald-400">
              <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]" />
              <span>Active Allocation</span>
@@ -68,7 +68,7 @@ const MemoryVisualizer = ({ kernelState }) => {
       </div>
 
       {/* ── Main Heatmap Area ─────────────────────────────────────────── */}
-      <div className="flex-grow p-8 flex flex-col gap-8 justify-center">
+      <div className="flex-grow p-4 sm:p-8 flex flex-col gap-4 sm:gap-8 justify-center">
         
         {/* Heatmap Grid */}
         <div className="grid grid-cols-8 sm:grid-cols-16 gap-2">
@@ -129,7 +129,7 @@ const MemoryVisualizer = ({ kernelState }) => {
       </div>
 
       {/* ── Resource Footer ───────────────────────────────────────────── */}
-      <div className="px-8 py-5 bg-white/2 border-t border-white/10 grid grid-cols-4 gap-6">
+      <div className="p-4 sm:px-8 sm:py-5 bg-white/2 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
         <div className="flex flex-col">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Total Ram</span>
           <div className="flex items-center gap-2">
@@ -137,20 +137,20 @@ const MemoryVisualizer = ({ kernelState }) => {
              <span className="text-xs font-black text-white uppercase">{totalRam}MB</span>
           </div>
         </div>
-        <div className="flex flex-col border-l border-white/5 pl-6">
+        <div className="flex flex-col border-l-0 sm:border-l border-white/5 pl-0 sm:pl-6">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Used Mem</span>
           <div className="flex items-center gap-2">
              <FiCpu className="text-sky-500" size={12}/>
              <span className="text-xs font-black text-white uppercase">{usedRam}MB</span>
           </div>
         </div>
-        <div className="flex flex-col border-l border-white/5 pl-6">
+        <div className="flex flex-col border-l-0 sm:border-l border-white/5 pl-0 sm:pl-6">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Free Blocks</span>
           <div className="flex items-center gap-2 text-emerald-400">
              <span className="text-xs font-black uppercase">{totalRam - usedRam}MB</span>
           </div>
         </div>
-        <div className="flex flex-col border-l border-white/5 pl-6">
+        <div className="flex flex-col border-l-0 sm:border-l border-white/5 pl-0 sm:pl-6">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Utilization</span>
           <div className="flex items-center gap-2 text-primary">
              <span className="text-xs font-black uppercase">{((usedRam/totalRam)*100).toFixed(1)}%</span>

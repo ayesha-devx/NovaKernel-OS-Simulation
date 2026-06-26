@@ -13,13 +13,13 @@ const MemoryMap = () => {
   return (
     <div className="relative pt-6 pb-6">
       {/* Memory Grid Header Telemetry */}
-      <div className="flex justify-between items-center text-[9px] font-black font-orbitron mb-8 uppercase tracking-[0.3em] px-2">
-        <div className="flex items-center gap-6">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8 text-[9px] font-black font-orbitron uppercase tracking-wider sm:tracking-[0.3em] px-2 w-full">
+        <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <span className="text-primary/40">ADDR_0x0000</span>
-            <div className="h-3 w-px bg-primary/20" />
-            <div className="flex items-center gap-10 ml-4">
-              <span className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_#9D00FF]"></div> ALLOCATED</span>
-              <span className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-primary/10 border border-primary/40"></div> UNUSED_SYS</span>
+            <div className="h-3 w-px bg-primary/20 hidden sm:block" />
+            <div className="flex items-center gap-4 sm:gap-10">
+              <span className="flex items-center gap-2 sm:gap-3"><div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_12px_#9D00FF]"></div> ALLOCATED</span>
+              <span className="flex items-center gap-2 sm:gap-3"><div className="w-2 h-2 rounded-full bg-primary/10 border border-primary/40"></div> UNUSED_SYS</span>
             </div>
         </div>
         <span className="text-primary/40 tracking-widest">LIMIT_0x{(totalSize - 1).toString(16).toUpperCase()}</span>
@@ -85,11 +85,11 @@ const MemoryMap = () => {
             exit={{ opacity: 0, height: 0, y: 20 }}
             className="mt-10 overflow-hidden"
           >
-            <div className="glass-premium bg-primary/[0.03] border border-primary/20 rounded-[2.5rem] p-8 shadow-2xl backdrop-blur-3xl flex flex-col lg:flex-row items-center justify-between gap-8">
-              <div className="flex flex-wrap items-center gap-10">
+            <div className="glass-premium bg-primary/[0.03] border border-primary/20 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 shadow-2xl backdrop-blur-3xl flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6 lg:gap-8">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-6 sm:gap-10">
                 <div className="flex flex-col gap-2">
                   <span className="text-[8px] font-black text-slate-500 uppercase tracking-widest font-orbitron">ALLOC_STATUS</span>
-                  <div className={`px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest border font-orbitron ${
+                  <div className={`px-4 py-1.5 rounded-full text-[9px] font-black tracking-widest border font-orbitron text-center ${
                     selectedBlock.status === "ALLOCATED" 
                       ? 'bg-primary/10 text-primary border-primary/30 shadow-[0_0_15px_rgba(157,0,255,0.2)]' 
                       : 'bg-slate-800 text-slate-500 border-white/5'
@@ -99,21 +99,21 @@ const MemoryMap = () => {
                 </div>
 
                 {selectedBlock.pid && (
-                  <div className="flex items-center gap-5 border-l border-white/10 pl-10">
-                     <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center neon-border">
+                  <div className="flex items-center gap-5 border-t sm:border-t-0 sm:border-l border-white/10 pt-4 sm:pt-0 pl-0 sm:pl-10">
+                     <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center neon-border shrink-0">
                         <LuCpu className="text-primary neon-text" size={24} />
                      </div>
                      <div>
                         <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-orbitron mb-1">EXEC_CONTEXT</p>
-                        <p className="text-lg font-black text-white font-orbitron tracking-tight">{selectedBlock.process_name}</p>
+                        <p className="text-base sm:text-lg font-black text-white font-orbitron tracking-tight">{selectedBlock.process_name}</p>
                         <p className="text-[9px] text-primary font-mono-cyber uppercase font-black">PID_0x{selectedBlock.pid.toString(16).toUpperCase()}</p>
                      </div>
                   </div>
                 )}
 
-                <div className="flex flex-col gap-2 border-l border-white/10 pl-10">
+                <div className="flex flex-col gap-2 border-t sm:border-t-0 sm:border-l border-white/10 pt-4 sm:pt-0 pl-0 sm:pl-10">
                   <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest font-orbitron">ADDRESS_SPACE_SEGMENT</p>
-                  <div className="flex items-center gap-4 bg-black/40 px-5 py-2.5 rounded-2xl border border-white/5 font-mono-cyber font-black text-xs text-secondary">
+                  <div className="flex items-center justify-between sm:justify-start gap-4 bg-black/40 px-5 py-2.5 rounded-2xl border border-white/5 font-mono-cyber font-black text-xs text-secondary">
                     <span>0x{(selectedBlock.start_address || 0).toString(16).toUpperCase().padStart(4, '0')}</span>
                     <span className="opacity-30">→</span>
                     <span>0x{(selectedBlock.end_address || 0).toString(16).toUpperCase().padStart(4, '0')}</span>
@@ -125,7 +125,7 @@ const MemoryMap = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSelectedBlock(null)}
-                className="px-8 py-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl text-[9px] font-black text-white font-orbitron tracking-widest transition-all uppercase"
+                className="px-8 py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-2xl text-[9px] font-black text-white font-orbitron tracking-widest transition-all uppercase w-full lg:w-auto flex justify-center"
               >
                 CLOSE_PORTAL
               </motion.button>

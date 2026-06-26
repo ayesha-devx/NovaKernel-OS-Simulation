@@ -29,7 +29,7 @@ const GanttChart = () => {
   const pxPerSec = 50; // Zoom factor
 
   return (
-    <div className="glass-premium border border-white/10 rounded-[2.5rem] p-10 overflow-hidden relative shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+    <div className="glass-premium border border-white/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 md:p-10 overflow-hidden relative shadow-[0_0_50px_rgba(157,0,255,0.05)]">
       <div className="absolute inset-0 scanline-overlay opacity-5 pointer-events-none" />
       
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-6 relative z-10">

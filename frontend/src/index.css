@@ -7,16 +7,16 @@
   --color-panel-dark: #0B1020;
   --color-panel-darker: #050816;
   
-  --color-primary: #9D00FF;
+  --color-primary: #BF00FF;
   --color-cyan: #00D1FF;
   --color-secondary: #00D1FF;
-  --color-magenta: #D900FF;
+  --color-magenta: #FF00FF;
   --color-green: #00FF9D;
   --color-success: #00FF9D;
   --color-warning: #FFC857;
   --color-error: #FF4D6D;
   --color-danger: #FF4D6D;
-  --color-border-neon: rgba(157, 0, 255, 0.5);
+  --color-border-neon: rgba(191, 0, 255, 0.5);
 
   --color-text: #F8FAFC;
 
@@ -168,97 +168,91 @@ html, body {
 
 /* Card Neon Color Themes */
 .card-theme-primary {
-  --card-border-color: rgba(0, 245, 255, 0.15);
-  --card-border-hover-color: rgba(0, 245, 255, 0.75);
-  --card-glow-color: rgba(0, 245, 255, 0.02);
-  --card-glow-hover-color: rgba(0, 245, 255, 0.25);
+  --card-border-color: rgba(0, 245, 255, 0.25);
+  --card-border-hover-color: rgba(0, 245, 255, 0.95);
+  --card-glow-color: transparent;
+  --card-glow-hover-color: transparent;
 }
 
 .card-theme-purple {
-  --card-border-color: rgba(157, 0, 255, 0.15);
-  --card-border-hover-color: rgba(157, 0, 255, 0.75);
-  --card-glow-color: rgba(157, 0, 255, 0.02);
-  --card-glow-hover-color: rgba(157, 0, 255, 0.25);
+  --card-border-color: rgba(157, 0, 255, 0.25);
+  --card-border-hover-color: rgba(157, 0, 255, 0.95);
+  --card-glow-color: transparent;
+  --card-glow-hover-color: transparent;
 }
 
 .card-theme-success {
-  --card-border-color: rgba(0, 255, 157, 0.15);
-  --card-border-hover-color: rgba(0, 255, 157, 0.75);
-  --card-glow-color: rgba(0, 255, 157, 0.02);
-  --card-glow-hover-color: rgba(0, 255, 157, 0.25);
+  --card-border-color: rgba(0, 255, 157, 0.25);
+  --card-border-hover-color: rgba(0, 255, 157, 0.95);
+  --card-glow-color: transparent;
+  --card-glow-hover-color: transparent;
 }
 
 .card-theme-warning {
-  --card-border-color: rgba(255, 200, 87, 0.15);
-  --card-border-hover-color: rgba(255, 200, 87, 0.75);
-  --card-glow-color: rgba(255, 200, 87, 0.02);
-  --card-glow-hover-color: rgba(255, 200, 87, 0.25);
+  --card-border-color: rgba(255, 200, 87, 0.25);
+  --card-border-hover-color: rgba(255, 200, 87, 0.95);
+  --card-glow-color: transparent;
+  --card-glow-hover-color: transparent;
 }
 
 .card-theme-error {
-  --card-border-color: rgba(255, 77, 109, 0.15);
-  --card-border-hover-color: rgba(255, 77, 109, 0.75);
-  --card-glow-color: rgba(255, 77, 109, 0.02);
-  --card-glow-hover-color: rgba(255, 77, 109, 0.25);
+  --card-border-color: rgba(255, 77, 109, 0.25);
+  --card-border-hover-color: rgba(255, 77, 109, 0.95);
+  --card-glow-color: transparent;
+  --card-glow-hover-color: transparent;
 }
 
 .glass-nav {
   background: rgba(2, 4, 12, 0.95);
   backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(157, 0, 255, 0.15);
+  border-bottom: 1px solid rgba(191, 0, 255, 0.15);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* Cyber Utilities */
 .neon-text {
-  text-shadow: 
-    0 0 2px rgba(157, 0, 255, 1), 
-    0 0 10px rgba(157, 0, 255, 0.6), 
-    0 0 20px rgba(217, 0, 255, 0.3);
+  text-shadow: none;
 }
 
 .neon-text-cyan {
-  text-shadow: 
-    0 0 2px rgba(0, 209, 255, 1), 
-    0 0 10px rgba(0, 209, 255, 0.6), 
-    0 0 20px rgba(0, 209, 255, 0.3);
+  text-shadow: none;
 }
 
 .neon-gradient-text {
-  background: linear-gradient(to right, #00D1FF, #9D00FF, #D900FF);
+  background: linear-gradient(to right, #00D1FF, #BF00FF, #FF00FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 0 5px rgba(157, 0, 255, 0.8));
+  filter: none;
 }
 
 .neon-border {
-  border: 1px solid rgba(157, 0, 255, 0.4);
-  box-shadow: 0 0 15px rgba(157, 0, 255, 0.2), inset 0 0 5px rgba(157, 0, 255, 0.1);
+  border: 1px solid rgba(191, 0, 255, 0.85);
+  box-shadow: none;
 }
 
 .neon-border-magenta {
-  border: 1px solid rgba(217, 0, 255, 0.4);
-  box-shadow: 0 0 15px rgba(217, 0, 255, 0.2), inset 0 0 5px rgba(217, 0, 255, 0.1);
+  border: 1px solid rgba(255, 0, 255, 0.85);
+  box-shadow: none;
 }
 
 .neon-border-cyan {
-  border: 1px solid rgba(0, 209, 255, 0.4);
-  box-shadow: 0 0 15px rgba(0, 209, 255, 0.2), inset 0 0 5px rgba(0, 209, 255, 0.1);
+  border: 1px solid rgba(0, 209, 255, 0.85);
+  box-shadow: none;
 }
 
 .neon-border-green {
-  border: 1px solid rgba(0, 255, 157, 0.4);
-  box-shadow: 0 0 15px rgba(0, 255, 157, 0.2), inset 0 0 5px rgba(0, 255, 157, 0.1);
+  border: 1px solid rgba(0, 255, 157, 0.85);
+  box-shadow: none;
 }
 
 .neon-border-warning {
-  border: 1px solid rgba(255, 200, 87, 0.4);
-  box-shadow: 0 0 15px rgba(255, 200, 87, 0.2), inset 0 0 5px rgba(255, 200, 87, 0.1);
+  border: 1px solid rgba(255, 200, 87, 0.85);
+  box-shadow: none;
 }
 
 .neon-border-danger {
-  border: 1px solid rgba(255, 77, 109, 0.4);
-  box-shadow: 0 0 15px rgba(255, 77, 109, 0.2), inset 0 0 5px rgba(255, 77, 109, 0.1);
+  border: 1px solid rgba(255, 77, 109, 0.85);
+  box-shadow: none;
 }
 
 .cyber-grid {
@@ -302,13 +296,34 @@ html, body {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(157, 0, 255, 0.03) 50%,
+    rgba(191, 0, 255, 0.03) 50%,
     transparent
   );
   background-size: 100% 4px;
   pointer-events: none;
   z-index: 10;
   opacity: 0.4;
+}
+
+.scanline-overlay-animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 209, 255, 0.05) 10%,
+    rgba(0, 209, 255, 0.2) 50%,
+    rgba(0, 209, 255, 0.05) 90%,
+    transparent
+  );
+  background-size: 100% 8px;
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.25;
 }
 
 /* Shimmer Sweep Effect */

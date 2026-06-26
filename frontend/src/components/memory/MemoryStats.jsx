@@ -49,7 +49,7 @@ export const MemoryMetrics = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
       {metrics.map((m, i) => (
         <motion.div
           key={i}
@@ -57,16 +57,16 @@ export const MemoryMetrics = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.1 }}
           whileHover={{ y: -5, scale: 1.02 }}
-          className="relative glass-premium p-8 rounded-[2.5rem] border border-white/10 overflow-hidden group shadow-[0_0_40px_rgba(0,0,0,0.3)]"
+          className="relative glass-premium p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-[2.5rem] border border-white/10 overflow-hidden group shadow-[0_0_40px_rgba(0,0,0,0.3)]"
         >
           <div className="absolute inset-0 scanline-overlay opacity-5 group-hover:opacity-10 transition-opacity" />
           
-          <div className="flex justify-between items-start mb-6 relative z-10">
+          <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4 sm:mb-6 relative z-10">
              <div className="w-12 h-12 rounded-2xl flex items-center justify-center border transition-all duration-500" 
                   style={{ backgroundColor: `${m.color}15`, borderColor: `${m.color}30`, color: m.color, boxShadow: `0 0 15px ${m.color}20` }}>
                 {React.cloneElement(m.icon, { size: 24, className: 'neon-text' })}
              </div>
-             <div className="text-right">
+             <div className="text-left sm:text-right w-full sm:w-auto">
                 <span className="text-[10px] font-black font-orbitron tracking-widest text-slate-500 opacity-60 uppercase">{m.label}</span>
                 <p className="text-[8px] font-black text-slate-600 uppercase tracking-widest mt-1 font-mono-cyber">{m.sub}</p>
              </div>
@@ -100,16 +100,16 @@ export const MemoryHealthMonitor = () => {
     <motion.div 
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="glass-premium p-10 rounded-[3rem] border border-white/10 relative overflow-hidden flex flex-col items-center justify-center min-h-[400px] shadow-[0_0_50px_rgba(157,0,255,0.05)]"
+      className="glass-premium p-4 sm:p-8 md:p-10 rounded-3xl sm:rounded-[3rem] border border-white/10 relative overflow-hidden flex flex-col items-center justify-center min-h-0 md:min-h-[400px] shadow-[0_0_50px_rgba(157,0,255,0.05)]"
     >
       <div className="absolute inset-0 scanline-overlay opacity-10 pointer-events-none" />
       
-      <div className="relative mb-12">
+      <div className="relative mb-8 sm:mb-12">
         {/* Rotating Diagnostic Scan Rings */}
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className="w-56 h-56 rounded-full border-2 border-dashed border-primary/20"
+          className="w-44 h-44 sm:w-56 sm:h-56 rounded-full border-2 border-dashed border-primary/20"
         />
         <motion.div 
           animate={{ rotate: -360 }}
@@ -125,16 +125,16 @@ export const MemoryHealthMonitor = () => {
         />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <LuHeart className="text-primary neon-text mb-2 animate-pulse" size={32} />
-            <span className="text-5xl font-black text-white font-orbitron tracking-tighter neon-text">{Math.round(efficiency)}%</span>
+            <LuHeart className="text-primary neon-text mb-1 sm:mb-2 animate-pulse" size={24} />
+            <span className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-text">{Math.round(efficiency)}%</span>
         </div>
       </div>
 
       <div className="text-center relative z-10">
-        <h3 className="text-xs font-black text-white font-orbitron tracking-[0.4em] uppercase mb-2">ALLOCATION_HEALTH_INDEX</h3>
+        <h3 className="text-xs font-black text-white font-orbitron tracking-[0.15em] sm:tracking-[0.4em] uppercase mb-2">ALLOCATION_HEALTH_INDEX</h3>
         <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-mono-cyber">Diagnostic_Realtime_Engine_V4.1</p>
         
-        <div className="flex items-center gap-4 mt-8 justify-center">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mt-6 sm:mt-8 justify-center">
            <div className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-success/10 border border-success/30">
               <span className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_#00FF9D] animate-pulse" />
               <span className="text-[8px] font-black text-success uppercase tracking-widest font-orbitron">Optimized</span>
@@ -152,15 +152,15 @@ export const FragmentationMatrix = () => {
   const { memoryStats = {} } = useProcess();
 
   return (
-    <div className="glass-premium p-10 rounded-[3rem] border border-white/10 relative overflow-hidden h-full shadow-[0_0_40px_rgba(255,200,87,0.05)]">
+    <div className="glass-premium p-4 sm:p-8 md:p-10 rounded-3xl sm:rounded-[3rem] border border-white/10 relative overflow-hidden h-full shadow-[0_0_40px_rgba(255,200,87,0.05)]">
        <div className="absolute inset-0 scanline-overlay opacity-5 pointer-events-none" />
        
-       <div className="flex items-center gap-5 mb-12">
-          <div className="w-12 h-12 rounded-2xl bg-warning/20 border border-warning/30 flex items-center justify-center neon-border-warning">
-              <LuLayers className="text-warning neon-text-warning" size={24} />
+       <div className="flex items-center gap-4 sm:gap-5 mb-8 sm:mb-12">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-warning/20 border border-warning/30 flex items-center justify-center neon-border-warning shrink-0">
+              <LuLayers className="text-warning neon-text-warning" size={20} />
           </div>
           <div>
-            <h3 className="text-xl font-black text-white font-orbitron tracking-[0.2em] uppercase">FRAG_MATRIX</h3>
+            <h3 className="text-lg sm:text-xl font-black text-white font-orbitron tracking-[0.2em] uppercase">FRAG_MATRIX</h3>
             <p className="text-[8px] font-black text-slate-500 uppercase tracking-[0.3em] mt-1 font-orbitron">Structural_Integrity_Scan</p>
           </div>
        </div>
@@ -193,15 +193,15 @@ export const FragmentationMatrix = () => {
           ))}
        </div>
 
-       <div className="mt-12 pt-8 border-t border-white/5">
-          <div className="flex items-center justify-between p-5 rounded-2xl bg-white/[0.02] border border-white/5">
-             <div className="flex items-center gap-4">
+       <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/5">
+          <div className="flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5">
+             <div className="flex items-center gap-3 sm:gap-4">
                 <div className="w-8 h-8 rounded-xl bg-primary/20 flex items-center justify-center">
                     <LuActivity className="text-primary" size={14} />
                 </div>
                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest font-orbitron">Utilization_Load</span>
              </div>
-             <span className="text-lg font-black text-white font-mono-cyber">{memoryStats.utilization || 0}%</span>
+             <span className="text-base sm:text-lg font-black text-white font-mono-cyber">{memoryStats.utilization || 0}%</span>
           </div>
        </div>
     </div>

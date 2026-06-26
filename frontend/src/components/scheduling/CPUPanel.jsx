@@ -8,7 +8,7 @@ const CPUPanel = () => {
   const { current_process, quantum_remaining, algorithm, is_active } = schedulerState;
 
   return (
-    <div className="relative glass-premium border border-white/10 rounded-[2.5rem] p-10 overflow-hidden h-full group shadow-[0_0_50px_rgba(0,209,255,0.05)]">
+    <div className="relative glass-premium border border-white/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 md:p-10 overflow-hidden h-full group shadow-[0_0_50px_rgba(0,209,255,0.05)]">
       <div className="absolute inset-0 scanline-overlay opacity-10 pointer-events-none" />
       
       {/* Dynamic Core Atmosphere */}
@@ -27,9 +27,9 @@ const CPUPanel = () => {
       </AnimatePresence>
 
       <div className="relative z-10 flex flex-col h-full">
-        <div className="flex items-center justify-between mb-10">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 sm:mb-10">
           <div className="flex items-center gap-5">
-            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-700 relative ${
+            <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center transition-all duration-700 relative ${
               is_active 
                 ? 'bg-secondary/20 text-secondary neon-border-secondary' 
                 : 'bg-white/5 text-slate-700'
@@ -41,7 +41,7 @@ const CPUPanel = () => {
                     className="absolute inset-0 bg-secondary rounded-2xl blur-xl"
                   />
               )}
-              <FiCpu size={28} className={is_active ? "neon-text-cyan relative z-10" : "relative z-10"} />
+              <FiCpu size={24} className={is_active ? "neon-text-cyan relative z-10" : "relative z-10"} />
             </div>
             <div>
               <h2 className="text-sm font-black text-white tracking-[0.3em] font-orbitron uppercase">Core_Alpha_Exec</h2>
@@ -125,21 +125,21 @@ const CPUPanel = () => {
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="w-full max-w-lg relative z-10"
               >
-                <div className="glass-premium bg-white/[0.02] border border-white/10 rounded-[2.5rem] p-10 relative overflow-hidden group/process shadow-[0_0_40px_rgba(0,0,0,0.3)]">
+                <div className="glass-premium bg-white/[0.02] border border-white/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 md:p-10 relative overflow-hidden group/process shadow-[0_0_40px_rgba(0,0,0,0.3)]">
                   <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-success to-transparent shadow-[0_0_10px_#00FF9D]" />
                   
-                  <div className="flex justify-between items-end mb-10">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6 mb-6 sm:mb-10 w-full">
                     <div>
-                      <div className="flex items-center gap-4 mb-4">
-                        <span className="text-[9px] font-black text-success uppercase tracking-[0.3em] px-4 py-1.5 bg-success/10 border border-success/30 rounded-full font-orbitron shadow-[0_0_15px_rgba(0,255,157,0.1)]">PROTOCOL_EXECUTION</span>
+                      <div className="flex items-center gap-3 sm:gap-4 mb-4">
+                        <span className="text-[9px] font-black text-success uppercase tracking-[0.3em] px-3 sm:px-4 py-1.5 bg-success/10 border border-success/30 rounded-full font-orbitron shadow-[0_0_15px_rgba(0,255,157,0.1)]">PROTOCOL_EXECUTION</span>
                         <div className="h-1 w-1 rounded-full bg-slate-600" />
                         <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-mono-cyber">SEG_0x{current_process.pid}</span>
                       </div>
-                      <h3 className="text-6xl font-black text-white font-orbitron tracking-tighter uppercase leading-none neon-text">{current_process.name}</h3>
+                      <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white font-orbitron tracking-tighter uppercase leading-none neon-text">{current_process.name}</h3>
                     </div>
-                    <div className="text-right">
-                       <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-2 font-orbitron">Burst_Remain</p>
-                       <p className="text-5xl font-mono-cyber font-black text-success drop-shadow-[0_0_15px_rgba(0,255,157,0.6)]">{current_process.burst_remaining}s</p>
+                    <div className="text-left sm:text-right w-full sm:w-auto">
+                       <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1 sm:mb-2 font-orbitron">Burst_Remain</p>
+                       <p className="text-3xl sm:text-4xl md:text-5xl font-mono-cyber font-black text-success drop-shadow-[0_0_15px_rgba(0,255,157,0.6)]">{current_process.burst_remaining}s</p>
                     </div>
                   </div>
 
@@ -157,7 +157,7 @@ const CPUPanel = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-x-8 gap-y-6 mt-10 pt-8 border-t border-white/5">
+                  <div className="grid grid-cols-3 gap-4 mt-6 sm:mt-10 pt-6 sm:pt-8 border-t border-white/5">
                     <div className="group/metric">
                       <p className="text-[7px] font-black text-slate-500 uppercase tracking-wider mb-1.5 font-orbitron group-hover/metric:text-warning transition-colors whitespace-nowrap">Wait_Time</p>
                       <p className="text-sm font-mono-cyber font-black text-white">{current_process.waiting_time}s</p>
@@ -181,10 +181,10 @@ const CPUPanel = () => {
         </div>
 
         {/* Realtime Telemetry Grid */}
-        <div className="mt-10 grid grid-cols-2 gap-6 relative z-10">
+        <div className="mt-6 sm:mt-10 grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
            <motion.div 
              whileHover={{ y: -5, scale: 1.02 }}
-             className="glass-premium bg-white/[0.03] border border-white/10 p-6 rounded-[2.5rem] flex flex-col items-center text-center gap-4 shadow-[0_0_30px_rgba(0,0,0,0.2)]"
+             className="glass-premium bg-white/[0.03] border border-white/10 p-4 sm:p-6 rounded-3xl sm:rounded-[2.5rem] flex flex-col items-center text-center gap-2 sm:gap-4 shadow-[0_0_30px_rgba(0,0,0,0.2)]"
            >
               <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/20 flex-shrink-0">
                   <FiActivity className="text-primary neon-text" size={18} />
@@ -196,7 +196,7 @@ const CPUPanel = () => {
            </motion.div>
            <motion.div 
              whileHover={{ y: -5, scale: 1.02 }}
-             className="glass-premium bg-white/[0.03] border border-white/10 p-6 rounded-[2.5rem] flex flex-col items-center text-center gap-4 shadow-[0_0_30px_rgba(0,0,0,0.2)]"
+             className="glass-premium bg-white/[0.03] border border-white/10 p-4 sm:p-6 rounded-3xl sm:rounded-[2.5rem] flex flex-col items-center text-center gap-2 sm:gap-4 shadow-[0_0_30px_rgba(0,0,0,0.2)]"
            >
               <div className="w-10 h-10 rounded-xl bg-warning/20 flex items-center justify-center border border-warning/20 flex-shrink-0">
                   <FiClock className="text-warning neon-text-warning" size={18} />

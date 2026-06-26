@@ -30,7 +30,7 @@ const ProcessCreationForm = () => {
     <motion.div 
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="glass-premium rounded-[2.5rem] border border-white/10 p-8 relative overflow-hidden group shadow-[0_0_50px_rgba(157,0,255,0.05)]"
+      className="glass-premium rounded-3xl sm:rounded-[2.5rem] border border-white/10 p-4 sm:p-8 relative overflow-hidden group shadow-[0_0_50px_rgba(157,0,255,0.05)]"
     >
       <div className="absolute inset-0 scanline-overlay opacity-10" />
       <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 blur-[80px] group-hover:bg-primary/20 transition-all duration-700" />
@@ -40,7 +40,7 @@ const ProcessCreationForm = () => {
             <LuPlus className="text-primary neon-text" size={20} />
         </div>
         <div>
-            <h3 className="text-sm font-black text-white uppercase tracking-[0.4em] font-orbitron">Spawn_Core</h3>
+            <h3 className="text-sm font-black text-white uppercase tracking-[0.2em] sm:tracking-[0.4em] font-orbitron">Spawn_Core</h3>
             <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-0.5">Kernel_Process_Injection_Link</p>
         </div>
       </div>

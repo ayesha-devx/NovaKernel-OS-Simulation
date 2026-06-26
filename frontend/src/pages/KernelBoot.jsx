@@ -62,7 +62,7 @@ const KernelBoot = ({ forceExit = false }) => {
         <div className="absolute bottom-[-5%] right-[-5%] w-[40%] h-[40%] bg-magenta/10 blur-[80px] rounded-full animate-pulse-slow [animation-delay:2s]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[50%] bg-cyan/5 blur-[100px] rounded-full" />
         <div className="absolute inset-0 cyber-grid opacity-10" />
-        <div className="absolute inset-0 scanline-overlay opacity-15" />
+        <div className="absolute inset-0 scanline-overlay-animated opacity-15" />
       </div>
       
       <div className="w-full max-w-4xl flex flex-col items-center gap-1.5 relative z-10 transition-all duration-1000">

@@ -111,7 +111,7 @@ const FileExplorer = ({ directory = [], onFileSelect }) => {
               </div>
             </div>
 
-            <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-all translate-x-4 group-hover:translate-x-0 relative z-10">
+            <div className="flex gap-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all translate-x-0 lg:translate-x-4 lg:group-hover:translate-x-0 relative z-10 shrink-0">
                <button 
                 onClick={(e) => { e.stopPropagation(); onFileSelect(file); }}
                 className="p-2.5 bg-blue-500/5 hover:bg-blue-500/20 text-slate-500 hover:text-blue-400 rounded-xl transition-all border border-transparent hover:border-blue-500/20"

@@ -14,7 +14,7 @@ const HealthScoreCard = React.memo(({ score, status, watchdog }) => {
   };
 
   return (
-    <div className="glass bg-slate-900/40 border border-white/5 p-8 rounded-[2.5rem] flex flex-col items-center justify-center relative overflow-hidden group">
+    <div className="glass bg-slate-900/40 border border-white/5 p-4 sm:p-8 rounded-3xl sm:rounded-[2.5rem] flex flex-col items-center justify-center relative overflow-hidden group">
       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 blur-[50px] -mr-16 -mt-16" />
       
       <div className="relative mb-6">

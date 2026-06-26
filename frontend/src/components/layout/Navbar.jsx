@@ -21,12 +21,21 @@ import {
   LuBot,
   LuSettings,
   LuRotateCcw,
-  LuTrash2
+  LuTrash2,
+  LuShieldCheck,
+  LuCircuitBoard,
+  LuSlidersHorizontal,
+  LuTrendingUp,
+  LuLock,
+  LuBrain,
+  LuTimer,
+  LuMenu,
+  LuX
 } from 'react-icons/lu';
 import { toast } from 'react-toastify';
 import { useKernel } from '../../context/KernelContext';
 
-const Navbar = () => {
+const Navbar = ({ onToggleSidebar, isMobileSidebarOpen }) => {
   const navigate = useNavigate();
   const { logs, isConnected, kernelState, clearLogs } = useKernel();
   const [time, setTime] = useState(new Date());
@@ -39,13 +48,16 @@ const Navbar = () => {
 
   // Command definitions
   const commands = [
-    { id: 'nav-overview', label: 'Go to Nova Overview', category: 'Navigation', icon: <LuCpu size={14}/>, action: () => navigate('/kernel-overview') },
-    { id: 'nav-scheduler', label: 'Open CPU Scheduler', category: 'Navigation', icon: <LuActivity size={14}/>, action: () => navigate('/scheduler') },
-    { id: 'nav-memory', label: 'Monitor Memory Management', category: 'Navigation', icon: <LuLayers size={14}/>, action: () => navigate('/memory') },
+    { id: 'nav-overview', label: 'Go to Nova Overview', category: 'Navigation', icon: <LuShieldCheck size={14}/>, action: () => navigate('/kernel-overview') },
+    { id: 'nav-scheduler', label: 'Open CPU Scheduler', category: 'Navigation', icon: <LuTimer size={14}/>, action: () => navigate('/scheduler') },
+    { id: 'nav-memory', label: 'Monitor Memory Management', category: 'Navigation', icon: <LuDatabase size={14}/>, action: () => navigate('/memory') },
     { id: 'nav-fs', label: 'Explore File System', category: 'Navigation', icon: <LuFolderTree size={14}/>, action: () => navigate('/file-system') },
+    { id: 'nav-hardware', label: 'Open Hardware HAL', category: 'Navigation', icon: <LuCircuitBoard size={14}/>, action: () => navigate('/hardware') },
     { id: 'nav-disk', label: 'Disk Scheduling Dashboard', category: 'Navigation', icon: <LuHardDrive size={14}/>, action: () => navigate('/disk-scheduling') },
-    { id: 'nav-ai', label: 'Talk to AI Assistant', category: 'Navigation', icon: <LuBot size={14}/>, action: () => navigate('/ai-assistant') },
-    { id: 'nav-deadlock', label: 'Deadlock Detection', category: 'Navigation', icon: <LuShieldAlert size={14}/>, action: () => navigate('/deadlock') },
+    { id: 'nav-ai', label: 'Talk to AI Assistant', category: 'Navigation', icon: <LuBrain size={14}/>, action: () => navigate('/ai-assistant') },
+    { id: 'nav-deadlock', label: 'Deadlock Detection', category: 'Navigation', icon: <LuLock size={14}/>, action: () => navigate('/deadlock') },
+    { id: 'nav-analytics', label: 'Open Analytics Dashboard', category: 'Navigation', icon: <LuTrendingUp size={14}/>, action: () => navigate('/analytics') },
+    { id: 'nav-developer', label: 'Open Developer Console', category: 'Navigation', icon: <LuSlidersHorizontal size={14}/>, action: () => navigate('/developer-console') },
     { id: 'action-clear-logs', label: 'Clear System Logs', category: 'System Action', icon: <LuTrash2 size={14}/>, action: async () => { 
       try {
         await clearLogs();
@@ -121,8 +133,18 @@ const Navbar = () => {
       </div>
 
       <div className="relative z-10 w-full flex items-center justify-between gap-6">
-        {/* Left Section: Branding */}
-        <div className="flex items-center gap-1">
+        {/* Left Section: Branding & Mobile Menu */}
+        <div className="flex items-center gap-2">
+          {/* Hamburger Menu Toggle for Mobile */}
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            onClick={onToggleSidebar}
+            className="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all mr-1.5 flex items-center justify-center"
+            aria-label="Toggle Navigation Menu"
+          >
+            {isMobileSidebarOpen ? <LuX size={16} /> : <LuMenu size={16} />}
+          </motion.button>
+
           <motion.div 
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
@@ -141,10 +163,10 @@ const Navbar = () => {
                 SYS_V1.0
               </div>
             </div>
-            <div className="flex items-center gap-2 mt-0.5">
+            <div className="hidden sm:flex items-center gap-2 mt-0.5">
               <div className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_#00FF9D]" />
               <span className="text-[9px] font-black font-mono-cyber text-white/30 tracking-[0.3em] uppercase">
-                Mission Control Interface
+                KERNEL OPERATIONS PANEL
               </span>
             </div>
           </div>

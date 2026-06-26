@@ -19,11 +19,25 @@ import { toast } from 'react-toastify';
 
 // --- SUB-COMPONENT: DISK PLATTER VISUALIZATION ---
 const DiskPlatter = ({ currentTrack, queue, activeRequest, maxTracks = 100 }) => {
-  const radius = 120;
+  const [radius, setRadius] = useState(120);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setRadius(85);
+      } else {
+        setRadius(120);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const tracks = Array.from({ length: 8 }, (_, i) => (i + 1) * (radius / 8));
 
   return (
-    <div className="relative flex items-center justify-center h-80 w-80 mx-auto">
+    <div className="relative flex items-center justify-center h-64 w-64 sm:h-80 sm:w-80 mx-auto">
       {/* Platter Background with Deep Radial Gradient */}
       <div className="absolute inset-0 rounded-full bg-[#050816] border-2 border-[#9D00FF]/30 shadow-[0_0_60px_rgba(157,0,255,0.2)] overflow-hidden">
         {/* Animated Scanning Radial Effect */}
@@ -55,8 +69,11 @@ const DiskPlatter = ({ currentTrack, queue, activeRequest, maxTracks = 100 }) =>
 
       {/* Futuristic Head Assembly */}
       <motion.div 
-        className="absolute h-1.5 w-44 bg-gradient-to-r from-transparent via-[#9D00FF]/40 to-[#00D1FF] origin-left left-1/2 z-30 flex items-center justify-end"
-        style={{ transformOrigin: '0% 50%' }}
+        className="absolute h-1.5 bg-gradient-to-r from-transparent via-[#9D00FF]/40 to-[#00D1FF] origin-left left-1/2 z-30 flex items-center justify-end"
+        style={{ 
+          transformOrigin: '0% 50%',
+          width: radius * 1.45
+        }}
         animate={{ 
           rotate: (currentTrack / maxTracks) * 360,
         }}
@@ -108,7 +125,7 @@ const DiskPlatter = ({ currentTrack, queue, activeRequest, maxTracks = 100 }) =>
 // --- SUB-COMPONENT: TRACK SEEK BAR ---
 const TrackSeekBar = ({ currentTrack, maxTracks = 100, headPath = [] }) => {
   return (
-    <div className="relative w-full h-28 bg-[#0B1020]/60 rounded-3xl border border-[#00D1FF]/20 p-8 overflow-hidden backdrop-blur-xl shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]">
+    <div className="relative w-full h-28 bg-[#0B1020]/60 rounded-3xl border border-[#00D1FF]/20 p-4 sm:p-8 overflow-hidden backdrop-blur-xl shadow-[inset_0_0_30px_rgba(0,0,0,0.5)]">
       {/* Futuristic Scanline Overlay */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))', backgroundSize: '100% 4px, 3px 100%' }}></div>
       
@@ -152,8 +169,8 @@ const TrackSeekBar = ({ currentTrack, maxTracks = 100, headPath = [] }) => {
         </motion.div>
 
         {/* Start/End Neon Markers */}
-        <div className="absolute -bottom-2 left-0 text-[10px] font-black font-mono text-[#9D00FF] drop-shadow-[0_0_5px_rgba(157,0,255,0.5)]">00</div>
-        <div className="absolute -bottom-2 right-0 text-[10px] font-black font-mono text-[#9D00FF] drop-shadow-[0_0_5px_rgba(157,0,255,0.5)]">{maxTracks-1}</div>
+        <div className="absolute -bottom-2 left-4 sm:left-8 text-[10px] font-black font-mono text-[#9D00FF] drop-shadow-[0_0_5px_rgba(157,0,255,0.5)]">00</div>
+        <div className="absolute -bottom-2 right-4 sm:right-8 text-[10px] font-black font-mono text-[#9D00FF] drop-shadow-[0_0_5px_rgba(157,0,255,0.5)]">{maxTracks-1}</div>
       </div>
     </div>
   );
@@ -238,31 +255,33 @@ const DiskScheduling = () => {
           animate={{ opacity: 1, y: 0 }}
           className="relative group"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-          <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+          <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
              <div className="absolute inset-0 scanline-overlay opacity-20" />
              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
              
-             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-               <div className="space-y-4">
-                 <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
-                        <LuHardDrive className="text-primary neon-text" size={32} />
+             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8 relative z-10">
+               <div className="space-y-4 w-full lg:w-auto">
+                 <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0">
+                        <LuHardDrive className="text-primary neon-text" size={24} />
                     </div>
                     <div>
-                      <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">DISK SCHEDULING</h1>
-                      <div className="flex items-center gap-3">
-                          <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_#00FF9D] indicator-pulse" />
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">I/O_Traversal_Optimizer_v2</p>
+                      <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">DISK SCHEDULING</h1>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_#00FF9D] indicator-pulse" />
+                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">I/O_Traversal_Optimizer_v2</p>
+                          </div>
                       </div>
                     </div>
                  </div>
-                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
+                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-0 sm:ml-19">
                    Optimizing physical disk head traversal patterns using FCFS, SSTF, and SCAN protocols. Reducing rotational latency and seek time via intelligent request queuing.
                  </p>
                </div>
                
-               <div className="flex items-center gap-8 px-6 py-3 glass-premium rounded-2xl border border-white/5 bg-white/[0.02]">
+               <div className="flex items-center justify-between sm:justify-start gap-4 sm:gap-8 px-4 sm:px-6 py-3 w-full lg:w-auto glass-premium rounded-2xl border border-white/5 bg-white/[0.02]">
                   <div className="flex flex-col items-end gap-1">
                       <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-orbitron">Controller_Status</span>
                       <div className="flex items-center gap-2">
@@ -302,7 +321,7 @@ const DiskScheduling = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Visualizer Column */}
           <div className="lg:col-span-2 space-y-8">
-            <div className="bg-[#0B1020]/40 border border-[#9D00FF]/20 rounded-[2.5rem] p-10 backdrop-blur-3xl relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.4)]">
+            <div className="bg-[#0B1020]/40 border border-[#9D00FF]/20 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-6 lg:p-10 backdrop-blur-3xl relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.4)]">
                {/* Deep Atmosphere Glows */}
                <div className="absolute -top-24 -left-24 w-64 h-64 bg-[#9D00FF]/10 blur-[100px] rounded-full"></div>
                <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-[#00D1FF]/10 blur-[100px] rounded-full"></div>
@@ -310,10 +329,10 @@ const DiskScheduling = () => {
                {/* Cyberpunk grid overlay */}
                <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #9D00FF 1px, transparent 1px)', backgroundSize: '30px 30px' }}></div>
                
-               <div className="flex items-center justify-between mb-10 relative z-10">
+               <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between gap-6 mb-8 relative z-10">
                 <div>
-                  <h3 className="text-3xl font-black text-white flex items-center gap-4 tracking-tight">
-                    <div className="p-3 bg-[#00D1FF]/10 rounded-2xl border border-[#00D1FF]/30">
+                  <h3 className="text-xl sm:text-2xl xl:text-3xl font-black text-white flex items-center gap-4 tracking-tight">
+                    <div className="p-3 bg-[#00D1FF]/10 rounded-2xl border border-[#00D1FF]/30 shrink-0">
                       <LuHardDrive className="text-[#00D1FF] drop-shadow-[0_0_8px_#00D1FF]" /> 
                     </div>
                     DISK CONTROLLER
@@ -324,12 +343,12 @@ const DiskScheduling = () => {
                   </p>
                 </div>
                 
-                <div className="flex bg-[#050816]/60 p-2 rounded-2xl border border-[#00D1FF]/20 backdrop-blur-md shadow-inner">
+                <div className="flex flex-wrap items-center bg-[#050816]/60 p-1.5 sm:p-2 rounded-2xl border border-[#00D1FF]/20 backdrop-blur-md shadow-inner w-full xl:w-auto">
                   {algorithms.map(algo => (
                     <button 
                       key={algo}
                       onClick={() => setAlgorithm(algo)} 
-                      className={`px-5 py-2.5 rounded-xl text-[10px] font-black tracking-widest transition-all relative overflow-hidden group ${disk.current_algorithm === algo ? 'text-[#050816]' : 'text-slate-500 hover:text-[#00D1FF]'}`}
+                      className={`flex-1 xl:flex-none text-center px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl text-[9px] sm:text-[10px] font-black tracking-widest transition-all relative overflow-hidden group ${disk.current_algorithm === algo ? 'text-[#050816]' : 'text-slate-500 hover:text-[#00D1FF]'}`}
                     >
                       {disk.current_algorithm === algo && (
                         <motion.div layoutId="algo-bg" className="absolute inset-0 bg-[#00D1FF] shadow-[0_0_25px_#00D1FF]" />
@@ -340,14 +359,14 @@ const DiskScheduling = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-12 items-center relative z-10">
                 <DiskPlatter 
                   currentTrack={disk.current_track || 0} 
                   queue={disk.queue || []} 
                   activeRequest={disk.active_request}
                 />
                 <div className="space-y-8">
-                  <div className="p-8 bg-[#050816]/50 border border-[#00D1FF]/10 rounded-[2rem] backdrop-blur-md relative overflow-hidden group hover:border-[#00D1FF]/30 transition-all duration-500">
+                  <div className="p-4 sm:p-8 bg-[#050816]/50 border border-[#00D1FF]/10 rounded-2xl sm:rounded-[2rem] backdrop-blur-md relative overflow-hidden group hover:border-[#00D1FF]/30 transition-all duration-500">
                     <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                       <LuActivity size={40} className="text-[#00D1FF]" />
                     </div>
@@ -374,7 +393,7 @@ const DiskScheduling = () => {
                     </div>
                   </div>
 
-                  <div className="p-8 bg-[#0B1020]/60 border border-[#9D00FF]/10 rounded-[2rem] backdrop-blur-md relative">
+                  <div className="p-4 sm:p-8 bg-[#0B1020]/60 border border-[#9D00FF]/10 rounded-2xl sm:rounded-[2rem] backdrop-blur-md relative">
                     <h4 className="text-[11px] font-black text-[#9D00FF] uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
                       <span className="w-4 h-[1px] bg-[#9D00FF]"></span>
                       Manual Command Deck
@@ -397,11 +416,11 @@ const DiskScheduling = () => {
                             <div className="absolute top-0 h-1.5 bg-[#00D1FF]/20 pointer-events-none rounded-full" style={{ width: `${targetTrack}%` }}></div>
                           </div>
                        </div>
-                       <div className="flex gap-4">
-                          <button onClick={() => addRequest('READ')} className="flex-1 py-4 bg-[#00D1FF]/10 border border-[#00D1FF]/30 text-[#00D1FF] rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#00D1FF] hover:text-[#050816] hover:shadow-[0_0_30px_#00D1FF] transition-all duration-300 flex items-center justify-center gap-3">
+                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
+                          <button onClick={() => addRequest('READ')} className="w-full sm:w-auto flex-1 py-3.5 sm:py-4 bg-[#00D1FF]/10 border border-[#00D1FF]/30 text-[#00D1FF] rounded-xl sm:rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#00D1FF] hover:text-[#050816] hover:shadow-[0_0_30px_#00D1FF] transition-all duration-300 flex items-center justify-center gap-3">
                              <LuHardDrive size={16}/> READ
                           </button>
-                          <button onClick={() => addRequest('WRITE')} className="flex-1 py-4 bg-[#FF4D6D]/10 border border-[#FF4D6D]/30 text-[#FF4D6D] rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#FF4D6D] hover:text-white hover:shadow-[0_0_30px_#FF4D6D] transition-all duration-300 flex items-center justify-center gap-3">
+                          <button onClick={() => addRequest('WRITE')} className="w-full sm:w-auto flex-1 py-3.5 sm:py-4 bg-[#FF4D6D]/10 border border-[#FF4D6D]/30 text-[#FF4D6D] rounded-xl sm:rounded-2xl font-black text-[11px] uppercase tracking-[0.2em] hover:bg-[#FF4D6D] hover:text-white hover:shadow-[0_0_30px_#FF4D6D] transition-all duration-300 flex items-center justify-center gap-3">
                              <LuPlus size={16}/> WRITE
                           </button>
                        </div>
@@ -420,7 +439,7 @@ const DiskScheduling = () => {
 
             {/* Metrics Breakdown */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-               <div className="bg-[#0B1020]/40 border border-[#FFC857]/10 rounded-[2.5rem] p-8 backdrop-blur-2xl relative overflow-hidden group">
+               <div className="bg-[#0B1020]/40 border border-[#FFC857]/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 backdrop-blur-2xl relative overflow-hidden group">
                   <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#FFC857]/5 blur-3xl rounded-full"></div>
                   <h3 className="text-[10px] font-black text-slate-500 mb-8 flex items-center gap-3 uppercase tracking-[0.3em]">
                     <div className="p-2 bg-[#FFC857]/10 rounded-lg">
@@ -456,7 +475,7 @@ const DiskScheduling = () => {
                   </div>
                </div>
 
-               <div className="bg-[#0B1020]/40 border border-[#00FF9D]/10 rounded-[2.5rem] p-8 backdrop-blur-2xl flex flex-col justify-center relative overflow-hidden group">
+               <div className="bg-[#0B1020]/40 border border-[#00FF9D]/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 backdrop-blur-2xl flex flex-col justify-center relative overflow-hidden group">
                   <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#00FF9D]/5 blur-3xl rounded-full"></div>
                   <div className="flex items-center justify-between mb-8">
                     <h3 className="text-[10px] font-black text-slate-500 flex items-center gap-3 uppercase tracking-[0.3em]">
@@ -484,7 +503,7 @@ const DiskScheduling = () => {
 
           {/* Right Sidebar: Queue & History */}
           <div className="space-y-8">
-             <div className="bg-[#0B1020]/60 border border-[#00D1FF]/10 rounded-[2.5rem] p-8 backdrop-blur-3xl relative overflow-hidden">
+             <div className="bg-[#0B1020]/60 border border-[#00D1FF]/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 backdrop-blur-3xl relative overflow-hidden">
                  <div className="flex items-center justify-between mb-8">
                   <h3 className="text-xs font-black text-white flex items-center gap-3 uppercase tracking-[0.2em]">
                     <LuSettings className="text-[#9D00FF]" /> 
@@ -503,7 +522,7 @@ const DiskScheduling = () => {
                   <button 
                     onClick={onSimulateLoad}
                     disabled={isSimulating}
-                    className="w-full py-5 bg-gradient-to-r from-[#00D1FF]/10 to-[#9D00FF]/10 border border-[#00D1FF]/30 text-[#00D1FF] rounded-[1.5rem] font-black text-[10px] tracking-[0.3em] shadow-lg hover:from-[#00D1FF]/20 hover:to-[#9D00FF]/20 transition-all flex items-center justify-center gap-4 uppercase group"
+                    className="w-full py-4 sm:py-5 bg-gradient-to-r from-[#00D1FF]/10 to-[#9D00FF]/10 border border-[#00D1FF]/30 text-[#00D1FF] rounded-2xl sm:rounded-[1.5rem] font-black text-[10px] tracking-[0.3em] shadow-lg hover:from-[#00D1FF]/20 hover:to-[#9D00FF]/20 transition-all flex items-center justify-center gap-4 uppercase group"
                   >
                     <LuHardDrive size={16} className="group-hover:scale-110 transition-transform" /> {isSimulating ? 'Initializing...' : 'Run Simulation Load'}
                   </button>
@@ -511,14 +530,14 @@ const DiskScheduling = () => {
              </div>
 
              {/* Active / Next Queue */}
-             <div className="bg-[#0B1020]/60 border border-[#00D1FF]/10 rounded-[2.5rem] p-8 backdrop-blur-3xl relative overflow-hidden">
+             <div className="bg-[#0B1020]/60 border border-[#00D1FF]/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 backdrop-blur-3xl relative overflow-hidden">
                 <h3 className="text-xs font-black text-slate-500 mb-8 flex items-center gap-3 uppercase tracking-[0.2em]">
                   <LuClock className="text-[#00D1FF]" /> 
                   I/O Wait Queue
                 </h3>
                 <div className="space-y-4 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
                    {disk.active_request && (
-                      <div className="p-6 bg-gradient-to-br from-[#00D1FF] to-[#00D1FF]/80 text-[#050816] rounded-2xl border border-[#00D1FF] shadow-[0_0_30px_rgba(0,209,255,0.3)] relative overflow-hidden group">
+                      <div className="p-4 sm:p-6 bg-gradient-to-br from-[#00D1FF] to-[#00D1FF]/80 text-[#050816] rounded-2xl border border-[#00D1FF] shadow-[0_0_30px_rgba(0,209,255,0.3)] relative overflow-hidden group">
                          <div className="absolute top-0 right-0 p-3 opacity-20 rotate-12 group-hover:rotate-45 transition-transform">
                             <LuHardDrive size={40} />
                          </div>
@@ -538,7 +557,7 @@ const DiskScheduling = () => {
                    <div className="space-y-3">
                      {disk.queue?.length > 0 ? (
                         disk.queue.map((req, i) => (
-                          <div key={req.id} className="flex items-center gap-4 p-4 bg-[#050816]/40 rounded-2xl border border-white/5 group hover:border-[#00D1FF]/30 transition-all duration-300">
+                          <div key={req.id} className="flex items-center gap-4 p-3 sm:p-4 bg-[#050816]/40 rounded-2xl border border-white/5 group hover:border-[#00D1FF]/30 transition-all duration-300">
                              <div className={`w-10 h-10 rounded-xl flex items-center justify-center border-2 font-black text-xs ${req.type === 'WRITE' ? 'bg-[#FF4D6D]/10 border-[#FF4D6D]/20 text-[#FF4D6D] shadow-[0_0_10px_rgba(255,77,109,0.2)]' : 'bg-[#00D1FF]/10 border-[#00D1FF]/20 text-[#00D1FF] shadow-[0_0_10px_rgba(0,209,255,0.2)]'}`}>
                                 {req.type[0]}
                              </div>
@@ -563,14 +582,14 @@ const DiskScheduling = () => {
              </div>
 
              {/* Completed Journal */}
-             <div className="bg-[#0B1020]/60 border border-[#00FF9D]/10 rounded-[2.5rem] p-8 backdrop-blur-3xl relative overflow-hidden">
+             <div className="bg-[#0B1020]/60 border border-[#00FF9D]/10 rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-8 backdrop-blur-3xl relative overflow-hidden">
                 <h3 className="text-xs font-black text-slate-500 mb-8 flex items-center gap-3 uppercase tracking-[0.2em]">
                   <LuTerminal className="text-[#00FF9D]" /> 
                   I/O Journal Log
                 </h3>
                 <div className="space-y-3 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
                    {disk.completed_requests?.slice().reverse().map((req, i) => (
-                      <div key={i} className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/5 opacity-70 hover:opacity-100 hover:bg-white/10 transition-all duration-300">
+                      <div key={i} className="flex items-center gap-4 p-3 sm:p-4 bg-white/5 rounded-2xl border border-white/5 opacity-70 hover:opacity-100 hover:bg-white/10 transition-all duration-300">
                          <div className="flex-1">
                             <div className="flex justify-between items-center mb-2">
                                <p className="text-[11px] font-black text-white uppercase tracking-wider">{req.type} AT TRACK_{req.track}</p>

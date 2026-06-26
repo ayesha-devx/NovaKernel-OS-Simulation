@@ -32,9 +32,9 @@ const DiskTrajectory = ({ kernelState }) => {
   return (
     <div className="flex flex-col h-full bg-black/40 border border-white/10 rounded-[2rem] overflow-hidden backdrop-blur-xl">
       {/* ── Header ──────────────────────────────────────────────────────── */}
-      <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-white/5">
+      <div className="p-4 sm:px-6 sm:py-4 border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white/5">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0">
             <FiDisc size={16} />
           </div>
           <div>
@@ -49,7 +49,7 @@ const DiskTrajectory = ({ kernelState }) => {
       </div>
 
       {/* ── Main Trajectory Area ────────────────────────────────────────── */}
-      <div className="flex-grow p-10 flex items-center justify-center relative overflow-hidden">
+      <div className="flex-grow p-4 sm:p-10 flex items-center justify-center relative overflow-hidden">
         
         {/* Background Grid */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -121,18 +121,18 @@ const DiskTrajectory = ({ kernelState }) => {
         </div>
 
         {/* Head Info Overlay */}
-        <div className="absolute top-10 right-10 glass border border-white/10 p-4 rounded-2xl flex flex-col gap-1">
+        <div className="absolute top-4 right-4 glass border border-white/10 p-3 sm:p-4 rounded-xl sm:rounded-2xl flex flex-col gap-1 scale-90 sm:scale-100 origin-top-right z-10">
            <div className="flex items-center gap-2">
-              <FiNavigation className="text-amber-500" size={14}/>
+              <FiNavigation className="text-amber-500 shrink-0" size={14}/>
               <span className="text-[10px] font-black text-white uppercase tracking-widest">Head Position</span>
            </div>
-           <p className="text-2xl font-black text-white">Track {currentTrack}</p>
+           <p className="text-lg sm:text-2xl font-black text-white">Track {currentTrack}</p>
            <p className="text-[9px] font-bold text-white/40 uppercase tracking-tighter">Seek Direction: {diskState.head_direction > 0 ? 'Increasing' : 'Decreasing'}</p>
         </div>
       </div>
 
       {/* ── Disk Stats ─────────────────────────────────────────────────── */}
-      <div className="px-8 py-5 bg-white/2 border-t border-white/10 grid grid-cols-3 gap-8">
+      <div className="px-4 sm:px-8 py-4 sm:py-5 bg-white/2 border-t border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-8">
         <div className="flex flex-col">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Total Seek</span>
           <div className="flex items-center gap-2 text-amber-500">
@@ -140,14 +140,14 @@ const DiskTrajectory = ({ kernelState }) => {
              <span className="text-xs font-black uppercase">{kernelState?.disk_metrics?.total_seek_distance || 0} Tracks</span>
           </div>
         </div>
-        <div className="flex flex-col border-l border-white/5 pl-8">
+        <div className="flex flex-col border-t sm:border-t-0 sm:border-l border-white/5 pt-3 sm:pt-0 pl-0 sm:pl-8">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Queue Depth</span>
           <div className="flex items-center gap-2">
              <FiActivity className="text-sky-500" size={12}/>
              <span className="text-xs font-black text-white uppercase">{diskState.queue?.length || 0} Requests</span>
           </div>
         </div>
-        <div className="flex flex-col border-l border-white/5 pl-8">
+        <div className="flex flex-col border-t sm:border-t-0 sm:border-l border-white/5 pt-3 sm:pt-0 pl-0 sm:pl-8">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Throughput</span>
           <div className="flex items-center gap-2 text-emerald-400">
              <span className="text-xs font-black uppercase">{kernelState?.disk_metrics?.throughput?.toFixed(2) || 0} req/s</span>

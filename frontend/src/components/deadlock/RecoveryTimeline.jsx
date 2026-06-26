@@ -137,15 +137,15 @@ const RecoveryTimeline = ({ className = '' }) => {
     <motion.div
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`glass-premium border border-white/10 rounded-[2rem] overflow-hidden relative ${className}`}
+      className={`glass-premium border border-white/10 rounded-3xl sm:rounded-[2rem] overflow-hidden relative ${className}`}
     >
       {/* Scanline overlay */}
       <div className="absolute inset-0 scanline-overlay opacity-10 pointer-events-none" />
 
       {/* ── Header ──────────────────────────────────────────────────── */}
-      <div className="flex items-center justify-between px-8 py-5 border-b border-white/5 relative z-10">
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shadow-[0_0_15px_rgba(157,0,255,0.15)]">
+      <div className="flex flex-col md:flex-row md:items-center justify-between p-4 sm:p-5 md:px-8 md:py-5 border-b border-white/5 gap-4 relative z-10">
+        <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+          <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center border border-primary/20 shadow-[0_0_15px_rgba(157,0,255,0.15)] shrink-0">
             <FiClock size={18} />
           </div>
           <div>
@@ -154,20 +154,20 @@ const RecoveryTimeline = ({ className = '' }) => {
             </h3>
             <p className="text-[9px] text-white/30 font-mono-cyber mt-1 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-              {events.length} TRANSMISSIONS_RECORDED
+              {events.length} LOGS
             </p>
           </div>
 
           {/* Live pulse */}
           {hasEvents && (
-            <div className="flex items-center gap-2 bg-success/10 px-3 py-1 rounded-full border border-success/20 ml-4">
+            <div className="flex items-center gap-2 bg-success/10 px-3 py-1 rounded-full border border-success/20">
               <div className="w-2 h-2 rounded-full bg-success animate-pulse shadow-[0_0_8px_#00FF9D]" />
-              <span className="text-[9px] text-success font-black uppercase tracking-[0.2em]">Live_Feed</span>
+              <span className="text-[9px] text-success font-black uppercase tracking-[0.2em]">Live</span>
             </div>
           )}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between sm:justify-end gap-2 w-full md:w-auto">
           {/* Tab switcher */}
           <div className="flex bg-white/5 rounded-xl p-0.5 border border-white/5">
             {['live', 'replay'].map(tab => (
@@ -185,20 +185,22 @@ const RecoveryTimeline = ({ className = '' }) => {
             ))}
           </div>
 
-          {/* Action buttons */}
-          <button
-            onClick={handleClear}
-            title="Clear timeline"
-            className="w-7 h-7 rounded-lg bg-white/5 hover:bg-red-500/20 text-white/30 hover:text-red-400 flex items-center justify-center transition-all"
-          >
-            <FiTrash2 size={11} />
-          </button>
-          <button
-            onClick={() => setIsExpanded(e => !e)}
-            className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white/30 hover:text-white/60 flex items-center justify-center transition-all"
-          >
-            {isExpanded ? <FiChevronUp size={12} /> : <FiChevronDown size={12} />}
-          </button>
+          <div className="flex items-center gap-2">
+            {/* Action buttons */}
+            <button
+              onClick={handleClear}
+              title="Clear timeline"
+              className="w-7 h-7 rounded-lg bg-white/5 hover:bg-red-500/20 text-white/30 hover:text-red-400 flex items-center justify-center transition-all"
+            >
+              <FiTrash2 size={11} />
+            </button>
+            <button
+              onClick={() => setIsExpanded(e => !e)}
+              className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white/30 hover:text-white/60 flex items-center justify-center transition-all"
+            >
+              {isExpanded ? <FiChevronUp size={12} /> : <FiChevronDown size={12} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -212,32 +214,34 @@ const RecoveryTimeline = ({ className = '' }) => {
           >
             {/* ── Replay controls ──────────────────────────────────── */}
             {activeTab === 'replay' && (
-              <div className="flex items-center gap-2 px-6 py-3 border-b border-white/5 bg-white/2">
+              <div className="flex flex-wrap items-center gap-2 p-4 sm:px-6 sm:py-3 border-b border-white/5 bg-white/2">
                 <button
                   onClick={handleLoadReplay}
                   className="px-3 py-1.5 bg-primary/10 border border-primary/20 text-primary rounded-lg text-[8px] font-black uppercase tracking-widest hover:bg-primary/20 transition-all flex items-center gap-1.5"
                 >
                   <FiRotateCcw size={10} /> Load Last Recovery
                 </button>
-                <button
-                  onClick={pb.isPlaying ? pb.pause : pb.resume}
-                  disabled={!pb.isReplaying}
-                  className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white flex items-center justify-center transition-all disabled:opacity-30"
-                >
-                  {pb.isPlaying ? <FiPause size={11} /> : <FiPlay size={11} />}
-                </button>
-                <button
-                  onClick={pb.stepForward}
-                  disabled={!pb.isReplaying}
-                  className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white flex items-center justify-center transition-all disabled:opacity-30"
-                >
-                  <FiSkipForward size={11} />
-                </button>
-                {pb.isReplaying && (
-                  <span className="text-[8px] text-white/30 font-mono">
-                    {pb.playIndex + 1} / {replayEvents.length}
-                  </span>
-                )}
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={pb.isPlaying ? pb.pause : pb.resume}
+                    disabled={!pb.isReplaying}
+                    className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white flex items-center justify-center transition-all disabled:opacity-30"
+                  >
+                    {pb.isPlaying ? <FiPause size={11} /> : <FiPlay size={11} />}
+                  </button>
+                  <button
+                    onClick={pb.stepForward}
+                    disabled={!pb.isReplaying}
+                    className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 text-white/50 hover:text-white flex items-center justify-center transition-all disabled:opacity-30"
+                  >
+                    <FiSkipForward size={11} />
+                  </button>
+                  {pb.isReplaying && (
+                    <span className="text-[8px] text-white/30 font-mono">
+                      {pb.playIndex + 1} / {replayEvents.length}
+                    </span>
+                  )}
+                </div>
               </div>
             )}
 

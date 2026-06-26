@@ -66,9 +66,9 @@ const DeadlockGraphVisualizer = ({ kernelState }) => {
 
   return (
     <div className="flex flex-col h-full bg-black/40 border border-white/10 rounded-[2rem] overflow-hidden backdrop-blur-xl relative">
-      <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-white/5 z-20">
+      <div className="p-4 sm:px-6 sm:py-4 border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 bg-white/5 z-20">
         <div className="flex items-center gap-3">
-          <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${isDeadlocked ? 'bg-red-500/20 text-red-500 animate-pulse' : 'bg-primary/20 text-primary'}`}>
+          <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${isDeadlocked ? 'bg-red-500/20 text-red-500 animate-pulse' : 'bg-primary/20 text-primary'}`}>
             <FiShield size={16} />
           </div>
           <div>
@@ -140,7 +140,7 @@ const DeadlockGraphVisualizer = ({ kernelState }) => {
         )}
       </div>
 
-      <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
+      <div className="absolute bottom-4 left-4 right-4 flex flex-col sm:flex-row items-center justify-between gap-2 scale-90 sm:scale-100 origin-bottom z-10 pointer-events-none">
          <div className="flex gap-4">
             <div className="flex items-center gap-2">
                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />

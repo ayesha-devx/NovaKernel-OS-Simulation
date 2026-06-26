@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LuCpu, LuActivity, LuZap, LuTerminal, LuSettings, LuPower, LuHistory } from 'react-icons/lu';
+import { LuCircuitBoard, LuActivity, LuZap, LuTerminal, LuSettings, LuPower, LuHistory } from 'react-icons/lu';
 import { useKernel } from '../context/KernelContext';
 import DashboardLayout from '../components/layout/DashboardLayout';
 import VirtualLedBoard from '../components/hardware/VirtualLedBoard';
@@ -27,40 +27,42 @@ const HardwareDashboard = () => {
         animate={{ opacity: 1, y: 0 }}
         className="relative group mb-12"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-        <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+        <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
            <div className="absolute inset-0 scanline-overlay opacity-20" />
            <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
            
-           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-             <div className="space-y-4">
-               <div className="flex items-center gap-5">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
-                      <LuCpu className="text-primary neon-text" size={32} />
+           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8 relative z-10">
+             <div className="space-y-4 w-full lg:w-auto">
+               <div className="flex items-center gap-4 sm:gap-5">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0">
+                      <LuCircuitBoard className="text-primary neon-text" size={24} />
                   </div>
                   <div>
-                    <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">HARDWARE HAL</h1>
-                    <div className="flex items-center gap-3">
-                        <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(0,255,157,0.8)] indicator-pulse" />
-                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">NovaOS Hardware Abstraction Layer v1.1</p>
+                    <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">HARDWARE HAL</h1>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                        <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(0,255,157,0.8)] indicator-pulse" />
+                            <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Hardware_Abstraction_Active</span>
+                        </div>
                     </div>
                   </div>
                </div>
-               <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
+               <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-0 sm:ml-19">
                  Interfacing with virtualized I/O registers and physical device drivers. Monitoring real-time latency and command throughput across kernel-to-hardware bridges.
                </p>
              </div>
              
-             <div className="flex items-center gap-4 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-md">
+             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-md w-full lg:w-auto">
                <button 
                  onClick={() => toggleHardwareSimulation(true)}
-                 className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] font-orbitron transition-all ${hardwareState.simulation_mode ? 'bg-primary text-white shadow-[0_0_20px_rgba(157,0,255,0.4)]' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
+                 className={`w-full lg:w-auto px-4 lg:px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] font-orbitron transition-all ${hardwareState.simulation_mode ? 'bg-primary text-white shadow-[0_0_20px_rgba(157,0,255,0.4)]' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
                >
                  Simulation_Mode
                </button>
                <button 
                  onClick={() => toggleHardwareSimulation(false)}
-                 className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] font-orbitron transition-all ${!hardwareState.simulation_mode ? 'bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.4)]' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
+                 className={`w-full lg:w-auto px-4 lg:px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-[0.2em] font-orbitron transition-all ${!hardwareState.simulation_mode ? 'bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.4)]' : 'text-white/40 hover:text-white hover:bg-white/5'}`}
                >
                  Real_Hardware
                </button>
@@ -70,14 +72,14 @@ const HardwareDashboard = () => {
       </motion.div>
 
       {/* Stats Bar */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
         {stats.map((stat, i) => (
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
             key={stat.label} 
-            className="glass p-6 rounded-3xl border border-white/5 relative group overflow-hidden"
+            className="glass p-4 sm:p-6 rounded-3xl border border-white/5 relative group overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="flex items-center justify-between relative z-10">
@@ -93,10 +95,10 @@ const HardwareDashboard = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[calc(100vh-400px)]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 h-auto lg:h-[calc(100vh-380px)]">
         {/* Left Column: Board Simulation */}
-        <div className="lg:col-span-8 space-y-8 flex flex-col">
-          <div className="glass rounded-[3rem] border border-white/5 p-12 flex-1 relative overflow-hidden flex flex-col items-center justify-center">
+        <div className="lg:col-span-8 flex flex-col">
+          <div className="glass rounded-3xl sm:rounded-[3rem] border border-white/5 p-4 sm:p-8 lg:p-12 flex-1 relative overflow-hidden flex flex-col items-center justify-center min-h-[320px] lg:min-h-0">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
             
             <div className="mb-12 text-center">
@@ -109,9 +111,9 @@ const HardwareDashboard = () => {
         </div>
 
         {/* Right Column: Logs & Commands */}
-        <div className="lg:col-span-4 flex flex-col gap-8">
+        <div className="lg:col-span-4 flex flex-col gap-6 lg:gap-8">
            {/* Command Stream */}
-           <div className="glass rounded-[2.5rem] border border-white/5 p-6 flex-1 flex flex-col overflow-hidden">
+           <div className="glass rounded-3xl sm:rounded-[2.5rem] border border-white/5 p-4 sm:p-6 h-[300px] lg:h-auto lg:flex-1 flex flex-col overflow-hidden">
               <div className="flex items-center justify-between mb-6 px-2">
                  <div className="flex items-center gap-3">
                     <LuTerminal className="text-primary" />
@@ -152,7 +154,7 @@ const HardwareDashboard = () => {
            </div>
 
            {/* Command History */}
-           <div className="glass rounded-[2.5rem] border border-white/5 p-6 h-1/3 overflow-hidden flex flex-col">
+           <div className="glass rounded-3xl sm:rounded-[2.5rem] border border-white/5 p-4 sm:p-6 h-[200px] lg:h-1/3 overflow-hidden flex flex-col">
               <div className="flex items-center gap-3 mb-6 px-2">
                  <LuZap className="text-cyan-400" />
                  <h3 className="text-xs font-black text-white uppercase tracking-widest">Command Stream</h3>

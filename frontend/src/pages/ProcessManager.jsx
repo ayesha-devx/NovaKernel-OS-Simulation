@@ -29,33 +29,33 @@ const ProcessManager = () => {
             animate={{ opacity: 1, y: 0 }}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-            <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+            <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
                <div className="absolute inset-0 scanline-overlay opacity-20" />
                <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
                
                <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-                 <div className="space-y-4">
-                   <div className="flex items-center gap-5">
-                      <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
-                          <LuCpu className="text-primary neon-text" size={32} />
-                      </div>
-                      <div>
-                        <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">PROCESS MANAGER</h1>
-                        <div className="flex items-center gap-3">
-                            <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(0,255,157,0.8)] indicator-pulse" />
-                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Kernel_PCB_Synchronization_Active</p>
-                        </div>
-                      </div>
-                   </div>
-                   <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
-                     Realtime hypervisor lifecycle management protocol. Interfacing with kernel-space PCB allocation tables and process state synchronization nodes.
-                   </p>
+                 <div className="space-y-4 w-full lg:w-auto">
+                    <div className="flex items-center gap-5">
+                       <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0">
+                           <LuCpu className="text-primary neon-text" size={32} />
+                       </div>
+                       <div>
+                         <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">PROCESS MANAGER</h1>
+                         <div className="flex items-center gap-3">
+                             <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_rgba(0,255,157,0.8)] indicator-pulse" />
+                             <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Kernel_Sync_Active</p>
+                         </div>
+                       </div>
+                    </div>
+                    <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose sm:ml-19 ml-0">
+                      Realtime hypervisor lifecycle management protocol. Interfacing with kernel-space PCB allocation tables and process state synchronization nodes.
+                    </p>
                  </div>
                  
-                 <div className="flex flex-col items-end gap-6">
-                    <div className="flex items-center gap-8 px-6 py-3 glass-premium rounded-2xl border border-white/5 bg-white/[0.02]">
-                        <div className="flex flex-col items-end gap-1">
+                 <div className="flex flex-col items-start lg:items-end gap-6 w-full lg:w-auto">
+                    <div className="flex items-center justify-between lg:justify-end gap-4 sm:gap-8 px-4 sm:px-6 py-3 glass-premium rounded-2xl border border-white/5 bg-white/[0.02] w-full lg:w-auto">
+                        <div className="flex flex-col items-start lg:items-end gap-1">
                             <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-orbitron">Telemetry_Link</span>
                             <div className="flex items-center gap-2">
                                 <div className="w-1.5 h-4 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(157,0,255,1)]" />
@@ -63,7 +63,7 @@ const ProcessManager = () => {
                             </div>
                         </div>
                         <div className="w-px h-10 bg-white/10" />
-                        <div className="flex flex-col items-end gap-1">
+                        <div className="flex flex-col items-start lg:items-end gap-1">
                             <span className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-orbitron">Sync_Flux</span>
                             <span className="text-sm font-black text-secondary neon-text">842 OPS/S</span>
                         </div>
@@ -75,7 +75,7 @@ const ProcessManager = () => {
                                 resetSimulation();
                             }
                         }}
-                        className="group/btn relative px-8 py-3.5 bg-error/10 hover:bg-error/20 text-error border border-error/30 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] font-orbitron transition-all hover:scale-105 active:scale-95 overflow-hidden"
+                        className="group/btn relative px-8 py-3.5 bg-error/10 hover:bg-error/20 text-error border border-error/30 rounded-2xl text-[10px] font-black uppercase tracking-[0.3em] font-orbitron transition-all hover:scale-105 active:scale-95 overflow-hidden w-full lg:w-auto flex justify-center items-center"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                         <div className="flex items-center gap-3 relative z-10">

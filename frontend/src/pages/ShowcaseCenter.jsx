@@ -78,34 +78,36 @@ const ShowcaseCenter = () => {
         <motion.div 
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative group mb-12"
+          className="relative group mb-8 sm:mb-12"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-          <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+          <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
              <div className="absolute inset-0 scanline-overlay opacity-20" />
              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
              
-             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-               <div className="space-y-4">
-                 <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shadow-[0_0_20px_rgba(157,0,255,0.2)]">
+             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8 relative z-10">
+               <div className="space-y-4 w-full lg:w-auto">
+                 <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shadow-[0_0_20px_rgba(157,0,255,0.2)] shrink-0">
                         <LuMonitor className="text-primary neon-text" size={32} />
                     </div>
                     <div>
-                      <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">SHOWCASE CENTER</h1>
-                      <div className="flex items-center gap-3">
-                          <span className={`w-2 h-2 rounded-full ${showcase?.active ? 'bg-success shadow-[0_0_10px_#00FF9D]' : 'bg-slate-500 shadow-[0_0_10px_rgba(255,255,255,0.2)]'} indicator-pulse`} />
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">NovaOS Presentation Orchestrator v1.3</p>
+                      <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">SHOWCASE CENTER</h1>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                          <div className="flex items-center gap-2">
+                            <span className={`w-2 h-2 rounded-full ${showcase?.active ? 'bg-success shadow-[0_0_10px_#00FF9D]' : 'bg-slate-500 shadow-[0_0_10px_rgba(255,255,255,0.2)]'} indicator-pulse`} />
+                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">NovaOS Presentation Orchestrator v1.3</p>
+                          </div>
                       </div>
                     </div>
                  </div>
-                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
+                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-0 sm:ml-16 lg:ml-19">
                    Orchestrating high-fidelity system audits and autonomous execution sequences. Perfecting stakeholder presentations through high-speed automation and cinematic subsystem visualizers.
                  </p>
                </div>
                
-               <div className="flex items-center gap-4 bg-white/5 p-3 rounded-2xl border border-white/10 backdrop-blur-md">
-                 <div className="flex items-center gap-3 px-6 py-2.5 bg-black/40 rounded-xl border border-white/5 font-orbitron">
+               <div className="flex items-center justify-center sm:justify-start w-full lg:w-auto bg-white/5 p-3 rounded-xl sm:rounded-2xl border border-white/10 backdrop-blur-md">
+                 <div className="flex items-center justify-center gap-3 px-4 sm:px-6 py-2 sm:py-2.5 bg-black/40 rounded-xl border border-white/5 font-orbitron w-full sm:w-auto">
                     <div className={`w-2 h-2 rounded-full ${showcase?.active ? 'bg-success shadow-[0_0_12px_#00FF9D]' : 'bg-white/20'}`} />
                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
                        STATUS: <span className={showcase?.active ? 'text-success' : 'text-white/40'}>{showcase?.active ? 'ORCHESTRATING' : 'READY_STANDBY'}</span>
@@ -123,11 +125,11 @@ const ShowcaseCenter = () => {
               initial={{ height: 0, opacity: 0, scale: 0.95 }}
               animate={{ height: 'auto', opacity: 1, scale: 1 }}
               exit={{ height: 0, opacity: 0, scale: 0.95 }}
-              className="glass border-primary/30 rounded-[2rem] p-8 mb-8 overflow-hidden relative"
+              className="glass border-primary/30 rounded-3xl sm:rounded-[2rem] p-4 sm:p-8 mb-6 sm:mb-8 overflow-hidden relative"
             >
-              <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+              <div className="flex flex-col lg:flex-row items-stretch lg:items-center gap-6 lg:gap-8 relative z-10">
                 <div className="flex-1 space-y-6 w-full">
-                  <div className="flex justify-between items-end">
+                  <div className="flex justify-between items-end w-full">
                     <div className="space-y-1">
                       <span className="text-[10px] font-black text-primary uppercase tracking-[0.2em]">Active Sequence</span>
                       <h2 className="text-3xl font-black text-white uppercase tracking-tighter">{showcase.scenario_id?.replace('_', ' ')}</h2>
@@ -143,7 +145,7 @@ const ShowcaseCenter = () => {
                     />
                   </div>
 
-                  <div className="bg-black/40 p-6 rounded-2xl border border-white/5 backdrop-blur-md">
+                  <div className="bg-black/40 p-4 sm:p-6 rounded-xl sm:rounded-2xl border border-white/5 backdrop-blur-md">
                     <div className="flex items-start gap-4">
                       <LuTerminal className="w-5 h-5 text-primary mt-1" />
                       <div className="flex-1">
@@ -168,17 +170,17 @@ const ShowcaseCenter = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-row md:flex-col gap-3 w-full md:w-64">
+                <div className="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-64">
                   {showcase.paused ? (
-                    <button onClick={resumeShowcase} className="flex-1 p-4 bg-success-500 text-white rounded-xl transition-all flex items-center justify-center gap-3 font-black uppercase text-xs tracking-widest shadow-lg shadow-success-500/20">
+                    <button onClick={resumeShowcase} className="flex-1 p-3.5 sm:p-4 bg-success-500 text-white rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-3 font-black uppercase text-xs tracking-widest shadow-lg shadow-success-500/20 w-full sm:w-auto lg:w-full">
                       <LuPlay className="w-5 h-5" /> Resume
                     </button>
                   ) : (
-                    <button onClick={pauseShowcase} className="flex-1 p-4 bg-warning-500 text-white rounded-xl transition-all flex items-center justify-center gap-3 font-black uppercase text-xs tracking-widest shadow-lg shadow-warning-500/20">
+                    <button onClick={pauseShowcase} className="flex-1 p-3.5 sm:p-4 bg-warning-500 text-white rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-3 font-black uppercase text-xs tracking-widest shadow-lg shadow-warning-500/20 w-full sm:w-auto lg:w-full">
                       <LuPause className="w-5 h-5" /> Pause
                     </button>
                   )}
-                  <button onClick={stopShowcase} className="flex-1 p-4 bg-error-500/10 text-error-500 border border-error-500/30 rounded-xl transition-all flex items-center justify-center gap-3 font-black uppercase text-xs tracking-widest hover:bg-error-500 hover:text-white">
+                  <button onClick={stopShowcase} className="flex-1 p-3.5 sm:p-4 bg-error-500/10 text-error-500 border border-error-500/30 rounded-xl sm:rounded-2xl transition-all flex items-center justify-center gap-3 font-black uppercase text-xs tracking-widest hover:bg-error-500 hover:text-white w-full sm:w-auto lg:w-full">
                     <LuSquare className="w-5 h-5" /> Terminate
                   </button>
                 </div>
@@ -188,13 +190,13 @@ const ShowcaseCenter = () => {
         </AnimatePresence>
 
         {/* Scenario Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {availableScenarios.map((scenario) => (
             <motion.div 
               key={scenario.id}
               whileHover={!showcase?.active ? { scale: 1.02, translateY: -5 } : {}}
               whileTap={!showcase?.active ? { scale: 0.98 } : {}}
-              className={`relative group glass border-white/5 rounded-[2rem] p-8 flex flex-col gap-6 transition-all ${!showcase?.active ? 'cursor-pointer hover:border-primary/30' : 'opacity-50 cursor-not-allowed'} ${showcase?.scenario_id === scenario.id ? 'border-primary/50 bg-primary/5' : ''}`}
+              className={`relative group glass border-white/5 rounded-2xl sm:rounded-[2rem] p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 transition-all ${!showcase?.active ? 'cursor-pointer hover:border-primary/30' : 'opacity-50 cursor-not-allowed'} ${showcase?.scenario_id === scenario.id ? 'border-primary/50 bg-primary/5' : ''}`}
               onClick={() => handleStart(scenario.id)}
             >
               <div className="flex justify-between items-start">
@@ -211,7 +213,7 @@ const ShowcaseCenter = () => {
                 <p className="text-xs text-text/40 leading-relaxed font-medium">{scenario.description}</p>
               </div>
 
-              <div className="mt-4 pt-6 border-t border-white/5 flex justify-between items-center">
+              <div className="mt-2 sm:mt-4 pt-4 sm:pt-6 border-t border-white/5 flex justify-between items-center">
                  <div className="px-3 py-1 bg-white/5 rounded-full text-[9px] font-black text-text/40 uppercase tracking-widest">
                     {scenario.steps} Automation Steps
                  </div>
@@ -224,8 +226,8 @@ const ShowcaseCenter = () => {
         </div>
 
         {/* Cinematic Logs Panel */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-           <div className="lg:col-span-2 glass rounded-[2rem] border-white/5 p-8 space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+           <div className="lg:col-span-2 glass rounded-3xl sm:rounded-[2rem] border-white/5 p-4 sm:p-8 space-y-4 sm:space-y-6">
               <div className="flex items-center justify-between">
                 <h3 className="text-[10px] font-black flex items-center gap-3 text-text/40 tracking-[0.3em] uppercase">
                   <LuHistory className="w-4 h-4 text-primary" />
@@ -233,14 +235,14 @@ const ShowcaseCenter = () => {
                 </h3>
               </div>
               
-              <div className="h-64 overflow-y-auto space-y-3 pr-4 custom-scrollbar">
+              <div className="h-64 overflow-y-auto space-y-3 pr-2 custom-scrollbar">
                 {showcase?.logs?.length > 0 ? (
                   showcase.logs.map((log, idx) => (
                     <motion.div 
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       key={idx}
-                      className="flex gap-4 p-4 bg-white/5 rounded-2xl border border-white/5 font-mono text-[11px]"
+                      className="flex flex-col sm:flex-row gap-2 sm:gap-4 p-3.5 sm:p-4 bg-white/5 rounded-xl sm:rounded-2xl border border-white/5 font-mono text-[10px] sm:text-[11px]"
                     >
                       <span className="text-text/20">[{new Date().toLocaleTimeString()}]</span>
                       <span className="text-white font-medium">{log}</span>
@@ -255,7 +257,7 @@ const ShowcaseCenter = () => {
               </div>
            </div>
 
-           <div className="glass rounded-[2rem] border-white/5 p-8 flex flex-col justify-center items-center text-center space-y-6">
+           <div className="glass rounded-3xl sm:rounded-[2rem] border-white/5 p-4 sm:p-8 flex flex-col justify-center items-center text-center space-y-4 sm:space-y-6">
               <div className="w-24 h-24 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center relative">
                  <LuShieldAlert className="text-primary animate-pulse" size={48} />
                  <div className="absolute inset-0 rounded-full border-2 border-primary/30 border-dashed animate-[spin_10s_linear_infinite]" />
@@ -266,7 +268,7 @@ const ShowcaseCenter = () => {
               </div>
               <button 
                 onClick={() => toast.info("System Audit Mode requires Level 4 Clearance. Access Denied.", { theme: 'dark' })}
-                className="w-full py-4 bg-white/5 hover:bg-primary text-white rounded-2xl transition-all font-black uppercase text-[10px] tracking-[0.3em] border border-white/10 hover:border-primary"
+                className="w-full py-3.5 sm:py-4 bg-white/5 hover:bg-primary text-white rounded-xl sm:rounded-2xl transition-all font-black uppercase text-[10px] tracking-[0.2em] sm:tracking-[0.3em] border border-white/10 hover:border-primary"
               >
                 Launch System Audit
               </button>

@@ -67,7 +67,7 @@ const LeakDetectorPanel = () => {
     return (
         <div className="space-y-6">
             {/* Header / Global Scores */}
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
                 <motion.div 
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ const LeakDetectorPanel = () => {
             </div>
 
             {/* Resource Pressure Grid */}
-            <div className="grid grid-cols-1 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
                 {renderPressureIndicator('Memory', resourceScores.memory || 100, pressureLevels.memory, <LuDatabase size={16} />)}
                 {renderPressureIndicator('Scheduler', resourceScores.queue || 100, pressureLevels.queue, <LuCpu size={16} />)}
                 {renderPressureIndicator('Network', resourceScores.telemetry || 100, pressureLevels.telemetry, <LuZap size={16} />)}
@@ -155,7 +155,7 @@ const LeakDetectorPanel = () => {
                     </h3>
                     <span className="text-[10px] font-mono text-white/30 tracking-tighter">MAX_DRIFT: 10s</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-2">
                     {Object.entries(heartbeats).map(([name, drift]) => {
                         const isStalled = Array.isArray(stalled) && stalled.some(s => s.name === name);
                         return (
@@ -210,7 +210,7 @@ const LeakDetectorPanel = () => {
                                     exit={{ opacity: 0, scale: 0.95 }}
                                     className={`border rounded-xl p-4 relative overflow-hidden transition-all hover:translate-x-1 ${getSeverityColor(warning.severity)}`}
                                 >
-                                    <div className="flex items-start justify-between relative z-10">
+                                    <div className="flex flex-col sm:flex-row items-stretch sm:items-start justify-between gap-4 relative z-10">
                                         <div className="flex gap-3">
                                             <div className="mt-1">
                                                 <LuTriangleAlert size={20} />
@@ -227,7 +227,7 @@ const LeakDetectorPanel = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="text-right flex flex-col items-end">
+                                        <div className="flex flex-row sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2 sm:gap-0 mt-2 sm:mt-0 shrink-0 text-right">
                                             <div className="text-[10px] font-black uppercase tracking-tighter mb-2">{warning.severity}</div>
                                             <div className="flex items-center gap-1 text-[10px] font-mono opacity-50 bg-black/20 px-2 py-1 rounded">
                                                 <LuClock size={10} />

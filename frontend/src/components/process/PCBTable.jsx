@@ -66,17 +66,17 @@ const PCBTable = () => {
   };
 
   return (
-    <div className="glass-premium rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full shadow-[0_0_50px_rgba(157,0,255,0.05)] relative group">
+    <div className="glass-premium rounded-3xl sm:rounded-[2.5rem] border border-white/10 overflow-hidden flex flex-col h-full shadow-[0_0_50px_rgba(157,0,255,0.05)] relative group">
       <div className="absolute inset-0 scanline-overlay opacity-5 pointer-events-none" />
       
       {/* Table Header Controls */}
-      <div className="px-8 py-6 border-b border-white/5 bg-white/[0.02] flex flex-col lg:flex-row gap-6 items-center justify-between relative z-10">
+      <div className="px-4 sm:px-8 py-6 border-b border-white/5 bg-white/[0.02] flex flex-col lg:flex-row gap-6 items-center justify-between relative z-10">
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
             <LuTerminal className="text-primary neon-text" size={20} />
           </div>
           <div>
-            <h3 className="text-sm font-black text-white uppercase tracking-[0.4em] font-orbitron">PCB_Allocation_Table</h3>
+            <h3 className="text-sm font-black text-white uppercase tracking-[0.2em] sm:tracking-[0.4em] font-orbitron">PCB_Allocation_Table</h3>
             <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-0.5">Realtime_Process_Descriptor_Monitor</p>
           </div>
         </div>
@@ -292,7 +292,7 @@ const PCBTable = () => {
                         <div className="absolute top-0 right-0 -mr-2 -mt-2 w-6 h-6 rounded-full bg-secondary shadow-[0_0_15px_#00D1FF] animate-bounce" />
                     </div>
                     <div className="space-y-3">
-                        <h4 className="text-xl font-black text-white font-orbitron uppercase tracking-[0.4em]">Kernel_Memory_Idle</h4>
+                        <h4 className="text-xl font-black text-white font-orbitron uppercase tracking-[0.2em] sm:tracking-[0.4em]">Kernel_Memory_Idle</h4>
                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest leading-loose">
                             Zero_Active_PCB_States_Detected. 
                             <br/>Inject core process nodes to initiate hypervisor simulation.

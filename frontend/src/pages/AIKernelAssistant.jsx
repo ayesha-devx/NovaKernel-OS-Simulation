@@ -65,38 +65,39 @@ const AIKernelAssistant = () => {
     <DashboardLayout title="AI KERNEL ASSISTANT">
       <div className="max-w-7xl mx-auto space-y-8 pb-20">
         
-        {/* Cinematic Header Section */}
         <motion.div 
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           className="relative group mb-12"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
-          <div className="relative glass-premium rounded-[2.5rem] p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-magenta/5 to-transparent rounded-3xl sm:rounded-[2.5rem] blur-2xl opacity-50 group-hover:opacity-80 transition-opacity" />
+          <div className="relative glass-premium rounded-3xl sm:rounded-[2.5rem] p-4 sm:p-10 border border-white/10 overflow-hidden shadow-[0_0_50px_rgba(157,0,255,0.05)]">
              <div className="absolute inset-0 scanline-overlay opacity-20" />
              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/5 blur-[120px] -mr-40 -mt-40" />
              
-             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 relative z-10">
-               <div className="space-y-4">
-                 <div className="flex items-center gap-5">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shadow-[0_0_20px_rgba(157,0,255,0.2)]">
-                        <LuBrain className="text-primary neon-text" size={32} />
+             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 lg:gap-8 relative z-10">
+               <div className="space-y-4 w-full lg:w-auto">
+                 <div className="flex items-center gap-4 sm:gap-5">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0 shadow-[0_0_20px_rgba(157,0,255,0.2)]">
+                        <LuBrain className="text-primary neon-text" size={28} />
                     </div>
                     <div>
-                      <h1 className="text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">AI KERNEL ASSISTANT</h1>
-                      <div className="flex items-center gap-3">
-                          <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_#00FF9D] indicator-pulse" />
-                          <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Neural Interface & Heuristic Analysis Link v2.0</p>
+                      <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">AI KERNEL ASSISTANT</h1>
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-success shadow-[0_0_10px_#00FF9D] indicator-pulse" />
+                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em] font-orbitron">Neural Interface & Heuristic Analysis Link v2.0</p>
+                          </div>
                       </div>
                     </div>
                  </div>
-                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-19">
+                 <p className="text-text/40 text-xs font-bold uppercase tracking-widest max-w-2xl leading-loose ml-0 sm:ml-19">
                    Direct neural link to the NovaOS intelligence core. Leveraging advanced LLM heuristics to provide real-time system diagnostics and optimization recommendations.
                  </p>
                </div>
                
-               <div className="flex items-center gap-4 bg-white/5 p-3 rounded-2xl border border-white/10 backdrop-blur-md">
-                 <div className="flex items-center gap-3 px-6 py-2.5 bg-black/40 rounded-xl border border-white/5 font-orbitron">
+               <div className="flex items-center gap-4 bg-white/5 p-3 rounded-2xl border border-white/10 backdrop-blur-md w-full lg:w-auto">
+                 <div className="flex items-center gap-3 px-6 py-2.5 bg-black/40 rounded-xl border border-white/5 font-orbitron w-full lg:w-auto justify-center">
                     <div className="w-2 h-2 rounded-full bg-success shadow-[0_0_12px_#00FF9D]" />
                     <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">
                        NEURAL_LINK: <span className="text-success">SYNCHRONIZED</span>
@@ -107,21 +108,21 @@ const AIKernelAssistant = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-[700px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 h-auto lg:h-[700px]">
         
         {/* Chat Area */}
-        <div className="lg:col-span-8 flex flex-col gap-6">
-          <div className="flex-1 glass bg-slate-950/50 rounded-[2.5rem] border border-white/5 flex flex-col overflow-hidden relative shadow-2xl">
+        <div className="lg:col-span-8 flex flex-col gap-6 h-[550px] lg:h-auto">
+          <div className="flex-1 glass bg-slate-950/50 rounded-3xl sm:rounded-[2.5rem] border border-white/5 flex flex-col overflow-hidden relative shadow-2xl">
             {/* Header */}
-            <div className="h-14 bg-white/5 border-b border-white/5 flex items-center px-8 justify-between shrink-0">
-               <div className="flex items-center gap-3">
+            <div className="h-auto min-h-14 py-3 sm:py-0 bg-white/5 border-b border-white/5 flex flex-col sm:flex-row items-start sm:items-center px-4 sm:px-8 justify-between shrink-0 gap-3 sm:gap-0">
+               <div className="flex items-center gap-3 shrink-0">
                   <div className="relative">
                     <LuBrain className="text-primary animate-pulse" size={20} />
                     <div className="absolute -top-1 -right-1 w-2 h-2 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
                   </div>
                   <span className="text-xs font-black text-white/60 uppercase tracking-[0.2em]">Neural_Kernel_Copilot_v1.2</span>
                </div>
-               <div className="flex items-center gap-4">
+               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                   {aiMessages.some(m => m.content.includes("Local Mode")) && (
                     <div className="px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-lg flex items-center gap-2">
                        <LuShieldAlert size={12} className="text-amber-400 animate-pulse" />
@@ -136,7 +137,7 @@ const AIKernelAssistant = () => {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-8 custom-scrollbar flex flex-col gap-6">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-8 custom-scrollbar flex flex-col gap-6">
               <AnimatePresence initial={false}>
                 {aiMessages.map((msg, idx) => (
                   <motion.div 
@@ -145,7 +146,7 @@ const AIKernelAssistant = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                   >
-                    <div className={`max-w-[85%] p-5 rounded-3xl ${
+                    <div className={`max-w-[85%] p-4 sm:p-5 rounded-2xl sm:rounded-3xl ${
                       msg.role === 'user' 
                         ? 'bg-primary/20 border border-primary/20 text-white rounded-tr-none shadow-lg' 
                         : 'bg-white/5 border border-white/10 text-slate-200 rounded-tl-none backdrop-blur-xl shadow-[0_0_20px_rgba(59,130,246,0.1)]'
@@ -182,21 +183,21 @@ const AIKernelAssistant = () => {
             </div>
 
             {/* Input */}
-            <div className="p-6 bg-white/5 border-t border-white/5 shrink-0">
+            <div className="p-4 sm:p-6 bg-white/5 border-t border-white/5 shrink-0">
                <form onSubmit={handleSend} className="relative">
                   <input 
                     ref={inputRef}
-                    className="w-full bg-black/40 border border-white/10 rounded-2xl py-4 pl-6 pr-24 text-[13px] text-white focus:outline-none focus:border-primary/50 transition-all placeholder:text-white/10 font-medium"
+                    className="w-full bg-black/40 border border-white/10 rounded-2xl py-3.5 pl-4 sm:pl-6 pr-20 sm:pr-24 text-[13px] text-white focus:outline-none focus:border-primary/50 transition-all placeholder:text-white/10 font-medium"
                     placeholder="Ask NovaOS anything... (e.g. 'Explain current deadlock risk')"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     disabled={isTyping}
                   />
-                  <div className="absolute right-2 top-2 bottom-2 flex items-center gap-2">
+                  <div className="absolute right-1.5 top-1.5 bottom-1.5 flex items-center gap-2">
                     <button 
                       type="submit"
                       disabled={isTyping || !query.trim()}
-                      className="h-full px-5 bg-primary text-white rounded-xl hover:bg-primary/80 transition-all disabled:opacity-30 flex items-center gap-2 shadow-lg shadow-primary/20"
+                      className="h-full px-4 sm:px-5 bg-primary text-white rounded-xl hover:bg-primary/80 transition-all disabled:opacity-30 flex items-center gap-2 shadow-lg shadow-primary/20"
                     >
                       <LuSend size={16} />
                       <span className="text-[11px] font-bold uppercase tracking-wider hidden sm:inline">Dispatch</span>
@@ -207,7 +208,7 @@ const AIKernelAssistant = () => {
           </div>
 
           {/* Quick Prompts */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-2 sm:gap-3">
              {quickPrompts.map((p, i) => (
                <button 
                  key={i}
@@ -221,10 +222,10 @@ const AIKernelAssistant = () => {
         </div>
 
         {/* Sidebar Intelligence */}
-        <div className="lg:col-span-4 flex flex-col gap-6">
+        <div className="lg:col-span-4 flex flex-col gap-6 h-auto lg:h-full">
            
            {/* AI Narrator */}
-           <div className="glass bg-gradient-to-br from-indigo-500/10 to-transparent border border-white/5 rounded-[2.5rem] p-8 shadow-xl">
+           <div className="glass bg-gradient-to-br from-indigo-500/10 to-transparent border border-white/5 rounded-3xl p-4 sm:p-8 shadow-xl">
               <div className="flex items-center gap-3 mb-6">
                  <div className="p-2 bg-indigo-500/20 rounded-xl text-indigo-400">
                    <LuActivity size={18} />
@@ -249,7 +250,7 @@ const AIKernelAssistant = () => {
            </div>
 
            {/* Optimization Engine */}
-           <div className="flex-1 glass bg-slate-900/40 border border-white/5 rounded-[2.5rem] p-8 flex flex-col shadow-xl">
+           <div className="glass bg-slate-900/40 border border-white/5 rounded-3xl p-4 sm:p-8 h-[350px] lg:h-auto lg:flex-1 flex flex-col shadow-xl">
               <div className="flex items-center gap-3 mb-6">
                  <div className="p-2 bg-amber-500/20 rounded-xl text-amber-400">
                    <LuZap size={18} />
@@ -264,7 +265,7 @@ const AIKernelAssistant = () => {
                        initial={{ opacity: 0, x: 20 }}
                        animate={{ opacity: 1, x: 0 }}
                        transition={{ delay: idx * 0.1 }}
-                       className="p-5 bg-white/5 border border-white/10 rounded-2xl group hover:border-amber-500/30 transition-all cursor-default"
+                       className="p-4 sm:p-5 bg-white/5 border border-white/10 rounded-2xl group hover:border-amber-500/30 transition-all cursor-default"
                      >
                         <div className="flex items-center justify-between mb-2">
                            <span className={`text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full border ${
@@ -297,19 +298,19 @@ const AIKernelAssistant = () => {
            </div>
 
            {/* Viva Mode Alert */}
-           <div className="glass bg-indigo-950/30 border border-indigo-500/20 rounded-[2.5rem] p-6 flex items-center gap-4">
+           <div className="glass bg-indigo-950/30 border border-indigo-500/20 rounded-2xl sm:rounded-[2.5rem] p-4 sm:p-6 flex items-center gap-4">
               <div className="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 shrink-0">
                  <LuBookOpen size={24} />
-              </div>
-              <div>
-                 <h4 className="text-[11px] font-black text-white uppercase tracking-wider">Viva Assistant Active</h4>
-                 <p className="text-[10px] text-white/40 mt-1 uppercase tracking-widest leading-relaxed">
-                   Currently analyzing kernel state for educational demonstrations.
-                 </p>
-              </div>
-           </div>
+               </div>
+               <div>
+                  <h4 className="text-[11px] font-black text-white uppercase tracking-wider">Viva Assistant Active</h4>
+                  <p className="text-[10px] text-white/40 mt-1 uppercase tracking-widest leading-relaxed">
+                    Currently analyzing kernel state for educational demonstrations.
+                  </p>
+               </div>
+            </div>
 
-        </div>
+         </div>
       </div>
     </div>
     </DashboardLayout>
