@@ -125,6 +125,11 @@ export const KernelProvider = ({ children }) => {
       socket.emit('REQUEST_BOOT_STATUS');
     });
 
+    socket.on('connect_error', (err) => {
+      console.error('Socket.IO Connection Error:', err.message, err);
+      toast.error(`Socket Uplink Failure: ${err.message}`);
+    });
+
     socket.on('disconnect', () => {
       setIsConnected(false);
       setKernelState(prev => ({ 
