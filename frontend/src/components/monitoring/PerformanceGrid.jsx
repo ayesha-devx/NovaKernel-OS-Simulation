@@ -1,5 +1,5 @@
 import React from 'react';
-import { LuDatabase, LuRadio, LuCpu, LuZap, LuClock } from 'react-icons/lu';
+import { LuDatabase, LuRadio, LuActivity, LuZap, LuClock } from 'react-icons/lu';
 import MetricsCard from './MetricsCard';
 
 const PerformanceGrid = React.memo(({ metrics }) => {
@@ -25,7 +25,7 @@ const PerformanceGrid = React.memo(({ metrics }) => {
         title="Active Processes" 
         value={getLatest(metrics.active_processes)} 
         unit="PID" 
-        icon={<LuCpu size={18} />} 
+        icon={<LuActivity size={18} />} 
         color="emerald" 
       />
       <MetricsCard 

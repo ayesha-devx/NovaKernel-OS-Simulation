@@ -9,7 +9,6 @@ import {
     LuChevronDown,
     LuChevronUp,
     LuX,
-    LuCpu,
     LuDatabase
 } from 'react-icons/lu';
 import { useKernel } from '../../context/KernelContext';
@@ -34,7 +33,7 @@ const DebugOverlay = () => {
         { label: 'NET', value: `${profiler?.rates?.socket_throughput || 0}e/s`, color: 'text-blue-400', icon: <LuZap size={10} /> },
         { label: 'STB', value: `${Math.round(leakDetector?.stability_score || 100)}%`, color: 'text-purple-400', icon: <LuShieldCheck size={10} /> },
         { label: 'WATCH', value: watchdog?.status || 'OK', color: 'text-amber-400', icon: <LuActivity size={10} /> },
-        { label: 'PROC', value: kernelState?.processes?.length || 0, color: 'text-cyan-400', icon: <LuCpu size={10} /> },
+        { label: 'PROC', value: kernelState?.processes?.length || 0, color: 'text-cyan-400', icon: <LuActivity size={10} /> },
         { label: 'MEM', value: `${Math.round((kernelState?.memory?.used_ram || 0) / 1024)}G`, color: 'text-rose-400', icon: <LuDatabase size={10} /> }
     ];
 

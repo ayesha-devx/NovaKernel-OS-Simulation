@@ -5,7 +5,6 @@ import { useProcess } from '../context/KernelContext';
 import { 
   LuDatabase, 
   LuActivity, 
-  LuCpu, 
   LuHardDrive, 
   LuSettings,
   LuTerminal,
@@ -18,6 +17,7 @@ import MemoryMap from '../components/memory/MemoryMap';
 import { MemoryMetrics, MemoryHealthMonitor, FragmentationMatrix } from '../components/memory/MemoryStats';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../config';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,7 +41,7 @@ const Memory = () => {
 
   const setAlgorithm = async (algo) => {
     try {
-      await axios.post('http://localhost:5000/api/memory/algorithm', { algorithm: algo });
+      await axios.post(`${API_BASE_URL}/memory/algorithm`, { algorithm: algo });
       toast.success(`Memory policy: ${algo} active`);
     } catch (err) {
       toast.error("Kernel error");
@@ -193,7 +193,7 @@ const Memory = () => {
                             whileTap={{ scale: 0.98 }}
                             onClick={async () => {
                               if (window.confirm("CONFIRM_MEMORY_PURGE: All allocated blocks will be de-referenced. Proceed?")) {
-                                await axios.post('http://localhost:5000/api/memory/reset');
+                                await axios.post(`${API_BASE_URL}/memory/reset`);
                                 toast.info("RAM Reset Synchronized");
                               }
                             }}

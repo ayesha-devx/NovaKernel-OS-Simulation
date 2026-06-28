@@ -67,7 +67,7 @@ const StatCard = ({ title, value, subValue, icon, trend, color }) => {
       </div>
       
       <div className="relative z-10">
-        <h3 className="text-slate-500 text-[10px] font-black uppercase tracking-[0.4em] mb-3 group-hover:text-primary transition-colors font-orbitron">
+        <h3 className="text-slate-500 text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] sm:tracking-[0.4em] mb-3 group-hover:text-primary transition-colors font-orbitron truncate">
             {title.replace(' ', '_')}
         </h3>
         <div className="flex items-baseline gap-3">

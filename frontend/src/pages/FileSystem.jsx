@@ -19,6 +19,7 @@ import StorageMap from '../components/filesystem/StorageMap';
 import FileExplorer from '../components/filesystem/FileExplorer';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../config';
 
 const FileSystemPage = () => {
   const { filesystemState, isLoading } = useProcess();
@@ -31,7 +32,7 @@ const FileSystemPage = () => {
 
   const handleFileSelect = async (file) => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/filesystem/read/${file.filename}`);
+      const res = await axios.get(`${API_BASE_URL}/filesystem/read/${file.filename}`);
       if (res.data.success) {
         setSelectedFile(res.data.metadata);
         setFileContent(res.data.content);
@@ -44,7 +45,7 @@ const FileSystemPage = () => {
 
   const saveFile = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/filesystem/write', {
+      const res = await axios.post(`${API_BASE_URL}/filesystem/write`, {
         filename: selectedFile.filename,
         content: fileContent
       });

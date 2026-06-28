@@ -39,17 +39,17 @@ const EventLogPanel = () => {
       <div className="absolute inset-0 scanline-overlay opacity-15 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       
-      <div className="px-4 sm:px-8 py-5 border-b border-white/5 bg-white/[0.02] flex items-center justify-between relative z-10">
-        <div className="flex items-center gap-4">
-          <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center neon-border">
+      <div className="px-4 sm:px-8 py-4 sm:py-5 border-b border-white/5 bg-white/[0.02] flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 relative z-10">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center neon-border shrink-0">
             <LuTerminal className="text-primary neon-text" size={16} />
           </div>
           <div>
-            <span className="text-[10px] font-black text-text/80 uppercase tracking-[0.2em] sm:tracking-[0.4em] font-orbitron">Kernel_Telemetry_Flux</span>
+            <span className="text-[9px] sm:text-[10px] font-black text-text/80 uppercase tracking-[0.1em] xs:tracking-[0.2em] sm:tracking-[0.4em] font-orbitron block">Kernel_Telemetry_Flux</span>
             <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-0.5">L-882_Secure_Logging_Node</p>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4 w-full sm:w-auto">
             <div className="flex items-center gap-2 px-3 py-1 bg-success/10 rounded-full border border-success/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-success shadow-[0_0_8px_#00FF9D] animate-pulse" />
                 <span className="text-[8px] font-black text-success uppercase tracking-widest font-orbitron">STREAM_OK</span>

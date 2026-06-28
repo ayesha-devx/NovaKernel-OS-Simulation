@@ -13,7 +13,6 @@ import {
   LuPlay,
   LuChevronRight,
   LuDatabase,
-  LuCpu,
   LuHardDrive,
   LuBox,
   LuShield,
@@ -23,7 +22,7 @@ import {
 import { useKernel } from '../../context/KernelContext';
 
 const SUBSYSTEM_ICONS = {
-  PROCESS: <LuCpu size={14} />,
+  PROCESS: <LuActivity size={14} />,
   MEMORY: <LuDatabase size={14} />,
   DISK: <LuHardDrive size={14} />,
   DEADLOCK: <LuShield size={14} className="text-rose-400" />,

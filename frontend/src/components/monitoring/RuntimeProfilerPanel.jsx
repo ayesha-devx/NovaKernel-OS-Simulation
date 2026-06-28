@@ -6,7 +6,6 @@ import {
     LuZap, 
     LuMonitor, 
     LuTimer,
-    LuCpu,
     LuTriangleAlert,
     LuChevronRight
 } from 'react-icons/lu';

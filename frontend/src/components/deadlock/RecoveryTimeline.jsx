@@ -7,9 +7,7 @@ import {
 } from 'react-icons/fi';
 import RecoveryEventCard from './RecoveryEventCard';
 import axios from 'axios';
-
-const API_BASE = 'http://localhost:5000/api';
-const SOCKET_URL = 'http://127.0.0.1:5000';
+import { API_BASE_URL as API_BASE, SOCKET_URL } from '../../config';
 
 // ── Playback hook ───────────────────────────────────────────────────────────
 const usePlayback = (events) => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useProcess } from '../../context/KernelContext';
-import { LuCpu, LuTerminal, LuDatabase, LuActivity, LuInfo } from 'react-icons/lu';
+import { LuTerminal, LuDatabase, LuActivity, LuInfo } from 'react-icons/lu';
 
 const MemoryMap = () => {
   const { memoryMap = { blocks: [] }, schedulerState = {} } = useProcess();
@@ -101,7 +101,7 @@ const MemoryMap = () => {
                 {selectedBlock.pid && (
                   <div className="flex items-center gap-5 border-t sm:border-t-0 sm:border-l border-white/10 pt-4 sm:pt-0 pl-0 sm:pl-10">
                      <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center neon-border shrink-0">
-                        <LuCpu className="text-primary neon-text" size={24} />
+                        <LuActivity className="text-primary neon-text" size={24} />
                      </div>
                      <div>
                         <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest font-orbitron mb-1">EXEC_CONTEXT</p>

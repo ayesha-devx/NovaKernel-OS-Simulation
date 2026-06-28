@@ -20,6 +20,7 @@ import {
 } from 'react-icons/lu';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_BASE_URL } from '../config';
 
 const ShowcaseCenter = () => {
   const { showcase, startShowcase, stopShowcase, pauseShowcase, resumeShowcase } = useKernel();
@@ -30,7 +31,7 @@ const ShowcaseCenter = () => {
   useEffect(() => {
     const fetchScenarios = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:5000/api/showcase/scenarios');
+        const res = await axios.get(`${API_BASE_URL}/showcase/scenarios`);
         setAvailableScenarios(res.data);
       } catch (err) {
         console.error("Failed to load scenarios");

@@ -10,7 +10,6 @@ import {
   LuPlus, 
   LuRefreshCw, 
   LuTrendingUp,
-  LuCpu,
   LuClock
 } from 'react-icons/lu';
 import StatCard from '../components/dashboard/StatCard';

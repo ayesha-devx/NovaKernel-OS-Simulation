@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { LuFile, LuPlus, LuTrash2, LuEye, LuTerminal, LuDatabase } from 'react-icons/lu';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { API_BASE_URL } from '../../config';
 
 const FileExplorer = ({ directory = [], onFileSelect }) => {
   const [newFileName, setNewFileName] = useState('');
@@ -13,7 +14,7 @@ const FileExplorer = ({ directory = [], onFileSelect }) => {
     if (!newFileName) return;
     
     try {
-      const res = await axios.post('http://localhost:5000/api/filesystem/create', { 
+      const res = await axios.post(`${API_BASE_URL}/filesystem/create`, { 
         filename: newFileName,
         owner: 'Root'
       });
@@ -31,7 +32,7 @@ const FileExplorer = ({ directory = [], onFileSelect }) => {
 
   const deleteFile = async (filename) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/api/filesystem/delete/${filename}`);
+      const res = await axios.delete(`${API_BASE_URL}/filesystem/delete/${filename}`);
       if (res.data.success) {
         toast.info(`File ${filename} deleted.`);
       }

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiDatabase, FiBox, FiCpu, FiAlertCircle } from 'react-icons/fi';
+import { FiDatabase, FiBox, FiAlertCircle } from 'react-icons/fi';
 
 const MemoryVisualizer = ({ kernelState }) => {
   const memoryMap = kernelState?.memory || { blocks: [], total_ram: 4096, used_ram: 0, fragmentation: 0 };
@@ -140,7 +140,7 @@ const MemoryVisualizer = ({ kernelState }) => {
         <div className="flex flex-col border-l-0 sm:border-l border-white/5 pl-0 sm:pl-6">
           <span className="text-[8px] font-black text-white/20 uppercase tracking-widest mb-1">Used Mem</span>
           <div className="flex items-center gap-2">
-             <FiCpu className="text-sky-500" size={12}/>
+             <FiDatabase className="text-sky-500" size={12}/>
              <span className="text-xs font-black text-white uppercase">{usedRam}MB</span>
           </div>
         </div>

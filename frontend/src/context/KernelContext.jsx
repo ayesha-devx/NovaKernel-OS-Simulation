@@ -2,11 +2,9 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import { io } from 'socket.io-client';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { SOCKET_URL, API_BASE_URL } from '../config';
 
 const KernelContext = createContext();
-
-const SOCKET_URL = 'http://127.0.0.1:5000';
-const API_BASE_URL = 'http://127.0.0.1:5000/api';
 
 export const KernelProvider = ({ children }) => {
   // Unified Global Kernel State (Single Source of Truth)

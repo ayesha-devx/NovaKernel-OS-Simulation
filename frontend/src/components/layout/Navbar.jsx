@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoN from '../../assets/logo-n.png';
 import { 
-  LuCpu, 
   LuBell, 
   LuUser, 
   LuWifi, 

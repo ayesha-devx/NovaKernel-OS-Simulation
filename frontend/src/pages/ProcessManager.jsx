@@ -5,7 +5,7 @@ import PCBTable from '../components/process/PCBTable';
 import EventLogPanel from '../components/dashboard/EventLogPanel';
 import ProcessStatistics from '../components/dashboard/ProcessStatistics';
 import ProcessTreePanel from '../components/process/ProcessTreePanel';
-import { LuTrash2, LuCpu, LuTerminal } from 'react-icons/lu';
+import { LuTrash2, LuActivity, LuTerminal } from 'react-icons/lu';
 import { useKernel } from '../context/KernelContext';
 import { motion } from 'framer-motion';
 
@@ -38,7 +38,7 @@ const ProcessManager = () => {
                  <div className="space-y-4 w-full lg:w-auto">
                     <div className="flex items-center gap-5">
                        <div className="w-14 h-14 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0">
-                           <LuCpu className="text-primary neon-text" size={32} />
+                           <LuActivity className="text-primary neon-text" size={32} />
                        </div>
                        <div>
                          <h1 className="text-2xl sm:text-3xl md:text-5xl font-black text-white font-orbitron tracking-tighter neon-gradient-text uppercase leading-none mb-1">PROCESS MANAGER</h1>

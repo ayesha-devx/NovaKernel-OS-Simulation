@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { LuNetwork, LuCpu, LuChevronRight, LuChevronDown } from 'react-icons/lu';
+import { LuNetwork, LuActivity, LuChevronRight, LuChevronDown } from 'react-icons/lu';
 import { useProcess } from '../../context/KernelContext';
 import ProcessStateBadge from '../process/ProcessStateBadge';
 
@@ -33,7 +33,7 @@ const TreeNode = ({ node, depth = 0 }) => {
               ? 'bg-primary/20 text-primary neon-border' 
               : 'bg-white/5 text-slate-500 group-hover/card:text-secondary group-hover/card:bg-secondary/10'
           }`}>
-            <LuCpu size={18} className={depth === 0 ? "neon-text" : ""} />
+            <LuActivity size={18} className={depth === 0 ? "neon-text" : ""} />
           </div>
           
           <div className="flex-1 relative">

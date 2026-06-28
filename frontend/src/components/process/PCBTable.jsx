@@ -8,7 +8,7 @@ import {
   LuPause, 
   LuClock, 
   LuCircleX, 
-  LuCpu, 
+  LuActivity, 
   LuChevronLeft, 
   LuChevronRight,
   LuInfo,
@@ -70,18 +70,18 @@ const PCBTable = () => {
       <div className="absolute inset-0 scanline-overlay opacity-5 pointer-events-none" />
       
       {/* Table Header Controls */}
-      <div className="px-4 sm:px-8 py-6 border-b border-white/5 bg-white/[0.02] flex flex-col lg:flex-row gap-6 items-center justify-between relative z-10">
-        <div className="flex items-center gap-4">
-          <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border">
+      <div className="px-4 sm:px-8 py-5 border-b border-white/5 bg-white/[0.02] flex flex-col lg:flex-row gap-6 items-stretch lg:items-center justify-between relative z-10">
+        <div className="flex items-center gap-3 sm:gap-4">
+          <div className="w-10 h-10 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center neon-border shrink-0">
             <LuTerminal className="text-primary neon-text" size={20} />
           </div>
           <div>
-            <h3 className="text-sm font-black text-white uppercase tracking-[0.2em] sm:tracking-[0.4em] font-orbitron">PCB_Allocation_Table</h3>
+            <h3 className="text-xs xs:text-sm font-black text-white uppercase tracking-[0.1em] xs:tracking-[0.2em] sm:tracking-[0.4em] font-orbitron">PCB_Allocation_Table</h3>
             <p className="text-[8px] font-black text-slate-500 uppercase tracking-widest mt-0.5">Realtime_Process_Descriptor_Monitor</p>
           </div>
         </div>
         
-        <div className="flex flex-wrap items-center gap-4 w-full lg:w-auto">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full lg:w-auto">
           <div className="relative group/search flex-1 lg:w-72">
             <LuSearch className="absolute left-4 top-3.5 text-slate-500 group-focus-within/search:text-primary transition-colors" size={16} />
             <input 
@@ -95,9 +95,9 @@ const PCBTable = () => {
               }}
             />
           </div>
-          <div className="relative group/sort">
+          <div className="relative group/sort w-full sm:w-auto">
             <select 
-              className="bg-white/[0.03] border border-white/10 rounded-2xl pl-5 pr-10 py-3.5 text-xs font-black text-slate-400 uppercase tracking-widest focus:outline-none focus:border-secondary/40 focus:bg-secondary/5 transition-all cursor-pointer hover:bg-white/[0.05] appearance-none font-orbitron"
+              className="w-full bg-white/[0.03] border border-white/10 rounded-2xl pl-5 pr-10 py-3.5 text-xs font-black text-slate-400 uppercase tracking-widest focus:outline-none focus:border-secondary/40 focus:bg-secondary/5 transition-all cursor-pointer hover:bg-white/[0.05] appearance-none font-orbitron"
               style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'/%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1rem' }}
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
@@ -287,7 +287,7 @@ const PCBTable = () => {
                             className="absolute -inset-10 bg-primary rounded-full blur-[60px]"
                         />
                         <div className="w-24 h-24 rounded-3xl bg-primary/10 border border-primary/20 flex items-center justify-center relative z-10 neon-border-secondary">
-                            <LuCpu size={48} className="text-primary opacity-40 animate-pulse" />
+                            <LuActivity size={48} className="text-primary opacity-40 animate-pulse" />
                         </div>
                         <div className="absolute top-0 right-0 -mr-2 -mt-2 w-6 h-6 rounded-full bg-secondary shadow-[0_0_15px_#00D1FF] animate-bounce" />
                     </div>

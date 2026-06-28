@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   LuX, 
-  LuCpu, 
   LuDatabase, 
   LuClock, 
   LuActivity, 
@@ -62,7 +61,7 @@ const ProcessDetailModal = ({ process, isOpen, onClose }) => {
           <div className="p-6 border-b border-white/5 flex items-center justify-between bg-gradient-to-r from-primary/10 via-transparent to-transparent">
             <div className="flex items-center gap-4">
               <div className="h-12 w-12 rounded-2xl bg-primary/20 flex items-center justify-center text-primary shadow-[0_0_20px_rgba(59,130,246,0.3)]">
-                <LuCpu size={26} />
+                <LuActivity size={26} />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-text tracking-tight">{process.name}</h2>
@@ -196,7 +195,7 @@ const ProcessDetailModal = ({ process, isOpen, onClose }) => {
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {process.child_pids.map(childPid => (
                     <div key={childPid} className="p-3 rounded-xl bg-cyan-500/5 border border-cyan-500/10 flex flex-col items-center gap-1 hover:bg-cyan-500/10 transition-colors cursor-default">
-                      <LuCpu size={14} className="text-cyan-400/50" />
+                      <LuActivity size={14} className="text-cyan-400/50" />
                       <span className="font-mono text-xs text-cyan-400 font-bold">#{childPid}</span>
                     </div>
                   ))}

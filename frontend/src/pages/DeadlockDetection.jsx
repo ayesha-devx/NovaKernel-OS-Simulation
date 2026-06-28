@@ -10,9 +10,7 @@ import {
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import RecoveryTimeline from '../components/deadlock/RecoveryTimeline';
-
-const API_BASE_URL = 'http://localhost:5000/api';
-const SOCKET_URL   = 'http://127.0.0.1:5000';
+import { API_BASE_URL, SOCKET_URL } from '../config';
 
 // ── Phase visual config ─────────────────────────────────────────────────────
 const PHASE_STYLES = {
