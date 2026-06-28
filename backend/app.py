@@ -107,15 +107,15 @@ def index():
     })
 
 
+import threading
+import time
+
+# Start engines in a separate thread to not block the server startup
+# Reduced delay for snappier initialization
+startup_thread = threading.Thread(target=lambda: (time.sleep(0.5), start_engines()), daemon=True)
+startup_thread.start()
+
 if __name__ == '__main__':
-    import threading
-    import time
-    
-    # Start engines in a separate thread to not block the server startup
-    # Reduced delay for snappier initialization
-    startup_thread = threading.Thread(target=lambda: (time.sleep(0.5), start_engines()), daemon=True)
-    startup_thread.start()
-    
     print(f"--- NovaKernel Master Server Starting on port 5000 ---")
     socketio.run(app, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)
 
