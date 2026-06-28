@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'nova_kernel_secret_2024'
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins="*", async_mode='threading')
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Register Blueprints
 from routes.health import health_bp
@@ -107,13 +107,13 @@ def index():
     })
 
 
-import threading
-import time
+def run_startup():
+    import time
+    time.sleep(0.5)
+    start_engines()
 
-# Start engines in a separate thread to not block the server startup
-# Reduced delay for snappier initialization
-startup_thread = threading.Thread(target=lambda: (time.sleep(0.5), start_engines()), daemon=True)
-startup_thread.start()
+# Start engines in a background task compatible with active SocketIO async mode
+socketio.start_background_task(run_startup)
 
 if __name__ == '__main__':
     print(f"--- NovaKernel Master Server Starting on port 5000 ---")
