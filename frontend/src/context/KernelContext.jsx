@@ -115,6 +115,7 @@ export const KernelProvider = ({ children }) => {
     const socket = io(SOCKET_URL, {
       reconnectionAttempts: 10,
       reconnectionDelay: 2000,
+      transports: ['websocket'],
     });
     socketRef.current = socket;
 
